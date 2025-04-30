@@ -1,0 +1,174 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "./generated"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id       String @id @default(cuid())
+  name     String
+  email    String @unique
+  password String
+  img      String
+  role     Role   @default(USER)
+
+  reserve    Reserve[]
+  foods      Food[]
+  comments   Comment[]
+  likes      Like[]
+  orders     Order[]
+  cart       Cart?
+  categories Category[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Food {
+  id          String @id @default(cuid())
+  title       String @unique
+  ingredients Json
+  img         String
+  rating      Float
+  userId      String
+
+  user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  comments   Comment[]
+  likes      Like[]
+  cartItems  CartItem[]
+  categories FoodCategory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Category {
+  id           String @id @default(cuid())
+  title        String
+  englishTitle String
+  userId       String
+  img          String
+
+  user  User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  foods FoodCategory[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model FoodCategory {
+  id         String @id @default(cuid())
+  foodId     String
+  categoryId String
+
+  food     Food     @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  category Category @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([foodId, categoryId])
+  @@index([foodId, categoryId])
+}
+
+model Like {
+  id     String @id @default(cuid())
+  userId String
+  foodId String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  food Food @relation(fields: [foodId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([userId, foodId])
+  @@index([userId, foodId])
+}
+
+model Comment {
+  id      String @id @default(cuid())
+  userId  String
+  foodId  String
+  content String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  food Food @relation(fields: [foodId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([userId, foodId])
+}
+
+model Cart {
+  id     String @id @default(cuid())
+  userId String @unique
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cartItems CartItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model CartItem {
+  id       String  @id @default(cuid())
+  foodId   String
+  cartId   String?
+  orderId  String?
+  quantity Int     @default(1)
+
+  food  Food   @relation(fields: [foodId], references: [id], onDelete: Cascade)
+  cart  Cart?  @relation(fields: [cartId], references: [id])
+  order Order? @relation(fields: [orderId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@unique([foodId, cartId])
+  @@index([foodId, cartId])
+}
+
+model Order {
+  id     String      @id @default(cuid())
+  userId String
+  total  Float
+  status OrderStatus @default(PENDING)
+
+  user      User       @relation(fields: [userId], references: [id], onDelete: Cascade)
+  cartItems CartItem[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Reserve {
+  id       String @id @default(cuid())
+  name     String
+  phone    Int
+  quantity Int
+  date     String
+  time     String
+  userId   String
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+enum Role {
+  ADMIN
+  USER
+}
+
+enum OrderStatus {
+  PENDING
+  PAID
+  CANCELLED
+}
