@@ -4,6 +4,7 @@ import { TableUi } from "@/components/tableui";
 import {useQuery } from "@tanstack/react-query";
 import CategoryRow from "./category-row";
 import { GetCategory } from "@/lib/actions/category-action";
+import Loading from "@/components/loading";
 
 
 const categoryItems = [
@@ -35,7 +36,7 @@ const CategoryTable = () => {
     queryFn: async() => await GetCategory(),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div><Loading /></div>;
   if (isError) return <div>Error</div>;
   if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 

@@ -7,7 +7,7 @@ import UploadFile from "@/components/upload";
 import { GetCategory } from "@/lib/actions/category-action";
 import { EditFood } from "@/lib/actions/food-action";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import {  useRouter } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { TagsInput } from "react-tag-input-component";
 
@@ -33,7 +33,6 @@ const EditFoodModal = ({
   rating,
   ingredients,
 }: EditFoodModalProps) => {
-
   const [select, setSelect] = useState("");
   const [tag, setTag] = useState(ingredients ?? ["پیاز"]);
   const router = useRouter();
@@ -103,7 +102,14 @@ const EditFoodModal = ({
           </div>
         ))}
 
-        <TagsInput value={tag} onChange={setTag} />
+        <div className="flex flex-col gap-1">
+          <label htmlFor="tag" className="w-full">
+            <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
+              مواد تشکیل‌دهنده
+            </p>
+            <TagsInput value={tag} onChange={setTag} />
+          </label>
+        </div>
 
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="w-full">

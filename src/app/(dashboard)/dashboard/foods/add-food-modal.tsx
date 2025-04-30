@@ -83,8 +83,14 @@ const AddFoodModal = () => {
             />
           </div>
         ))}
-
-        <TagsInput value={tag} onChange={setTag} />
+        <div className="flex flex-col gap-1">
+          <label htmlFor="tag" className="w-full">
+            <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
+             مواد تشکیل‌دهنده             
+             </p>
+            <TagsInput value={tag} onChange={setTag} />
+          </label>
+        </div>
 
         <div className="flex flex-col gap-1">
           <label htmlFor="name" className="w-full">

@@ -4,6 +4,7 @@ import { TableUi } from "@/components/tableui";
 import { useQuery} from "@tanstack/react-query";
 import { GetFood } from "@/lib/actions/food-action";
 import FoodRow from "./food.row";
+import Loading from "@/components/loading";
 
 const categoryItems = [
   {id: 1,title: "ردیف",},{id: 2,title: "عنوان",},{id: 3,title: "قیمت",},{id: 4,title: "دسته‌بندی",},{id: 5,title: "تصویر ",},{id: 6,title: "مواد تشکیل‌دهنده",},{id: 7,title: "عملیات ",},
@@ -15,7 +16,7 @@ const FoodTable = () => {
     queryFn: async () => await GetFood(),
   });
 
-  if (isLoading) return <div>Loading...</div>;
+  if (isLoading) return <div><Loading /></div>;
   if (isError) return <div>Error</div>;
   if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
