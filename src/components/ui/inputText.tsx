@@ -1,4 +1,5 @@
 import { cn } from "@/lib/utils";
+import { RefObject } from "react";
 
 type InputTextProps = {
   id?: number | string;
@@ -8,6 +9,7 @@ type InputTextProps = {
   value?: string;
   type?: "text" | "email" | "password" | "number";
   className?: string;
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>)=>void
 };
 
 const InputText: React.FC<InputTextProps> = ({
@@ -15,6 +17,7 @@ const InputText: React.FC<InputTextProps> = ({
   placeholder,
   label,
   value,
+  onChange,
   type = "text",
   className
 }) => {
@@ -27,6 +30,7 @@ const InputText: React.FC<InputTextProps> = ({
         type={type}
         name={name}
         id={name}
+        onChange={onChange}
         value={value}
         placeholder={placeholder}
         className="w-full placeholder:text-xs p-2 text-sm border border-slate-200 dark:border-slate-600 rounded peer focus:outline-none focus:border-slate-400 dark:focus:border-slate-400"

@@ -13,52 +13,35 @@ import {
 import InputText from "../../ui/inputText";
 import UploadFile from "@/components/upload";
 import { useState } from "react";
-// import { Input } from "@/components/ui/input"
-// import { Label } from "@/components/ui/label"
 
-const InitialModal = () => {
-  const [server, setServer] = useState({ name: "", image: "" });
+type modalFormProps = {
+  title: string;
+  label: string;
+  description?: string;
+  children: React.ReactNode;
+  open?: boolean;
+  onClose?: () => void;
+  buttonType?: "link" | "default" | "destructive" | "danger" | "outline" | "secondary" | "ghost" | "primary";
+}
 
-  const handleSubmit = () => {};
+const FormModal = ({ title, label, description,children, open, onClose, buttonType  }: modalFormProps) => {
 
   return (
-    <Dialog open>
+    <Dialog open={open} onOpenChange={onClose}>
       <DialogTrigger asChild>
-        <Button variant="outline">Create Server</Button>
+        <Button variant={buttonType ?? "primary"}>{title} </Button>
       </DialogTrigger>
       <DialogContent className="sm:max-w-[425px] border shadow">
         <DialogHeader>
-          <DialogTitle className="font-bold text-xl">Create Server</DialogTitle>
+          <DialogTitle className="font-bold text-xl text-center"> {label}</DialogTitle>
           <DialogDescription>
-            Give your Server a personality with a name and an image. You can
-            always change it later.
+            {description}
           </DialogDescription>
         </DialogHeader>
-
-        <form onSubmit={handleSubmit} className="flex flex-col gap-1 ">
-          <div className="flex flex-col gap-1">
-            <InputText
-              label="Server Name"
-              name="name"
-              placeholder="Enter Server Name"
-            />
-          </div>
-          <div className="flex flex-col gap-1">
-            <UploadFile
-              onChange={(img) => setServer({ ...server, image: img })}
-              img={server.image}
-            />
-          </div>
-        </form>
-
-        <DialogFooter>
-          <Button disabled={server.name.trim().length == 0 || server.image.trim().length == 0} onClick={handleSubmit} variant="primary">
-            Create
-          </Button>
-        </DialogFooter>
+        {children}
       </DialogContent>
     </Dialog>
   );
 };
 
-export default InitialModal;
+export default FormModal;

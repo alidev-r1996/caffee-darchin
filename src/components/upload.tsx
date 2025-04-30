@@ -5,13 +5,18 @@ import Image from "next/image";
 import { useState } from "react";
 import { X as CloseIcon } from "lucide-react";
 
+type UploadFileProps = {
+  img: string;
+  onChange: (img: string) => void;
+  title: string;
+}
+
+
 export default function UploadFile({
   img,
   onChange,
-}: {
-  img: string;
-  onChange: (img: string) => void;
-}) {
+  title,
+}: UploadFileProps) {
   const [uploadProgress, setUploadProgress] = useState<number>(0);
   const [uploading, setUploading] = useState<boolean>(false);
   const [uploadError, setUploadError] = useState<string | null>(null);
@@ -20,7 +25,7 @@ export default function UploadFile({
     return (
       <div className="w-full h-52 relative mb-8">
         <p className="text-sm capitalize text-zinc-600 dark:text-zinc-400 ">
-          Server Image
+          {title}
         </p>
         <div className="relative w-full h-52 mt-2 ">
           <Image
@@ -43,9 +48,9 @@ export default function UploadFile({
   }
 
   return (
-    <main className="flex flex-col justify-center gap-2 w-full h-20 my-14 mt-18">
+    <main className="flex flex-col justify-center gap-2 w-full h-20 my-14 mt-20">
       <p className="text-sm capitalize text-zinc-600 dark:text-zinc-400">
-        Server Image
+       {title}
       </p>
 
       <UploadDropzone

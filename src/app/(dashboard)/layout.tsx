@@ -3,8 +3,8 @@ import { Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import "../globals.css";
 import ReactQueryProvider from "@/components/provider/react-query-provider";
-import SideBar from "@/components/dashboard/sidebar/sidebar";
-import DashboardHeader from "@/components/dashboard/header/header";
+import SideBar from "@/components/dashboard/sidebar";
+import DashboardHeader from "@/components/dashboard/header";
 
 const font = Vazirmatn({
   variable: "--font-vazir",

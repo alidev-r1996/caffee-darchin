@@ -44,7 +44,7 @@ const SideBar = () => {
             <Link
               href={`${item.href}`}
               key={item.id}
-              className={`${pathname == item.href ? "bg-blue-100  text-blue-600 font-bold": "hover:bg-slate-100"} border-x md:border-x-0 md:border-dashed   md:border-b  flex items-center flex-1 gap-3 p-2 md:p-4 rounded`}
+              className={`${pathname == item.href ? "bg-blue-100 dark:bg-slate-800  text-blue-600 font-bold": "hover:bg-slate-100 dark:hover:bg-slate-600"} border-x md:border-x-0 md:border-dashed   md:border-b  flex items-center flex-1 gap-3 p-2 md:p-4 rounded`}
             >
               <Icon className="size-full md:size-max"/>
               <p className="hidden md:block">{item.title}</p>

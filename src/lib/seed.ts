@@ -33,7 +33,7 @@ const categorySeed = [
           data: foodSeed,
           skipDuplicates: true, // Optional: prevents errors on duplicate entries
         });
-        console.log("✅ Categories seeded");
+        console.log("✅ foods seeded");
       } catch (error) {
         console.error("❌ Seeding failed:", error);
       } finally {

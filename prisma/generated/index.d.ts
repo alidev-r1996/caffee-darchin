@@ -3230,10 +3230,12 @@ export namespace Prisma {
 
   export type FoodAvgAggregateOutputType = {
     rating: number | null
+    price: number | null
   }
 
   export type FoodSumAggregateOutputType = {
     rating: number | null
+    price: number | null
   }
 
   export type FoodMinAggregateOutputType = {
@@ -3242,6 +3244,7 @@ export namespace Prisma {
     img: string | null
     rating: number | null
     userId: string | null
+    price: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3252,6 +3255,7 @@ export namespace Prisma {
     img: string | null
     rating: number | null
     userId: string | null
+    price: number | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -3263,6 +3267,7 @@ export namespace Prisma {
     img: number
     rating: number
     userId: number
+    price: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -3271,10 +3276,12 @@ export namespace Prisma {
 
   export type FoodAvgAggregateInputType = {
     rating?: true
+    price?: true
   }
 
   export type FoodSumAggregateInputType = {
     rating?: true
+    price?: true
   }
 
   export type FoodMinAggregateInputType = {
@@ -3283,6 +3290,7 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
+    price?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3293,6 +3301,7 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
+    price?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -3304,6 +3313,7 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
+    price?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -3402,6 +3412,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt: Date
     updatedAt: Date
     _count: FoodCountAggregateOutputType | null
@@ -3432,6 +3443,7 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
+    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3449,6 +3461,7 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
+    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3461,6 +3474,7 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
+    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
@@ -3473,11 +3487,12 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
+    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type FoodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ingredients" | "img" | "rating" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["food"]>
+  export type FoodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ingredients" | "img" | "rating" | "userId" | "price" | "createdAt" | "updatedAt", ExtArgs["result"]["food"]>
   export type FoodInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | UserDefaultArgs<ExtArgs>
     comments?: boolean | Food$commentsArgs<ExtArgs>
@@ -3509,6 +3524,7 @@ export namespace Prisma {
       img: string
       rating: number
       userId: string
+      price: number
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["food"]>
@@ -3945,6 +3961,7 @@ export namespace Prisma {
     readonly img: FieldRef<"Food", 'String'>
     readonly rating: FieldRef<"Food", 'Float'>
     readonly userId: FieldRef<"Food", 'String'>
+    readonly price: FieldRef<"Food", 'Int'>
     readonly createdAt: FieldRef<"Food", 'DateTime'>
     readonly updatedAt: FieldRef<"Food", 'DateTime'>
   }
@@ -13347,6 +13364,7 @@ export namespace Prisma {
     img: 'img',
     rating: 'rating',
     userId: 'userId',
+    price: 'price',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -13695,6 +13713,7 @@ export namespace Prisma {
     img?: StringFilter<"Food"> | string
     rating?: FloatFilter<"Food"> | number
     userId?: StringFilter<"Food"> | string
+    price?: IntFilter<"Food"> | number
     createdAt?: DateTimeFilter<"Food"> | Date | string
     updatedAt?: DateTimeFilter<"Food"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -13711,6 +13730,7 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
+    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
@@ -13730,6 +13750,7 @@ export namespace Prisma {
     img?: StringFilter<"Food"> | string
     rating?: FloatFilter<"Food"> | number
     userId?: StringFilter<"Food"> | string
+    price?: IntFilter<"Food"> | number
     createdAt?: DateTimeFilter<"Food"> | Date | string
     updatedAt?: DateTimeFilter<"Food"> | Date | string
     user?: XOR<UserScalarRelationFilter, UserWhereInput>
@@ -13746,6 +13767,7 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
+    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: FoodCountOrderByAggregateInput
@@ -13765,6 +13787,7 @@ export namespace Prisma {
     img?: StringWithAggregatesFilter<"Food"> | string
     rating?: FloatWithAggregatesFilter<"Food"> | number
     userId?: StringWithAggregatesFilter<"Food"> | string
+    price?: IntWithAggregatesFilter<"Food"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Food"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Food"> | Date | string
   }
@@ -14398,6 +14421,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFoodsInput
@@ -14414,6 +14438,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
@@ -14428,6 +14453,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFoodsNestedInput
@@ -14444,6 +14470,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
@@ -14459,6 +14486,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -14469,6 +14497,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -14480,6 +14509,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -15201,6 +15231,17 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type IntFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntFilter<$PrismaModel> | number
+  }
+
   export type UserScalarRelationFilter = {
     is?: UserWhereInput
     isNot?: UserWhereInput
@@ -15233,12 +15274,14 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
+    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type FoodAvgOrderByAggregateInput = {
     rating?: SortOrder
+    price?: SortOrder
   }
 
   export type FoodMaxOrderByAggregateInput = {
@@ -15247,6 +15290,7 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
+    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -15257,12 +15301,14 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
+    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
   export type FoodSumOrderByAggregateInput = {
     rating?: SortOrder
+    price?: SortOrder
   }
   export type JsonWithAggregatesFilter<$PrismaModel = never> =
     | PatchUndefined<
@@ -15305,6 +15351,22 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
+  }
+
+  export type IntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type CategoryCountOrderByAggregateInput = {
@@ -15468,17 +15530,6 @@ export namespace Prisma {
     not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
   export type OrderNullableScalarRelationFilter = {
     is?: OrderWhereInput | null
     isNot?: OrderWhereInput | null
@@ -15548,22 +15599,6 @@ export namespace Prisma {
     _count?: NestedIntNullableFilter<$PrismaModel>
     _min?: NestedStringNullableFilter<$PrismaModel>
     _max?: NestedStringNullableFilter<$PrismaModel>
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type EnumOrderStatusFilter<$PrismaModel = never> = {
@@ -16030,6 +16065,14 @@ export namespace Prisma {
     divide?: number
   }
 
+  export type IntFieldUpdateOperationsInput = {
+    set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
   export type UserUpdateOneRequiredWithoutFoodsNestedInput = {
     create?: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
     connectOrCreate?: UserCreateOrConnectWithoutFoodsInput
@@ -16364,14 +16407,6 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
-  }
-
   export type FoodUpdateOneRequiredWithoutCartItemsNestedInput = {
     create?: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
     connectOrCreate?: FoodCreateOrConnectWithoutCartItemsInput
@@ -16612,6 +16647,22 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
+  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | IntFieldRefInput<$PrismaModel>
+    in?: number[] | ListIntFieldRefInput<$PrismaModel>
+    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
+    lt?: number | IntFieldRefInput<$PrismaModel>
+    lte?: number | IntFieldRefInput<$PrismaModel>
+    gt?: number | IntFieldRefInput<$PrismaModel>
+    gte?: number | IntFieldRefInput<$PrismaModel>
+    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
+    _count?: NestedIntFilter<$PrismaModel>
+    _avg?: NestedFloatFilter<$PrismaModel>
+    _sum?: NestedIntFilter<$PrismaModel>
+    _min?: NestedIntFilter<$PrismaModel>
+    _max?: NestedIntFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -16652,22 +16703,6 @@ export namespace Prisma {
     gt?: number | IntFieldRefInput<$PrismaModel>
     gte?: number | IntFieldRefInput<$PrismaModel>
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
   }
 
   export type NestedEnumOrderStatusFilter<$PrismaModel = never> = {
@@ -16725,6 +16760,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentCreateNestedManyWithoutFoodInput
@@ -16739,6 +16775,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
@@ -16941,6 +16978,7 @@ export namespace Prisma {
     img?: StringFilter<"Food"> | string
     rating?: FloatFilter<"Food"> | number
     userId?: StringFilter<"Food"> | string
+    price?: IntFilter<"Food"> | number
     createdAt?: DateTimeFilter<"Food"> | Date | string
     updatedAt?: DateTimeFilter<"Food"> | Date | string
   }
@@ -17486,6 +17524,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFoodsInput
@@ -17501,6 +17540,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
@@ -17555,6 +17595,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFoodsNestedInput
@@ -17570,6 +17611,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
@@ -17653,6 +17695,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFoodsInput
@@ -17668,6 +17711,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
@@ -17742,6 +17786,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFoodsNestedInput
@@ -17757,6 +17802,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
@@ -17809,6 +17855,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFoodsInput
@@ -17824,6 +17871,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
@@ -17898,6 +17946,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFoodsNestedInput
@@ -17913,6 +17962,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
@@ -18054,6 +18104,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     user: UserCreateNestedOneWithoutFoodsInput
@@ -18069,6 +18120,7 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
     comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
@@ -18140,6 +18192,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneRequiredWithoutFoodsNestedInput
@@ -18155,6 +18208,7 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
@@ -18445,6 +18499,7 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
+    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18520,6 +18575,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUpdateManyWithoutFoodNestedInput
@@ -18534,6 +18590,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
@@ -18548,6 +18605,7 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
+    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

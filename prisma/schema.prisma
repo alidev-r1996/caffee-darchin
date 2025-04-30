@@ -35,6 +35,7 @@ model Food {
   img         String
   rating      Float
   userId      String
+  price       Int
 
   user       User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   comments   Comment[]

@@ -138,6 +138,7 @@ exports.Prisma.FoodScalarFieldEnum = {
   img: 'img',
   rating: 'rating',
   userId: 'userId',
+  price: 'price',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
