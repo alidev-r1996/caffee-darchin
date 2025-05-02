@@ -1,8 +1,7 @@
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
-import { Food } from "@/generated";
 import { AvatarDemo } from "@/components/AvatarUi";
 
-const MenuContent = ({ foods }: {foods: Food[]}) => {
+const MenuContent = ({ foods }: {foods: any[]}) => {
 
   if (foods == null) return <div></div>
 

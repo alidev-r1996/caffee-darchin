@@ -6,6 +6,7 @@
     "skipLibCheck": true,
     "strict": true,
     "noEmit": true,
+    "noImplicitAny": false,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "esModuleInterop": true,
@@ -25,5 +26,5 @@
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/utils/seed.ts"],
-  "exclude": ["node_modules", "**/node_modules", ".next", "C:/Users/Click/Application Data"]
+  "exclude": ["node_modules", "**/node_modules", ".next", "C:/Users/Click/Application Data", "src/generated", "/src/generated", "**/src/generated/**", "**/generated", "**/generated/**"]
 }

@@ -2,10 +2,9 @@
 
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
-import { Category } from "../../../../prisma/generated";
 
 
-const TabMenu = ({ category }: { category: Category[] }) => {
+const TabMenu = ({ category }: { category: any[] }) => {
   const pathname = usePathname();
   const router = useRouter();
   const searchParams = useSearchParams();

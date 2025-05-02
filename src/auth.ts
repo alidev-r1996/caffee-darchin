@@ -34,11 +34,11 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       // e.g. domain, username, password, 2FA token, etc.
       credentials: { email: {}, password: {}, name: {} },
       authorize: async (credentials) => {
-        let user = null;
+        let user:any = null
 
         if (credentials) {
           const { prisma } = await import("@/lib/utils/prisma");
-          user = await prisma.user.findUnique({
+          user =  await prisma.user.findUnique({
             where: {
               email: credentials.email as string,
               password: credentials.password as string,
@@ -66,17 +66,17 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       const { prisma } = await import("@/lib/utils/prisma");
       if (account?.provider === "google" || account?.provider === "github") {
         const existingUser = await prisma.user.findUnique({
-          where: { email: user.email! },
+          where: { email: user.email as string },
         });
 
         if (!existingUser) {
           // If new user -> create in database
           await prisma.user.create({
             data: {
-              email: user.email!,
-              img: user.image!,
+              email: user.email as string,
+              img: user.image as string,
               password: crypto.randomUUID().split("-")[0],
-              name: user.name!,
+              name: user.name as string,
             },
           });
         }

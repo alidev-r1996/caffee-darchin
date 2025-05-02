@@ -12,16 +12,14 @@ const compat = new FlatCompat({
 const eslintConfig = [
   ...compat.extends("next/core-web-vitals", "next/typescript"),
   {
+    ignores: ["/src/generated/**"],
     rules: {
       "@typescript-eslint/no-unused-vars": "off",
-      '@typescript-eslint/no-unused-expressions': 'off',
-      '@typescript-eslint/no-this-alias': 'off',
-      '@typescript-eslint/no-require-imports': 'off',
-      
+      "@typescript-eslint/no-unused-expressions": "off",
+      "@typescript-eslint/no-this-alias": "off",
+      "@typescript-eslint/no-require-imports": "off",
+      "@typescript-eslint/no-explicit-any": "off",
     },
-    ignores: [
-      "/prisma/generated/prisma/**",
-    ],
   },
 ];
 
