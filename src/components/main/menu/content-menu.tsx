@@ -1,26 +1,8 @@
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
-import Image from "next/image";
-import { Food } from "../../../../prisma/generated";
+import { Food } from "@/generated";
 import { AvatarDemo } from "@/components/AvatarUi";
 
-const foodItem = [
-    {id: 1, img: "food1", title: "عنوان غذا", price: 100000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 2, img: "food2", title: "عنوان غذا", price: 200000, ingredients: ["لوبیا", "ادویه‌", "نخود", "پیاز", "گوجه‌فرنگی"]},
-    {id: 3, img: "food3", title: "عنوان غذا", price: 150000, ingredients: ["نخودفرنگی", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 4, img: "food4", title: "عنوان غذا", price: 280000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 5, img: "food5", title: "عنوان غذا", price: 185000, ingredients: ["دارچین", "ادویه‌", "لوبیا", "پیاز", "گوجه‌فرنگی"]},
-    {id: 6, img: "food6", title: "عنوان غذا", price: 200000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 7, img: "food7", title: "عنوان غذا", price: 100000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 8, img: "food8", title: "عنوان غذا", price: 200000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 9, img: "food9", title: "عنوان غذا", price: 150000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 10, img: "food10", title: "عنوان غذا", price: 280000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 11, img: "food11", title: "عنوان غذا", price: 185000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-    {id: 12, img: "food12", title: "عنوان غذا", price: 200000, ingredients: ["سیر", "ادویه‌", "فلفل", "پیاز", "گوجه‌فرنگی"]},
-  ];
-
-
 const MenuContent = ({ foods }: {foods: Food[]}) => {
-
 
   if (foods == null) return <div></div>
 
