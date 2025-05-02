@@ -275,11 +275,12 @@ const config = {
     "db"
   ],
   "activeProvider": "postgresql",
+  "postinstall": false,
   "inlineDatasources": {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://coffee-darchin_owner:npg_uYgc7NebiAv4@ep-old-hall-a41dlz49-pooler.us-east-1.aws.neon.tech/coffee-darchin?sslmode=require"
+        "value": null
       }
     }
   },

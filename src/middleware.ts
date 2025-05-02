@@ -12,16 +12,16 @@ export async function middleware(req: NextRequest) {
   const role = session?.role;
 
   // If the user is authenticated and accesses the sign-in page, redirect them
-  if (session && req.nextUrl.pathname === '/login') {
+  if (session && pathname === '/login') {
     if (role == "ADMIN"){
-      return NextResponse.redirect(new URL('/dashboard', req.url))
+      return NextResponse.redirect(new URL('/dashboard', url))
     }
-    return NextResponse.redirect(new URL('/', req.url)); // or any page you want authenticated users to access
+    return NextResponse.redirect(new URL('/', url)); // or any page you want authenticated users to access
   }
 
   // If the user is not authenticated and tries to access a protected route
-  if (!session && protectedPaths.includes(req.nextUrl.pathname)) {
-    return NextResponse.redirect(new URL('/login', req.url)); // Redirect to sign-in page
+  if (!session && protectedPaths.includes(pathname)) {
+    return NextResponse.redirect(new URL('/login', url)); // Redirect to sign-in page
   }
 
   // Continue processing the request as usual

@@ -115,7 +115,7 @@ const foodSeed = [
     },
   },
   {
-    img: "https://bvthk1nwyv.ufs.sh/f/UrRhinAsLtJ8j9ZkQiY7VFvSw9YonQGCNq1zOyJMEgcUbeZk",
+    img: "https://bvthk1nwyv.ufs.sh/f/UrRhinAsLtJ8h5et1QWjYmDgRQ1ekKZ2UFXuyIpTMONnrLi8",
     title: "پیتزا گوشت",
     price: 180000,
     ingredients: ["گوشت چرخ‌کرده", "پنیر پیتزا", "قارچ", "پیاز"],
