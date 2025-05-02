@@ -1718,21 +1718,21 @@ export namespace Prisma {
    */
 
   export type UserCountOutputType = {
-    reserve: number
-    foods: number
+    categories: number
     comments: number
+    foods: number
     likes: number
     orders: number
-    categories: number
+    reserve: number
   }
 
   export type UserCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    reserve?: boolean | UserCountOutputTypeCountReserveArgs
-    foods?: boolean | UserCountOutputTypeCountFoodsArgs
+    categories?: boolean | UserCountOutputTypeCountCategoriesArgs
     comments?: boolean | UserCountOutputTypeCountCommentsArgs
+    foods?: boolean | UserCountOutputTypeCountFoodsArgs
     likes?: boolean | UserCountOutputTypeCountLikesArgs
     orders?: boolean | UserCountOutputTypeCountOrdersArgs
-    categories?: boolean | UserCountOutputTypeCountCategoriesArgs
+    reserve?: boolean | UserCountOutputTypeCountReserveArgs
   }
 
   // Custom InputTypes
@@ -1749,15 +1749,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountReserveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ReserveWhereInput
-  }
-
-  /**
-   * UserCountOutputType without action
-   */
-  export type UserCountOutputTypeCountFoodsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: FoodWhereInput
+  export type UserCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CategoryWhereInput
   }
 
   /**
@@ -1765,6 +1758,13 @@ export namespace Prisma {
    */
   export type UserCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CommentWhereInput
+  }
+
+  /**
+   * UserCountOutputType without action
+   */
+  export type UserCountOutputTypeCountFoodsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: FoodWhereInput
   }
 
   /**
@@ -1784,8 +1784,8 @@ export namespace Prisma {
   /**
    * UserCountOutputType without action
    */
-  export type UserCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CategoryWhereInput
+  export type UserCountOutputTypeCountReserveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReserveWhereInput
   }
 
 
@@ -1794,17 +1794,17 @@ export namespace Prisma {
    */
 
   export type FoodCountOutputType = {
-    comments: number
-    likes: number
     cartItems: number
+    comments: number
     categories: number
+    likes: number
   }
 
   export type FoodCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    comments?: boolean | FoodCountOutputTypeCountCommentsArgs
-    likes?: boolean | FoodCountOutputTypeCountLikesArgs
     cartItems?: boolean | FoodCountOutputTypeCountCartItemsArgs
+    comments?: boolean | FoodCountOutputTypeCountCommentsArgs
     categories?: boolean | FoodCountOutputTypeCountCategoriesArgs
+    likes?: boolean | FoodCountOutputTypeCountLikesArgs
   }
 
   // Custom InputTypes
@@ -1821,20 +1821,6 @@ export namespace Prisma {
   /**
    * FoodCountOutputType without action
    */
-  export type FoodCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CommentWhereInput
-  }
-
-  /**
-   * FoodCountOutputType without action
-   */
-  export type FoodCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: LikeWhereInput
-  }
-
-  /**
-   * FoodCountOutputType without action
-   */
   export type FoodCountOutputTypeCountCartItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: CartItemWhereInput
   }
@@ -1842,8 +1828,22 @@ export namespace Prisma {
   /**
    * FoodCountOutputType without action
    */
+  export type FoodCountOutputTypeCountCommentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: CommentWhereInput
+  }
+
+  /**
+   * FoodCountOutputType without action
+   */
   export type FoodCountOutputTypeCountCategoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: FoodCategoryWhereInput
+  }
+
+  /**
+   * FoodCountOutputType without action
+   */
+  export type FoodCountOutputTypeCountLikesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: LikeWhereInput
   }
 
 
@@ -2132,13 +2132,13 @@ export namespace Prisma {
     role?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    reserve?: boolean | User$reserveArgs<ExtArgs>
-    foods?: boolean | User$foodsArgs<ExtArgs>
-    comments?: boolean | User$commentsArgs<ExtArgs>
-    likes?: boolean | User$likesArgs<ExtArgs>
-    orders?: boolean | User$ordersArgs<ExtArgs>
     cart?: boolean | User$cartArgs<ExtArgs>
     categories?: boolean | User$categoriesArgs<ExtArgs>
+    comments?: boolean | User$commentsArgs<ExtArgs>
+    foods?: boolean | User$foodsArgs<ExtArgs>
+    likes?: boolean | User$likesArgs<ExtArgs>
+    orders?: boolean | User$ordersArgs<ExtArgs>
+    reserve?: boolean | User$reserveArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
@@ -2177,13 +2177,13 @@ export namespace Prisma {
 
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "password" | "img" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    reserve?: boolean | User$reserveArgs<ExtArgs>
-    foods?: boolean | User$foodsArgs<ExtArgs>
-    comments?: boolean | User$commentsArgs<ExtArgs>
-    likes?: boolean | User$likesArgs<ExtArgs>
-    orders?: boolean | User$ordersArgs<ExtArgs>
     cart?: boolean | User$cartArgs<ExtArgs>
     categories?: boolean | User$categoriesArgs<ExtArgs>
+    comments?: boolean | User$commentsArgs<ExtArgs>
+    foods?: boolean | User$foodsArgs<ExtArgs>
+    likes?: boolean | User$likesArgs<ExtArgs>
+    orders?: boolean | User$ordersArgs<ExtArgs>
+    reserve?: boolean | User$reserveArgs<ExtArgs>
     _count?: boolean | UserCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2192,13 +2192,13 @@ export namespace Prisma {
   export type $UserPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "User"
     objects: {
-      reserve: Prisma.$ReservePayload<ExtArgs>[]
-      foods: Prisma.$FoodPayload<ExtArgs>[]
-      comments: Prisma.$CommentPayload<ExtArgs>[]
-      likes: Prisma.$LikePayload<ExtArgs>[]
-      orders: Prisma.$OrderPayload<ExtArgs>[]
       cart: Prisma.$CartPayload<ExtArgs> | null
       categories: Prisma.$CategoryPayload<ExtArgs>[]
+      comments: Prisma.$CommentPayload<ExtArgs>[]
+      foods: Prisma.$FoodPayload<ExtArgs>[]
+      likes: Prisma.$LikePayload<ExtArgs>[]
+      orders: Prisma.$OrderPayload<ExtArgs>[]
+      reserve: Prisma.$ReservePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -2603,13 +2603,13 @@ export namespace Prisma {
    */
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    reserve<T extends User$reserveArgs<ExtArgs> = {}>(args?: Subset<T, User$reserveArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    foods<T extends User$foodsArgs<ExtArgs> = {}>(args?: Subset<T, User$foodsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    comments<T extends User$commentsArgs<ExtArgs> = {}>(args?: Subset<T, User$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    likes<T extends User$likesArgs<ExtArgs> = {}>(args?: Subset<T, User$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    orders<T extends User$ordersArgs<ExtArgs> = {}>(args?: Subset<T, User$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cart<T extends User$cartArgs<ExtArgs> = {}>(args?: Subset<T, User$cartArgs<ExtArgs>>): Prisma__CartClient<$Result.GetResult<Prisma.$CartPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     categories<T extends User$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, User$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    comments<T extends User$commentsArgs<ExtArgs> = {}>(args?: Subset<T, User$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    foods<T extends User$foodsArgs<ExtArgs> = {}>(args?: Subset<T, User$foodsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    likes<T extends User$likesArgs<ExtArgs> = {}>(args?: Subset<T, User$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    orders<T extends User$ordersArgs<ExtArgs> = {}>(args?: Subset<T, User$ordersArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reserve<T extends User$reserveArgs<ExtArgs> = {}>(args?: Subset<T, User$reserveArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReservePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3035,51 +3035,46 @@ export namespace Prisma {
   }
 
   /**
-   * User.reserve
+   * User.cart
    */
-  export type User$reserveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$cartArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Reserve
+     * Select specific fields to fetch from the Cart
      */
-    select?: ReserveSelect<ExtArgs> | null
+    select?: CartSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Reserve
+     * Omit specific fields from the Cart
      */
-    omit?: ReserveOmit<ExtArgs> | null
+    omit?: CartOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: ReserveInclude<ExtArgs> | null
-    where?: ReserveWhereInput
-    orderBy?: ReserveOrderByWithRelationInput | ReserveOrderByWithRelationInput[]
-    cursor?: ReserveWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ReserveScalarFieldEnum | ReserveScalarFieldEnum[]
+    include?: CartInclude<ExtArgs> | null
+    where?: CartWhereInput
   }
 
   /**
-   * User.foods
+   * User.categories
    */
-  export type User$foodsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Food
+     * Select specific fields to fetch from the Category
      */
-    select?: FoodSelect<ExtArgs> | null
+    select?: CategorySelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Food
+     * Omit specific fields from the Category
      */
-    omit?: FoodOmit<ExtArgs> | null
+    omit?: CategoryOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: FoodInclude<ExtArgs> | null
-    where?: FoodWhereInput
-    orderBy?: FoodOrderByWithRelationInput | FoodOrderByWithRelationInput[]
-    cursor?: FoodWhereUniqueInput
+    include?: CategoryInclude<ExtArgs> | null
+    where?: CategoryWhereInput
+    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
+    cursor?: CategoryWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: FoodScalarFieldEnum | FoodScalarFieldEnum[]
+    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
   }
 
   /**
@@ -3104,6 +3099,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
+   * User.foods
+   */
+  export type User$foodsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Food
+     */
+    select?: FoodSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Food
+     */
+    omit?: FoodOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: FoodInclude<ExtArgs> | null
+    where?: FoodWhereInput
+    orderBy?: FoodOrderByWithRelationInput | FoodOrderByWithRelationInput[]
+    cursor?: FoodWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: FoodScalarFieldEnum | FoodScalarFieldEnum[]
   }
 
   /**
@@ -3155,46 +3174,27 @@ export namespace Prisma {
   }
 
   /**
-   * User.cart
+   * User.reserve
    */
-  export type User$cartArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type User$reserveArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Cart
+     * Select specific fields to fetch from the Reserve
      */
-    select?: CartSelect<ExtArgs> | null
+    select?: ReserveSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Cart
+     * Omit specific fields from the Reserve
      */
-    omit?: CartOmit<ExtArgs> | null
+    omit?: ReserveOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: CartInclude<ExtArgs> | null
-    where?: CartWhereInput
-  }
-
-  /**
-   * User.categories
-   */
-  export type User$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Category
-     */
-    select?: CategorySelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Category
-     */
-    omit?: CategoryOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CategoryInclude<ExtArgs> | null
-    where?: CategoryWhereInput
-    orderBy?: CategoryOrderByWithRelationInput | CategoryOrderByWithRelationInput[]
-    cursor?: CategoryWhereUniqueInput
+    include?: ReserveInclude<ExtArgs> | null
+    where?: ReserveWhereInput
+    orderBy?: ReserveOrderByWithRelationInput | ReserveOrderByWithRelationInput[]
+    cursor?: ReserveWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: CategoryScalarFieldEnum | CategoryScalarFieldEnum[]
+    distinct?: ReserveScalarFieldEnum | ReserveScalarFieldEnum[]
   }
 
   /**
@@ -3244,9 +3244,9 @@ export namespace Prisma {
     img: string | null
     rating: number | null
     userId: string | null
-    price: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    price: number | null
   }
 
   export type FoodMaxAggregateOutputType = {
@@ -3255,9 +3255,9 @@ export namespace Prisma {
     img: string | null
     rating: number | null
     userId: string | null
-    price: number | null
     createdAt: Date | null
     updatedAt: Date | null
+    price: number | null
   }
 
   export type FoodCountAggregateOutputType = {
@@ -3267,9 +3267,9 @@ export namespace Prisma {
     img: number
     rating: number
     userId: number
-    price: number
     createdAt: number
     updatedAt: number
+    price: number
     _all: number
   }
 
@@ -3290,9 +3290,9 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
-    price?: true
     createdAt?: true
     updatedAt?: true
+    price?: true
   }
 
   export type FoodMaxAggregateInputType = {
@@ -3301,9 +3301,9 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
-    price?: true
     createdAt?: true
     updatedAt?: true
+    price?: true
   }
 
   export type FoodCountAggregateInputType = {
@@ -3313,9 +3313,9 @@ export namespace Prisma {
     img?: true
     rating?: true
     userId?: true
-    price?: true
     createdAt?: true
     updatedAt?: true
+    price?: true
     _all?: true
   }
 
@@ -3412,9 +3412,9 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
-    price: number
     createdAt: Date
     updatedAt: Date
+    price: number
     _count: FoodCountAggregateOutputType | null
     _avg: FoodAvgAggregateOutputType | null
     _sum: FoodSumAggregateOutputType | null
@@ -3443,14 +3443,14 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
-    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    comments?: boolean | Food$commentsArgs<ExtArgs>
-    likes?: boolean | Food$likesArgs<ExtArgs>
+    price?: boolean
     cartItems?: boolean | Food$cartItemsArgs<ExtArgs>
+    comments?: boolean | Food$commentsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     categories?: boolean | Food$categoriesArgs<ExtArgs>
+    likes?: boolean | Food$likesArgs<ExtArgs>
     _count?: boolean | FoodCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["food"]>
 
@@ -3461,9 +3461,9 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
-    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    price?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["food"]>
 
@@ -3474,9 +3474,9 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
-    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    price?: boolean
     user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["food"]>
 
@@ -3487,18 +3487,18 @@ export namespace Prisma {
     img?: boolean
     rating?: boolean
     userId?: boolean
-    price?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    price?: boolean
   }
 
-  export type FoodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ingredients" | "img" | "rating" | "userId" | "price" | "createdAt" | "updatedAt", ExtArgs["result"]["food"]>
+  export type FoodOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "ingredients" | "img" | "rating" | "userId" | "createdAt" | "updatedAt" | "price", ExtArgs["result"]["food"]>
   export type FoodInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-    comments?: boolean | Food$commentsArgs<ExtArgs>
-    likes?: boolean | Food$likesArgs<ExtArgs>
     cartItems?: boolean | Food$cartItemsArgs<ExtArgs>
+    comments?: boolean | Food$commentsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     categories?: boolean | Food$categoriesArgs<ExtArgs>
+    likes?: boolean | Food$likesArgs<ExtArgs>
     _count?: boolean | FoodCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FoodIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3511,11 +3511,11 @@ export namespace Prisma {
   export type $FoodPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Food"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
-      comments: Prisma.$CommentPayload<ExtArgs>[]
-      likes: Prisma.$LikePayload<ExtArgs>[]
       cartItems: Prisma.$CartItemPayload<ExtArgs>[]
+      comments: Prisma.$CommentPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
       categories: Prisma.$FoodCategoryPayload<ExtArgs>[]
+      likes: Prisma.$LikePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3524,9 +3524,9 @@ export namespace Prisma {
       img: string
       rating: number
       userId: string
-      price: number
       createdAt: Date
       updatedAt: Date
+      price: number
     }, ExtArgs["result"]["food"]>
     composites: {}
   }
@@ -3921,11 +3921,11 @@ export namespace Prisma {
    */
   export interface Prisma__FoodClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    comments<T extends Food$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Food$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    likes<T extends Food$likesArgs<ExtArgs> = {}>(args?: Subset<T, Food$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     cartItems<T extends Food$cartItemsArgs<ExtArgs> = {}>(args?: Subset<T, Food$cartItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CartItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    comments<T extends Food$commentsArgs<ExtArgs> = {}>(args?: Subset<T, Food$commentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CommentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     categories<T extends Food$categoriesArgs<ExtArgs> = {}>(args?: Subset<T, Food$categoriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FoodCategoryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    likes<T extends Food$likesArgs<ExtArgs> = {}>(args?: Subset<T, Food$likesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$LikePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3961,9 +3961,9 @@ export namespace Prisma {
     readonly img: FieldRef<"Food", 'String'>
     readonly rating: FieldRef<"Food", 'Float'>
     readonly userId: FieldRef<"Food", 'String'>
-    readonly price: FieldRef<"Food", 'Int'>
     readonly createdAt: FieldRef<"Food", 'DateTime'>
     readonly updatedAt: FieldRef<"Food", 'DateTime'>
+    readonly price: FieldRef<"Food", 'Int'>
   }
     
 
@@ -4360,54 +4360,6 @@ export namespace Prisma {
   }
 
   /**
-   * Food.comments
-   */
-  export type Food$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Comment
-     */
-    select?: CommentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Comment
-     */
-    omit?: CommentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: CommentInclude<ExtArgs> | null
-    where?: CommentWhereInput
-    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
-    cursor?: CommentWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
-  }
-
-  /**
-   * Food.likes
-   */
-  export type Food$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Like
-     */
-    select?: LikeSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Like
-     */
-    omit?: LikeOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: LikeInclude<ExtArgs> | null
-    where?: LikeWhereInput
-    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
-    cursor?: LikeWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
-  }
-
-  /**
    * Food.cartItems
    */
   export type Food$cartItemsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4432,6 +4384,30 @@ export namespace Prisma {
   }
 
   /**
+   * Food.comments
+   */
+  export type Food$commentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Comment
+     */
+    select?: CommentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Comment
+     */
+    omit?: CommentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: CommentInclude<ExtArgs> | null
+    where?: CommentWhereInput
+    orderBy?: CommentOrderByWithRelationInput | CommentOrderByWithRelationInput[]
+    cursor?: CommentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: CommentScalarFieldEnum | CommentScalarFieldEnum[]
+  }
+
+  /**
    * Food.categories
    */
   export type Food$categoriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4453,6 +4429,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: FoodCategoryScalarFieldEnum | FoodCategoryScalarFieldEnum[]
+  }
+
+  /**
+   * Food.likes
+   */
+  export type Food$likesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Like
+     */
+    select?: LikeSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Like
+     */
+    omit?: LikeOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: LikeInclude<ExtArgs> | null
+    where?: LikeWhereInput
+    orderBy?: LikeOrderByWithRelationInput | LikeOrderByWithRelationInput[]
+    cursor?: LikeWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: LikeScalarFieldEnum | LikeScalarFieldEnum[]
   }
 
   /**
@@ -5752,8 +5752,8 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["foodCategory"]>
 
   export type FoodCategorySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5762,8 +5762,8 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["foodCategory"]>
 
   export type FoodCategorySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -5772,8 +5772,8 @@ export namespace Prisma {
     categoryId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["foodCategory"]>
 
   export type FoodCategorySelectScalar = {
@@ -5786,23 +5786,23 @@ export namespace Prisma {
 
   export type FoodCategoryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "foodId" | "categoryId" | "createdAt" | "updatedAt", ExtArgs["result"]["foodCategory"]>
   export type FoodCategoryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }
   export type FoodCategoryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }
   export type FoodCategoryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     category?: boolean | CategoryDefaultArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
   }
 
   export type $FoodCategoryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "FoodCategory"
     objects: {
-      food: Prisma.$FoodPayload<ExtArgs>
       category: Prisma.$CategoryPayload<ExtArgs>
+      food: Prisma.$FoodPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -6204,8 +6204,8 @@ export namespace Prisma {
    */
   export interface Prisma__FoodCategoryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     category<T extends CategoryDefaultArgs<ExtArgs> = {}>(args?: Subset<T, CategoryDefaultArgs<ExtArgs>>): Prisma__CategoryClient<$Result.GetResult<Prisma.$CategoryPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -6818,8 +6818,8 @@ export namespace Prisma {
     foodId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6828,8 +6828,8 @@ export namespace Prisma {
     foodId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -6838,8 +6838,8 @@ export namespace Prisma {
     foodId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["like"]>
 
   export type LikeSelectScalar = {
@@ -6852,23 +6852,23 @@ export namespace Prisma {
 
   export type LikeOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "foodId" | "createdAt" | "updatedAt", ExtArgs["result"]["like"]>
   export type LikeInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type LikeIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type LikeIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $LikePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Like"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       food: Prisma.$FoodPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7270,8 +7270,8 @@ export namespace Prisma {
    */
   export interface Prisma__LikeClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -7737,6 +7737,7 @@ export namespace Prisma {
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    verified: boolean | null
   }
 
   export type CommentMaxAggregateOutputType = {
@@ -7746,6 +7747,7 @@ export namespace Prisma {
     content: string | null
     createdAt: Date | null
     updatedAt: Date | null
+    verified: boolean | null
   }
 
   export type CommentCountAggregateOutputType = {
@@ -7755,6 +7757,7 @@ export namespace Prisma {
     content: number
     createdAt: number
     updatedAt: number
+    verified: number
     _all: number
   }
 
@@ -7766,6 +7769,7 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    verified?: true
   }
 
   export type CommentMaxAggregateInputType = {
@@ -7775,6 +7779,7 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    verified?: true
   }
 
   export type CommentCountAggregateInputType = {
@@ -7784,6 +7789,7 @@ export namespace Prisma {
     content?: true
     createdAt?: true
     updatedAt?: true
+    verified?: true
     _all?: true
   }
 
@@ -7866,6 +7872,7 @@ export namespace Prisma {
     content: string
     createdAt: Date
     updatedAt: Date
+    verified: boolean
     _count: CommentCountAggregateOutputType | null
     _min: CommentMinAggregateOutputType | null
     _max: CommentMaxAggregateOutputType | null
@@ -7892,8 +7899,9 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    verified?: boolean
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7903,8 +7911,9 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    verified?: boolean
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -7914,8 +7923,9 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    verified?: boolean
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["comment"]>
 
   export type CommentSelectScalar = {
@@ -7925,27 +7935,28 @@ export namespace Prisma {
     content?: boolean
     createdAt?: boolean
     updatedAt?: boolean
+    verified?: boolean
   }
 
-  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "foodId" | "content" | "createdAt" | "updatedAt", ExtArgs["result"]["comment"]>
+  export type CommentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "foodId" | "content" | "createdAt" | "updatedAt" | "verified", ExtArgs["result"]["comment"]>
   export type CommentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type CommentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
   export type CommentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     food?: boolean | FoodDefaultArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
   }
 
   export type $CommentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Comment"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       food: Prisma.$FoodPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -7954,6 +7965,7 @@ export namespace Prisma {
       content: string
       createdAt: Date
       updatedAt: Date
+      verified: boolean
     }, ExtArgs["result"]["comment"]>
     composites: {}
   }
@@ -8348,8 +8360,8 @@ export namespace Prisma {
    */
   export interface Prisma__CommentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -8385,6 +8397,7 @@ export namespace Prisma {
     readonly content: FieldRef<"Comment", 'String'>
     readonly createdAt: FieldRef<"Comment", 'DateTime'>
     readonly updatedAt: FieldRef<"Comment", 'DateTime'>
+    readonly verified: FieldRef<"Comment", 'Boolean'>
   }
     
 
@@ -10088,8 +10101,8 @@ export namespace Prisma {
     quantity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }, ExtArgs["result"]["cartItem"]>
 
@@ -10101,8 +10114,8 @@ export namespace Prisma {
     quantity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }, ExtArgs["result"]["cartItem"]>
 
@@ -10114,8 +10127,8 @@ export namespace Prisma {
     quantity?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }, ExtArgs["result"]["cartItem"]>
 
@@ -10131,26 +10144,26 @@ export namespace Prisma {
 
   export type CartItemOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "foodId" | "cartId" | "orderId" | "quantity" | "createdAt" | "updatedAt", ExtArgs["result"]["cartItem"]>
   export type CartItemInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }
   export type CartItemIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }
   export type CartItemIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    food?: boolean | FoodDefaultArgs<ExtArgs>
     cart?: boolean | CartItem$cartArgs<ExtArgs>
+    food?: boolean | FoodDefaultArgs<ExtArgs>
     order?: boolean | CartItem$orderArgs<ExtArgs>
   }
 
   export type $CartItemPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "CartItem"
     objects: {
-      food: Prisma.$FoodPayload<ExtArgs>
       cart: Prisma.$CartPayload<ExtArgs> | null
+      food: Prisma.$FoodPayload<ExtArgs>
       order: Prisma.$OrderPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
@@ -10555,8 +10568,8 @@ export namespace Prisma {
    */
   export interface Prisma__CartItemClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     cart<T extends CartItem$cartArgs<ExtArgs> = {}>(args?: Subset<T, CartItem$cartArgs<ExtArgs>>): Prisma__CartClient<$Result.GetResult<Prisma.$CartPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    food<T extends FoodDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FoodDefaultArgs<ExtArgs>>): Prisma__FoodClient<$Result.GetResult<Prisma.$FoodPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     order<T extends CartItem$orderArgs<ExtArgs> = {}>(args?: Subset<T, CartItem$orderArgs<ExtArgs>>): Prisma__OrderClient<$Result.GetResult<Prisma.$OrderPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -11252,8 +11265,8 @@ export namespace Prisma {
     status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
     cartItems?: boolean | Order$cartItemsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | OrderCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["order"]>
 
@@ -11288,8 +11301,8 @@ export namespace Prisma {
 
   export type OrderOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "userId" | "total" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["order"]>
   export type OrderInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
     cartItems?: boolean | Order$cartItemsArgs<ExtArgs>
+    user?: boolean | UserDefaultArgs<ExtArgs>
     _count?: boolean | OrderCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type OrderIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11302,8 +11315,8 @@ export namespace Prisma {
   export type $OrderPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Order"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
       cartItems: Prisma.$CartItemPayload<ExtArgs>[]
+      user: Prisma.$UserPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -11706,8 +11719,8 @@ export namespace Prisma {
    */
   export interface Prisma__OrderClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     cartItems<T extends Order$cartItemsArgs<ExtArgs> = {}>(args?: Subset<T, Order$cartItemsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CartItemPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12194,19 +12207,17 @@ export namespace Prisma {
   }
 
   export type ReserveAvgAggregateOutputType = {
-    phone: number | null
     quantity: number | null
   }
 
   export type ReserveSumAggregateOutputType = {
-    phone: number | null
     quantity: number | null
   }
 
   export type ReserveMinAggregateOutputType = {
     id: string | null
     name: string | null
-    phone: number | null
+    phone: string | null
     quantity: number | null
     date: string | null
     time: string | null
@@ -12218,7 +12229,7 @@ export namespace Prisma {
   export type ReserveMaxAggregateOutputType = {
     id: string | null
     name: string | null
-    phone: number | null
+    phone: string | null
     quantity: number | null
     date: string | null
     time: string | null
@@ -12242,12 +12253,10 @@ export namespace Prisma {
 
 
   export type ReserveAvgAggregateInputType = {
-    phone?: true
     quantity?: true
   }
 
   export type ReserveSumAggregateInputType = {
-    phone?: true
     quantity?: true
   }
 
@@ -12377,7 +12386,7 @@ export namespace Prisma {
   export type ReserveGroupByOutputType = {
     id: string
     name: string
-    phone: number
+    phone: string
     quantity: number
     date: string
     time: string
@@ -12415,7 +12424,7 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }, ExtArgs["result"]["reserve"]>
 
   export type ReserveSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12428,7 +12437,7 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }, ExtArgs["result"]["reserve"]>
 
   export type ReserveSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -12441,7 +12450,7 @@ export namespace Prisma {
     userId?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }, ExtArgs["result"]["reserve"]>
 
   export type ReserveSelectScalar = {
@@ -12458,24 +12467,24 @@ export namespace Prisma {
 
   export type ReserveOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "phone" | "quantity" | "date" | "time" | "userId" | "createdAt" | "updatedAt", ExtArgs["result"]["reserve"]>
   export type ReserveInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }
   export type ReserveIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }
   export type ReserveIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+    user?: boolean | Reserve$userArgs<ExtArgs>
   }
 
   export type $ReservePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Reserve"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      user: Prisma.$UserPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
-      phone: number
+      phone: string
       quantity: number
       date: string
       time: string
@@ -12876,7 +12885,7 @@ export namespace Prisma {
    */
   export interface Prisma__ReserveClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    user<T extends Reserve$userArgs<ExtArgs> = {}>(args?: Subset<T, Reserve$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -12908,7 +12917,7 @@ export namespace Prisma {
   interface ReserveFieldRefs {
     readonly id: FieldRef<"Reserve", 'String'>
     readonly name: FieldRef<"Reserve", 'String'>
-    readonly phone: FieldRef<"Reserve", 'Int'>
+    readonly phone: FieldRef<"Reserve", 'String'>
     readonly quantity: FieldRef<"Reserve", 'Int'>
     readonly date: FieldRef<"Reserve", 'String'>
     readonly time: FieldRef<"Reserve", 'String'>
@@ -13311,6 +13320,25 @@ export namespace Prisma {
   }
 
   /**
+   * Reserve.user
+   */
+  export type Reserve$userArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the User
+     */
+    select?: UserSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the User
+     */
+    omit?: UserOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: UserInclude<ExtArgs> | null
+    where?: UserWhereInput
+  }
+
+  /**
    * Reserve without action
    */
   export type ReserveDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -13364,9 +13392,9 @@ export namespace Prisma {
     img: 'img',
     rating: 'rating',
     userId: 'userId',
-    price: 'price',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    price: 'price'
   };
 
   export type FoodScalarFieldEnum = (typeof FoodScalarFieldEnum)[keyof typeof FoodScalarFieldEnum]
@@ -13413,7 +13441,8 @@ export namespace Prisma {
     foodId: 'foodId',
     content: 'content',
     createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
+    updatedAt: 'updatedAt',
+    verified: 'verified'
   };
 
   export type CommentScalarFieldEnum = (typeof CommentScalarFieldEnum)[keyof typeof CommentScalarFieldEnum]
@@ -13599,6 +13628,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'OrderStatus'
    */
   export type EnumOrderStatusFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'OrderStatus'>
@@ -13627,13 +13663,13 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    reserve?: ReserveListRelationFilter
-    foods?: FoodListRelationFilter
-    comments?: CommentListRelationFilter
-    likes?: LikeListRelationFilter
-    orders?: OrderListRelationFilter
     cart?: XOR<CartNullableScalarRelationFilter, CartWhereInput> | null
     categories?: CategoryListRelationFilter
+    comments?: CommentListRelationFilter
+    foods?: FoodListRelationFilter
+    likes?: LikeListRelationFilter
+    orders?: OrderListRelationFilter
+    reserve?: ReserveListRelationFilter
   }
 
   export type UserOrderByWithRelationInput = {
@@ -13645,13 +13681,13 @@ export namespace Prisma {
     role?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    reserve?: ReserveOrderByRelationAggregateInput
-    foods?: FoodOrderByRelationAggregateInput
-    comments?: CommentOrderByRelationAggregateInput
-    likes?: LikeOrderByRelationAggregateInput
-    orders?: OrderOrderByRelationAggregateInput
     cart?: CartOrderByWithRelationInput
     categories?: CategoryOrderByRelationAggregateInput
+    comments?: CommentOrderByRelationAggregateInput
+    foods?: FoodOrderByRelationAggregateInput
+    likes?: LikeOrderByRelationAggregateInput
+    orders?: OrderOrderByRelationAggregateInput
+    reserve?: ReserveOrderByRelationAggregateInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -13666,13 +13702,13 @@ export namespace Prisma {
     role?: EnumRoleFilter<"User"> | $Enums.Role
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
-    reserve?: ReserveListRelationFilter
-    foods?: FoodListRelationFilter
-    comments?: CommentListRelationFilter
-    likes?: LikeListRelationFilter
-    orders?: OrderListRelationFilter
     cart?: XOR<CartNullableScalarRelationFilter, CartWhereInput> | null
     categories?: CategoryListRelationFilter
+    comments?: CommentListRelationFilter
+    foods?: FoodListRelationFilter
+    likes?: LikeListRelationFilter
+    orders?: OrderListRelationFilter
+    reserve?: ReserveListRelationFilter
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -13713,14 +13749,14 @@ export namespace Prisma {
     img?: StringFilter<"Food"> | string
     rating?: FloatFilter<"Food"> | number
     userId?: StringFilter<"Food"> | string
-    price?: IntFilter<"Food"> | number
     createdAt?: DateTimeFilter<"Food"> | Date | string
     updatedAt?: DateTimeFilter<"Food"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    comments?: CommentListRelationFilter
-    likes?: LikeListRelationFilter
+    price?: IntFilter<"Food"> | number
     cartItems?: CartItemListRelationFilter
+    comments?: CommentListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     categories?: FoodCategoryListRelationFilter
+    likes?: LikeListRelationFilter
   }
 
   export type FoodOrderByWithRelationInput = {
@@ -13730,14 +13766,14 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
-    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
-    comments?: CommentOrderByRelationAggregateInput
-    likes?: LikeOrderByRelationAggregateInput
+    price?: SortOrder
     cartItems?: CartItemOrderByRelationAggregateInput
+    comments?: CommentOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
     categories?: FoodCategoryOrderByRelationAggregateInput
+    likes?: LikeOrderByRelationAggregateInput
   }
 
   export type FoodWhereUniqueInput = Prisma.AtLeast<{
@@ -13750,14 +13786,14 @@ export namespace Prisma {
     img?: StringFilter<"Food"> | string
     rating?: FloatFilter<"Food"> | number
     userId?: StringFilter<"Food"> | string
-    price?: IntFilter<"Food"> | number
     createdAt?: DateTimeFilter<"Food"> | Date | string
     updatedAt?: DateTimeFilter<"Food"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-    comments?: CommentListRelationFilter
-    likes?: LikeListRelationFilter
+    price?: IntFilter<"Food"> | number
     cartItems?: CartItemListRelationFilter
+    comments?: CommentListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     categories?: FoodCategoryListRelationFilter
+    likes?: LikeListRelationFilter
   }, "id" | "title">
 
   export type FoodOrderByWithAggregationInput = {
@@ -13767,9 +13803,9 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
-    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    price?: SortOrder
     _count?: FoodCountOrderByAggregateInput
     _avg?: FoodAvgOrderByAggregateInput
     _max?: FoodMaxOrderByAggregateInput
@@ -13787,9 +13823,9 @@ export namespace Prisma {
     img?: StringWithAggregatesFilter<"Food"> | string
     rating?: FloatWithAggregatesFilter<"Food"> | number
     userId?: StringWithAggregatesFilter<"Food"> | string
-    price?: IntWithAggregatesFilter<"Food"> | number
     createdAt?: DateTimeWithAggregatesFilter<"Food"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Food"> | Date | string
+    price?: IntWithAggregatesFilter<"Food"> | number
   }
 
   export type CategoryWhereInput = {
@@ -13869,8 +13905,8 @@ export namespace Prisma {
     categoryId?: StringFilter<"FoodCategory"> | string
     createdAt?: DateTimeFilter<"FoodCategory"> | Date | string
     updatedAt?: DateTimeFilter<"FoodCategory"> | Date | string
-    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
   }
 
   export type FoodCategoryOrderByWithRelationInput = {
@@ -13879,8 +13915,8 @@ export namespace Prisma {
     categoryId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    food?: FoodOrderByWithRelationInput
     category?: CategoryOrderByWithRelationInput
+    food?: FoodOrderByWithRelationInput
   }
 
   export type FoodCategoryWhereUniqueInput = Prisma.AtLeast<{
@@ -13893,8 +13929,8 @@ export namespace Prisma {
     categoryId?: StringFilter<"FoodCategory"> | string
     createdAt?: DateTimeFilter<"FoodCategory"> | Date | string
     updatedAt?: DateTimeFilter<"FoodCategory"> | Date | string
-    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     category?: XOR<CategoryScalarRelationFilter, CategoryWhereInput>
+    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
   }, "id" | "foodId_categoryId">
 
   export type FoodCategoryOrderByWithAggregationInput = {
@@ -13928,8 +13964,8 @@ export namespace Prisma {
     foodId?: StringFilter<"Like"> | string
     createdAt?: DateTimeFilter<"Like"> | Date | string
     updatedAt?: DateTimeFilter<"Like"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type LikeOrderByWithRelationInput = {
@@ -13938,8 +13974,8 @@ export namespace Prisma {
     foodId?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
     food?: FoodOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type LikeWhereUniqueInput = Prisma.AtLeast<{
@@ -13952,8 +13988,8 @@ export namespace Prisma {
     foodId?: StringFilter<"Like"> | string
     createdAt?: DateTimeFilter<"Like"> | Date | string
     updatedAt?: DateTimeFilter<"Like"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id" | "userId_foodId">
 
   export type LikeOrderByWithAggregationInput = {
@@ -13988,8 +14024,9 @@ export namespace Prisma {
     content?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    verified?: BoolFilter<"Comment"> | boolean
     food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type CommentOrderByWithRelationInput = {
@@ -13999,8 +14036,9 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
+    verified?: SortOrder
     food?: FoodOrderByWithRelationInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type CommentWhereUniqueInput = Prisma.AtLeast<{
@@ -14013,8 +14051,9 @@ export namespace Prisma {
     content?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    verified?: BoolFilter<"Comment"> | boolean
     food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type CommentOrderByWithAggregationInput = {
@@ -14024,6 +14063,7 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    verified?: SortOrder
     _count?: CommentCountOrderByAggregateInput
     _max?: CommentMaxOrderByAggregateInput
     _min?: CommentMinOrderByAggregateInput
@@ -14039,6 +14079,7 @@ export namespace Prisma {
     content?: StringWithAggregatesFilter<"Comment"> | string
     createdAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Comment"> | Date | string
+    verified?: BoolWithAggregatesFilter<"Comment"> | boolean
   }
 
   export type CartWhereInput = {
@@ -14105,8 +14146,8 @@ export namespace Prisma {
     quantity?: IntFilter<"CartItem"> | number
     createdAt?: DateTimeFilter<"CartItem"> | Date | string
     updatedAt?: DateTimeFilter<"CartItem"> | Date | string
-    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     cart?: XOR<CartNullableScalarRelationFilter, CartWhereInput> | null
+    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     order?: XOR<OrderNullableScalarRelationFilter, OrderWhereInput> | null
   }
 
@@ -14118,8 +14159,8 @@ export namespace Prisma {
     quantity?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    food?: FoodOrderByWithRelationInput
     cart?: CartOrderByWithRelationInput
+    food?: FoodOrderByWithRelationInput
     order?: OrderOrderByWithRelationInput
   }
 
@@ -14135,8 +14176,8 @@ export namespace Prisma {
     quantity?: IntFilter<"CartItem"> | number
     createdAt?: DateTimeFilter<"CartItem"> | Date | string
     updatedAt?: DateTimeFilter<"CartItem"> | Date | string
-    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     cart?: XOR<CartNullableScalarRelationFilter, CartWhereInput> | null
+    food?: XOR<FoodScalarRelationFilter, FoodWhereInput>
     order?: XOR<OrderNullableScalarRelationFilter, OrderWhereInput> | null
   }, "id" | "foodId_cartId">
 
@@ -14178,8 +14219,8 @@ export namespace Prisma {
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     cartItems?: CartItemListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }
 
   export type OrderOrderByWithRelationInput = {
@@ -14189,8 +14230,8 @@ export namespace Prisma {
     status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
     cartItems?: CartItemOrderByRelationAggregateInput
+    user?: UserOrderByWithRelationInput
   }
 
   export type OrderWhereUniqueInput = Prisma.AtLeast<{
@@ -14203,8 +14244,8 @@ export namespace Prisma {
     status?: EnumOrderStatusFilter<"Order"> | $Enums.OrderStatus
     createdAt?: DateTimeFilter<"Order"> | Date | string
     updatedAt?: DateTimeFilter<"Order"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
     cartItems?: CartItemListRelationFilter
+    user?: XOR<UserScalarRelationFilter, UserWhereInput>
   }, "id">
 
   export type OrderOrderByWithAggregationInput = {
@@ -14239,14 +14280,14 @@ export namespace Prisma {
     NOT?: ReserveWhereInput | ReserveWhereInput[]
     id?: StringFilter<"Reserve"> | string
     name?: StringFilter<"Reserve"> | string
-    phone?: IntFilter<"Reserve"> | number
+    phone?: StringFilter<"Reserve"> | string
     quantity?: IntFilter<"Reserve"> | number
     date?: StringFilter<"Reserve"> | string
     time?: StringFilter<"Reserve"> | string
     userId?: StringFilter<"Reserve"> | string
     createdAt?: DateTimeFilter<"Reserve"> | Date | string
     updatedAt?: DateTimeFilter<"Reserve"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }
 
   export type ReserveOrderByWithRelationInput = {
@@ -14268,14 +14309,14 @@ export namespace Prisma {
     OR?: ReserveWhereInput[]
     NOT?: ReserveWhereInput | ReserveWhereInput[]
     name?: StringFilter<"Reserve"> | string
-    phone?: IntFilter<"Reserve"> | number
+    phone?: StringFilter<"Reserve"> | string
     quantity?: IntFilter<"Reserve"> | number
     date?: StringFilter<"Reserve"> | string
     time?: StringFilter<"Reserve"> | string
     userId?: StringFilter<"Reserve"> | string
     createdAt?: DateTimeFilter<"Reserve"> | Date | string
     updatedAt?: DateTimeFilter<"Reserve"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+    user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
   }, "id">
 
   export type ReserveOrderByWithAggregationInput = {
@@ -14301,7 +14342,7 @@ export namespace Prisma {
     NOT?: ReserveScalarWhereWithAggregatesInput | ReserveScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Reserve"> | string
     name?: StringWithAggregatesFilter<"Reserve"> | string
-    phone?: IntWithAggregatesFilter<"Reserve"> | number
+    phone?: StringWithAggregatesFilter<"Reserve"> | string
     quantity?: IntWithAggregatesFilter<"Reserve"> | number
     date?: StringWithAggregatesFilter<"Reserve"> | string
     time?: StringWithAggregatesFilter<"Reserve"> | string
@@ -14319,13 +14360,13 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    foods?: FoodCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-    likes?: LikeCreateNestedManyWithoutUserInput
-    orders?: OrderCreateNestedManyWithoutUserInput
     cart?: CartCreateNestedOneWithoutUserInput
     categories?: CategoryCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
+    likes?: LikeCreateNestedManyWithoutUserInput
+    orders?: OrderCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -14337,13 +14378,13 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
-    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
     cart?: CartUncheckedCreateNestedOneWithoutUserInput
     categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -14355,13 +14396,13 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    foods?: FoodUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-    likes?: LikeUpdateManyWithoutUserNestedInput
-    orders?: OrderUpdateManyWithoutUserNestedInput
     cart?: CartUpdateOneWithoutUserNestedInput
     categories?: CategoryUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
+    likes?: LikeUpdateManyWithoutUserNestedInput
+    orders?: OrderUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -14373,13 +14414,13 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
-    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
     cart?: CartUncheckedUpdateOneWithoutUserNestedInput
     categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -14421,14 +14462,14 @@ export namespace Prisma {
     ingredients: JsonNullValueInput | InputJsonValue
     img: string
     rating: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFoodsInput
-    comments?: CommentCreateNestedManyWithoutFoodInput
-    likes?: LikeCreateNestedManyWithoutFoodInput
+    price: number
     cartItems?: CartItemCreateNestedManyWithoutFoodInput
+    comments?: CommentCreateNestedManyWithoutFoodInput
+    user: UserCreateNestedOneWithoutFoodsInput
     categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+    likes?: LikeCreateNestedManyWithoutFoodInput
   }
 
   export type FoodUncheckedCreateInput = {
@@ -14438,13 +14479,13 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
-    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
+    price: number
     cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
+    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
     categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
   }
 
   export type FoodUpdateInput = {
@@ -14453,14 +14494,14 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
-    comments?: CommentUpdateManyWithoutFoodNestedInput
-    likes?: LikeUpdateManyWithoutFoodNestedInput
+    price?: IntFieldUpdateOperationsInput | number
     cartItems?: CartItemUpdateManyWithoutFoodNestedInput
+    comments?: CommentUpdateManyWithoutFoodNestedInput
+    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
     categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+    likes?: LikeUpdateManyWithoutFoodNestedInput
   }
 
   export type FoodUncheckedUpdateInput = {
@@ -14470,13 +14511,13 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
+    price?: IntFieldUpdateOperationsInput | number
     cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
     categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
   }
 
   export type FoodCreateManyInput = {
@@ -14486,9 +14527,9 @@ export namespace Prisma {
     img: string
     rating: number
     userId: string
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
+    price: number
   }
 
   export type FoodUpdateManyMutationInput = {
@@ -14497,9 +14538,9 @@ export namespace Prisma {
     ingredients?: JsonNullValueInput | InputJsonValue
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type FoodUncheckedUpdateManyInput = {
@@ -14509,9 +14550,9 @@ export namespace Prisma {
     img?: StringFieldUpdateOperationsInput | string
     rating?: FloatFieldUpdateOperationsInput | number
     userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type CategoryCreateInput = {
@@ -14591,8 +14632,8 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    food: FoodCreateNestedOneWithoutCategoriesInput
     category: CategoryCreateNestedOneWithoutFoodsInput
+    food: FoodCreateNestedOneWithoutCategoriesInput
   }
 
   export type FoodCategoryUncheckedCreateInput = {
@@ -14607,8 +14648,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    food?: FoodUpdateOneRequiredWithoutCategoriesNestedInput
     category?: CategoryUpdateOneRequiredWithoutFoodsNestedInput
+    food?: FoodUpdateOneRequiredWithoutCategoriesNestedInput
   }
 
   export type FoodCategoryUncheckedUpdateInput = {
@@ -14645,8 +14686,8 @@ export namespace Prisma {
     id?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutLikesInput
     food: FoodCreateNestedOneWithoutLikesInput
+    user: UserCreateNestedOneWithoutLikesInput
   }
 
   export type LikeUncheckedCreateInput = {
@@ -14661,8 +14702,8 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLikesNestedInput
     food?: FoodUpdateOneRequiredWithoutLikesNestedInput
+    user?: UserUpdateOneRequiredWithoutLikesNestedInput
   }
 
   export type LikeUncheckedUpdateInput = {
@@ -14700,8 +14741,9 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentsInput
+    verified?: boolean
     food: FoodCreateNestedOneWithoutCommentsInput
+    user: UserCreateNestedOneWithoutCommentsInput
   }
 
   export type CommentUncheckedCreateInput = {
@@ -14711,6 +14753,7 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    verified?: boolean
   }
 
   export type CommentUpdateInput = {
@@ -14718,8 +14761,9 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
+    verified?: BoolFieldUpdateOperationsInput | boolean
     food?: FoodUpdateOneRequiredWithoutCommentsNestedInput
+    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
   }
 
   export type CommentUncheckedUpdateInput = {
@@ -14729,6 +14773,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CommentCreateManyInput = {
@@ -14738,6 +14783,7 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    verified?: boolean
   }
 
   export type CommentUpdateManyMutationInput = {
@@ -14745,6 +14791,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CommentUncheckedUpdateManyInput = {
@@ -14754,6 +14801,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CartCreateInput = {
@@ -14813,8 +14861,8 @@ export namespace Prisma {
     quantity?: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    food: FoodCreateNestedOneWithoutCartItemsInput
     cart?: CartCreateNestedOneWithoutCartItemsInput
+    food: FoodCreateNestedOneWithoutCartItemsInput
     order?: OrderCreateNestedOneWithoutCartItemsInput
   }
 
@@ -14833,8 +14881,8 @@ export namespace Prisma {
     quantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    food?: FoodUpdateOneRequiredWithoutCartItemsNestedInput
     cart?: CartUpdateOneWithoutCartItemsNestedInput
+    food?: FoodUpdateOneRequiredWithoutCartItemsNestedInput
     order?: OrderUpdateOneWithoutCartItemsNestedInput
   }
 
@@ -14881,8 +14929,8 @@ export namespace Prisma {
     status?: $Enums.OrderStatus
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutOrdersInput
     cartItems?: CartItemCreateNestedManyWithoutOrderInput
+    user: UserCreateNestedOneWithoutOrdersInput
   }
 
   export type OrderUncheckedCreateInput = {
@@ -14901,8 +14949,8 @@ export namespace Prisma {
     status?: EnumOrderStatusFieldUpdateOperationsInput | $Enums.OrderStatus
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutOrdersNestedInput
     cartItems?: CartItemUpdateManyWithoutOrderNestedInput
+    user?: UserUpdateOneRequiredWithoutOrdersNestedInput
   }
 
   export type OrderUncheckedUpdateInput = {
@@ -14944,19 +14992,19 @@ export namespace Prisma {
   export type ReserveCreateInput = {
     id?: string
     name: string
-    phone: number
+    phone: string
     quantity: number
     date: string
     time: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutReserveInput
+    user?: UserCreateNestedOneWithoutReserveInput
   }
 
   export type ReserveUncheckedCreateInput = {
     id?: string
     name: string
-    phone: number
+    phone: string
     quantity: number
     date: string
     time: string
@@ -14968,19 +15016,19 @@ export namespace Prisma {
   export type ReserveUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     date?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutReserveNestedInput
+    user?: UserUpdateOneWithoutReserveNestedInput
   }
 
   export type ReserveUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     date?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
@@ -14992,7 +15040,7 @@ export namespace Prisma {
   export type ReserveCreateManyInput = {
     id?: string
     name: string
-    phone: number
+    phone: string
     quantity: number
     date: string
     time: string
@@ -15004,7 +15052,7 @@ export namespace Prisma {
   export type ReserveUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     date?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
@@ -15015,7 +15063,7 @@ export namespace Prisma {
   export type ReserveUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
+    phone?: StringFieldUpdateOperationsInput | string
     quantity?: IntFieldUpdateOperationsInput | number
     date?: StringFieldUpdateOperationsInput | string
     time?: StringFieldUpdateOperationsInput | string
@@ -15057,22 +15105,27 @@ export namespace Prisma {
     not?: NestedDateTimeFilter<$PrismaModel> | Date | string
   }
 
-  export type ReserveListRelationFilter = {
-    every?: ReserveWhereInput
-    some?: ReserveWhereInput
-    none?: ReserveWhereInput
+  export type CartNullableScalarRelationFilter = {
+    is?: CartWhereInput | null
+    isNot?: CartWhereInput | null
   }
 
-  export type FoodListRelationFilter = {
-    every?: FoodWhereInput
-    some?: FoodWhereInput
-    none?: FoodWhereInput
+  export type CategoryListRelationFilter = {
+    every?: CategoryWhereInput
+    some?: CategoryWhereInput
+    none?: CategoryWhereInput
   }
 
   export type CommentListRelationFilter = {
     every?: CommentWhereInput
     some?: CommentWhereInput
     none?: CommentWhereInput
+  }
+
+  export type FoodListRelationFilter = {
+    every?: FoodWhereInput
+    some?: FoodWhereInput
+    none?: FoodWhereInput
   }
 
   export type LikeListRelationFilter = {
@@ -15087,26 +15140,21 @@ export namespace Prisma {
     none?: OrderWhereInput
   }
 
-  export type CartNullableScalarRelationFilter = {
-    is?: CartWhereInput | null
-    isNot?: CartWhereInput | null
+  export type ReserveListRelationFilter = {
+    every?: ReserveWhereInput
+    some?: ReserveWhereInput
+    none?: ReserveWhereInput
   }
 
-  export type CategoryListRelationFilter = {
-    every?: CategoryWhereInput
-    some?: CategoryWhereInput
-    none?: CategoryWhereInput
-  }
-
-  export type ReserveOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type FoodOrderByRelationAggregateInput = {
+  export type CategoryOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type CommentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type FoodOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15118,7 +15166,7 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
-  export type CategoryOrderByRelationAggregateInput = {
+  export type ReserveOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -15242,15 +15290,15 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
-  }
-
   export type CartItemListRelationFilter = {
     every?: CartItemWhereInput
     some?: CartItemWhereInput
     none?: CartItemWhereInput
+  }
+
+  export type UserScalarRelationFilter = {
+    is?: UserWhereInput
+    isNot?: UserWhereInput
   }
 
   export type FoodCategoryListRelationFilter = {
@@ -15274,9 +15322,9 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
-    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    price?: SortOrder
   }
 
   export type FoodAvgOrderByAggregateInput = {
@@ -15290,9 +15338,9 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
-    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    price?: SortOrder
   }
 
   export type FoodMinOrderByAggregateInput = {
@@ -15301,9 +15349,9 @@ export namespace Prisma {
     img?: SortOrder
     rating?: SortOrder
     userId?: SortOrder
-    price?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    price?: SortOrder
   }
 
   export type FoodSumOrderByAggregateInput = {
@@ -15399,14 +15447,14 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
-  export type FoodScalarRelationFilter = {
-    is?: FoodWhereInput
-    isNot?: FoodWhereInput
-  }
-
   export type CategoryScalarRelationFilter = {
     is?: CategoryWhereInput
     isNot?: CategoryWhereInput
+  }
+
+  export type FoodScalarRelationFilter = {
+    is?: FoodWhereInput
+    isNot?: FoodWhereInput
   }
 
   export type FoodCategoryFoodIdCategoryIdCompoundUniqueInput = {
@@ -15467,6 +15515,11 @@ export namespace Prisma {
     updatedAt?: SortOrder
   }
 
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
   export type CommentCountOrderByAggregateInput = {
     id?: SortOrder
     userId?: SortOrder
@@ -15474,6 +15527,7 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    verified?: SortOrder
   }
 
   export type CommentMaxOrderByAggregateInput = {
@@ -15483,6 +15537,7 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    verified?: SortOrder
   }
 
   export type CommentMinOrderByAggregateInput = {
@@ -15492,6 +15547,15 @@ export namespace Prisma {
     content?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    verified?: SortOrder
+  }
+
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type CartCountOrderByAggregateInput = {
@@ -15653,6 +15717,11 @@ export namespace Prisma {
     _max?: NestedEnumOrderStatusFilter<$PrismaModel>
   }
 
+  export type UserNullableScalarRelationFilter = {
+    is?: UserWhereInput | null
+    isNot?: UserWhereInput | null
+  }
+
   export type ReserveCountOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
@@ -15666,7 +15735,6 @@ export namespace Prisma {
   }
 
   export type ReserveAvgOrderByAggregateInput = {
-    phone?: SortOrder
     quantity?: SortOrder
   }
 
@@ -15695,22 +15763,20 @@ export namespace Prisma {
   }
 
   export type ReserveSumOrderByAggregateInput = {
-    phone?: SortOrder
     quantity?: SortOrder
   }
 
-  export type ReserveCreateNestedManyWithoutUserInput = {
-    create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
-    createMany?: ReserveCreateManyUserInputEnvelope
-    connect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
+  export type CartCreateNestedOneWithoutUserInput = {
+    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
+    connectOrCreate?: CartCreateOrConnectWithoutUserInput
+    connect?: CartWhereUniqueInput
   }
 
-  export type FoodCreateNestedManyWithoutUserInput = {
-    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
-    createMany?: FoodCreateManyUserInputEnvelope
-    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+  export type CategoryCreateNestedManyWithoutUserInput = {
+    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
+    createMany?: CategoryCreateManyUserInputEnvelope
+    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
   }
 
   export type CommentCreateNestedManyWithoutUserInput = {
@@ -15718,6 +15784,13 @@ export namespace Prisma {
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
     createMany?: CommentCreateManyUserInputEnvelope
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type FoodCreateNestedManyWithoutUserInput = {
+    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
+    createMany?: FoodCreateManyUserInputEnvelope
+    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
   }
 
   export type LikeCreateNestedManyWithoutUserInput = {
@@ -15734,31 +15807,24 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
   }
 
-  export type CartCreateNestedOneWithoutUserInput = {
-    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-    connectOrCreate?: CartCreateOrConnectWithoutUserInput
-    connect?: CartWhereUniqueInput
-  }
-
-  export type CategoryCreateNestedManyWithoutUserInput = {
-    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
-    createMany?: CategoryCreateManyUserInputEnvelope
-    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-  }
-
-  export type ReserveUncheckedCreateNestedManyWithoutUserInput = {
+  export type ReserveCreateNestedManyWithoutUserInput = {
     create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
     createMany?: ReserveCreateManyUserInputEnvelope
     connect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
   }
 
-  export type FoodUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
-    createMany?: FoodCreateManyUserInputEnvelope
-    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+  export type CartUncheckedCreateNestedOneWithoutUserInput = {
+    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
+    connectOrCreate?: CartCreateOrConnectWithoutUserInput
+    connect?: CartWhereUniqueInput
+  }
+
+  export type CategoryUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
+    createMany?: CategoryCreateManyUserInputEnvelope
+    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
   }
 
   export type CommentUncheckedCreateNestedManyWithoutUserInput = {
@@ -15766,6 +15832,13 @@ export namespace Prisma {
     connectOrCreate?: CommentCreateOrConnectWithoutUserInput | CommentCreateOrConnectWithoutUserInput[]
     createMany?: CommentCreateManyUserInputEnvelope
     connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type FoodUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
+    createMany?: FoodCreateManyUserInputEnvelope
+    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
   }
 
   export type LikeUncheckedCreateNestedManyWithoutUserInput = {
@@ -15782,17 +15855,11 @@ export namespace Prisma {
     connect?: OrderWhereUniqueInput | OrderWhereUniqueInput[]
   }
 
-  export type CartUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-    connectOrCreate?: CartCreateOrConnectWithoutUserInput
-    connect?: CartWhereUniqueInput
-  }
-
-  export type CategoryUncheckedCreateNestedManyWithoutUserInput = {
-    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
-    createMany?: CategoryCreateManyUserInputEnvelope
-    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+  export type ReserveUncheckedCreateNestedManyWithoutUserInput = {
+    create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
+    createMany?: ReserveCreateManyUserInputEnvelope
+    connect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -15807,32 +15874,28 @@ export namespace Prisma {
     set?: Date | string
   }
 
-  export type ReserveUpdateManyWithoutUserNestedInput = {
-    create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
-    upsert?: ReserveUpsertWithWhereUniqueWithoutUserInput | ReserveUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: ReserveCreateManyUserInputEnvelope
-    set?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
-    disconnect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
-    delete?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
-    connect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
-    update?: ReserveUpdateWithWhereUniqueWithoutUserInput | ReserveUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: ReserveUpdateManyWithWhereWithoutUserInput | ReserveUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
+  export type CartUpdateOneWithoutUserNestedInput = {
+    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
+    connectOrCreate?: CartCreateOrConnectWithoutUserInput
+    upsert?: CartUpsertWithoutUserInput
+    disconnect?: CartWhereInput | boolean
+    delete?: CartWhereInput | boolean
+    connect?: CartWhereUniqueInput
+    update?: XOR<XOR<CartUpdateToOneWithWhereWithoutUserInput, CartUpdateWithoutUserInput>, CartUncheckedUpdateWithoutUserInput>
   }
 
-  export type FoodUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
-    upsert?: FoodUpsertWithWhereUniqueWithoutUserInput | FoodUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FoodCreateManyUserInputEnvelope
-    set?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    disconnect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    delete?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    update?: FoodUpdateWithWhereUniqueWithoutUserInput | FoodUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FoodUpdateManyWithWhereWithoutUserInput | FoodUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FoodScalarWhereInput | FoodScalarWhereInput[]
+  export type CategoryUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
+    upsert?: CategoryUpsertWithWhereUniqueWithoutUserInput | CategoryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CategoryCreateManyUserInputEnvelope
+    set?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    disconnect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    delete?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    update?: CategoryUpdateWithWhereUniqueWithoutUserInput | CategoryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CategoryUpdateManyWithWhereWithoutUserInput | CategoryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
   }
 
   export type CommentUpdateManyWithoutUserNestedInput = {
@@ -15847,6 +15910,20 @@ export namespace Prisma {
     update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type FoodUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
+    upsert?: FoodUpsertWithWhereUniqueWithoutUserInput | FoodUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FoodCreateManyUserInputEnvelope
+    set?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    disconnect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    delete?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    update?: FoodUpdateWithWhereUniqueWithoutUserInput | FoodUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FoodUpdateManyWithWhereWithoutUserInput | FoodUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FoodScalarWhereInput | FoodScalarWhereInput[]
   }
 
   export type LikeUpdateManyWithoutUserNestedInput = {
@@ -15877,31 +15954,7 @@ export namespace Prisma {
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
   }
 
-  export type CartUpdateOneWithoutUserNestedInput = {
-    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-    connectOrCreate?: CartCreateOrConnectWithoutUserInput
-    upsert?: CartUpsertWithoutUserInput
-    disconnect?: CartWhereInput | boolean
-    delete?: CartWhereInput | boolean
-    connect?: CartWhereUniqueInput
-    update?: XOR<XOR<CartUpdateToOneWithWhereWithoutUserInput, CartUpdateWithoutUserInput>, CartUncheckedUpdateWithoutUserInput>
-  }
-
-  export type CategoryUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
-    upsert?: CategoryUpsertWithWhereUniqueWithoutUserInput | CategoryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CategoryCreateManyUserInputEnvelope
-    set?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    disconnect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    delete?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    update?: CategoryUpdateWithWhereUniqueWithoutUserInput | CategoryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CategoryUpdateManyWithWhereWithoutUserInput | CategoryUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
-  }
-
-  export type ReserveUncheckedUpdateManyWithoutUserNestedInput = {
+  export type ReserveUpdateManyWithoutUserNestedInput = {
     create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
     connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
     upsert?: ReserveUpsertWithWhereUniqueWithoutUserInput | ReserveUpsertWithWhereUniqueWithoutUserInput[]
@@ -15915,18 +15968,28 @@ export namespace Prisma {
     deleteMany?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
   }
 
-  export type FoodUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
-    upsert?: FoodUpsertWithWhereUniqueWithoutUserInput | FoodUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: FoodCreateManyUserInputEnvelope
-    set?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    disconnect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    delete?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
-    update?: FoodUpdateWithWhereUniqueWithoutUserInput | FoodUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: FoodUpdateManyWithWhereWithoutUserInput | FoodUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: FoodScalarWhereInput | FoodScalarWhereInput[]
+  export type CartUncheckedUpdateOneWithoutUserNestedInput = {
+    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
+    connectOrCreate?: CartCreateOrConnectWithoutUserInput
+    upsert?: CartUpsertWithoutUserInput
+    disconnect?: CartWhereInput | boolean
+    delete?: CartWhereInput | boolean
+    connect?: CartWhereUniqueInput
+    update?: XOR<XOR<CartUpdateToOneWithWhereWithoutUserInput, CartUpdateWithoutUserInput>, CartUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CategoryUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
+    upsert?: CategoryUpsertWithWhereUniqueWithoutUserInput | CategoryUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: CategoryCreateManyUserInputEnvelope
+    set?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    disconnect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    delete?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
+    update?: CategoryUpdateWithWhereUniqueWithoutUserInput | CategoryUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: CategoryUpdateManyWithWhereWithoutUserInput | CategoryUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
   }
 
   export type CommentUncheckedUpdateManyWithoutUserNestedInput = {
@@ -15941,6 +16004,20 @@ export namespace Prisma {
     update?: CommentUpdateWithWhereUniqueWithoutUserInput | CommentUpdateWithWhereUniqueWithoutUserInput[]
     updateMany?: CommentUpdateManyWithWhereWithoutUserInput | CommentUpdateManyWithWhereWithoutUserInput[]
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
+  export type FoodUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput> | FoodCreateWithoutUserInput[] | FoodUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: FoodCreateOrConnectWithoutUserInput | FoodCreateOrConnectWithoutUserInput[]
+    upsert?: FoodUpsertWithWhereUniqueWithoutUserInput | FoodUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: FoodCreateManyUserInputEnvelope
+    set?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    disconnect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    delete?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    connect?: FoodWhereUniqueInput | FoodWhereUniqueInput[]
+    update?: FoodUpdateWithWhereUniqueWithoutUserInput | FoodUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: FoodUpdateManyWithWhereWithoutUserInput | FoodUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: FoodScalarWhereInput | FoodScalarWhereInput[]
   }
 
   export type LikeUncheckedUpdateManyWithoutUserNestedInput = {
@@ -15971,48 +16048,18 @@ export namespace Prisma {
     deleteMany?: OrderScalarWhereInput | OrderScalarWhereInput[]
   }
 
-  export type CartUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-    connectOrCreate?: CartCreateOrConnectWithoutUserInput
-    upsert?: CartUpsertWithoutUserInput
-    disconnect?: CartWhereInput | boolean
-    delete?: CartWhereInput | boolean
-    connect?: CartWhereUniqueInput
-    update?: XOR<XOR<CartUpdateToOneWithWhereWithoutUserInput, CartUpdateWithoutUserInput>, CartUncheckedUpdateWithoutUserInput>
-  }
-
-  export type CategoryUncheckedUpdateManyWithoutUserNestedInput = {
-    create?: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput> | CategoryCreateWithoutUserInput[] | CategoryUncheckedCreateWithoutUserInput[]
-    connectOrCreate?: CategoryCreateOrConnectWithoutUserInput | CategoryCreateOrConnectWithoutUserInput[]
-    upsert?: CategoryUpsertWithWhereUniqueWithoutUserInput | CategoryUpsertWithWhereUniqueWithoutUserInput[]
-    createMany?: CategoryCreateManyUserInputEnvelope
-    set?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    disconnect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    delete?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    connect?: CategoryWhereUniqueInput | CategoryWhereUniqueInput[]
-    update?: CategoryUpdateWithWhereUniqueWithoutUserInput | CategoryUpdateWithWhereUniqueWithoutUserInput[]
-    updateMany?: CategoryUpdateManyWithWhereWithoutUserInput | CategoryUpdateManyWithWhereWithoutUserInput[]
-    deleteMany?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
-  }
-
-  export type UserCreateNestedOneWithoutFoodsInput = {
-    create?: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFoodsInput
-    connect?: UserWhereUniqueInput
-  }
-
-  export type CommentCreateNestedManyWithoutFoodInput = {
-    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
-    createMany?: CommentCreateManyFoodInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-  }
-
-  export type LikeCreateNestedManyWithoutFoodInput = {
-    create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
-    createMany?: LikeCreateManyFoodInputEnvelope
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+  export type ReserveUncheckedUpdateManyWithoutUserNestedInput = {
+    create?: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput> | ReserveCreateWithoutUserInput[] | ReserveUncheckedCreateWithoutUserInput[]
+    connectOrCreate?: ReserveCreateOrConnectWithoutUserInput | ReserveCreateOrConnectWithoutUserInput[]
+    upsert?: ReserveUpsertWithWhereUniqueWithoutUserInput | ReserveUpsertWithWhereUniqueWithoutUserInput[]
+    createMany?: ReserveCreateManyUserInputEnvelope
+    set?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
+    disconnect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
+    delete?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
+    connect?: ReserveWhereUniqueInput | ReserveWhereUniqueInput[]
+    update?: ReserveUpdateWithWhereUniqueWithoutUserInput | ReserveUpdateWithWhereUniqueWithoutUserInput[]
+    updateMany?: ReserveUpdateManyWithWhereWithoutUserInput | ReserveUpdateManyWithWhereWithoutUserInput[]
+    deleteMany?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
   }
 
   export type CartItemCreateNestedManyWithoutFoodInput = {
@@ -16022,6 +16069,19 @@ export namespace Prisma {
     connect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
   }
 
+  export type CommentCreateNestedManyWithoutFoodInput = {
+    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
+    createMany?: CommentCreateManyFoodInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutFoodsInput = {
+    create?: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFoodsInput
+    connect?: UserWhereUniqueInput
+  }
+
   export type FoodCategoryCreateNestedManyWithoutFoodInput = {
     create?: XOR<FoodCategoryCreateWithoutFoodInput, FoodCategoryUncheckedCreateWithoutFoodInput> | FoodCategoryCreateWithoutFoodInput[] | FoodCategoryUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: FoodCategoryCreateOrConnectWithoutFoodInput | FoodCategoryCreateOrConnectWithoutFoodInput[]
@@ -16029,14 +16089,7 @@ export namespace Prisma {
     connect?: FoodCategoryWhereUniqueInput | FoodCategoryWhereUniqueInput[]
   }
 
-  export type CommentUncheckedCreateNestedManyWithoutFoodInput = {
-    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
-    createMany?: CommentCreateManyFoodInputEnvelope
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-  }
-
-  export type LikeUncheckedCreateNestedManyWithoutFoodInput = {
+  export type LikeCreateNestedManyWithoutFoodInput = {
     create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
     createMany?: LikeCreateManyFoodInputEnvelope
@@ -16050,11 +16103,25 @@ export namespace Prisma {
     connect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
   }
 
+  export type CommentUncheckedCreateNestedManyWithoutFoodInput = {
+    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
+    createMany?: CommentCreateManyFoodInputEnvelope
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+  }
+
   export type FoodCategoryUncheckedCreateNestedManyWithoutFoodInput = {
     create?: XOR<FoodCategoryCreateWithoutFoodInput, FoodCategoryUncheckedCreateWithoutFoodInput> | FoodCategoryCreateWithoutFoodInput[] | FoodCategoryUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: FoodCategoryCreateOrConnectWithoutFoodInput | FoodCategoryCreateOrConnectWithoutFoodInput[]
     createMany?: FoodCategoryCreateManyFoodInputEnvelope
     connect?: FoodCategoryWhereUniqueInput | FoodCategoryWhereUniqueInput[]
+  }
+
+  export type LikeUncheckedCreateNestedManyWithoutFoodInput = {
+    create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
+    createMany?: LikeCreateManyFoodInputEnvelope
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
   }
 
   export type FloatFieldUpdateOperationsInput = {
@@ -16073,12 +16140,18 @@ export namespace Prisma {
     divide?: number
   }
 
-  export type UserUpdateOneRequiredWithoutFoodsNestedInput = {
-    create?: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutFoodsInput
-    upsert?: UserUpsertWithoutFoodsInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFoodsInput, UserUpdateWithoutFoodsInput>, UserUncheckedUpdateWithoutFoodsInput>
+  export type CartItemUpdateManyWithoutFoodNestedInput = {
+    create?: XOR<CartItemCreateWithoutFoodInput, CartItemUncheckedCreateWithoutFoodInput> | CartItemCreateWithoutFoodInput[] | CartItemUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: CartItemCreateOrConnectWithoutFoodInput | CartItemCreateOrConnectWithoutFoodInput[]
+    upsert?: CartItemUpsertWithWhereUniqueWithoutFoodInput | CartItemUpsertWithWhereUniqueWithoutFoodInput[]
+    createMany?: CartItemCreateManyFoodInputEnvelope
+    set?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
+    disconnect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
+    delete?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
+    connect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
+    update?: CartItemUpdateWithWhereUniqueWithoutFoodInput | CartItemUpdateWithWhereUniqueWithoutFoodInput[]
+    updateMany?: CartItemUpdateManyWithWhereWithoutFoodInput | CartItemUpdateManyWithWhereWithoutFoodInput[]
+    deleteMany?: CartItemScalarWhereInput | CartItemScalarWhereInput[]
   }
 
   export type CommentUpdateManyWithoutFoodNestedInput = {
@@ -16095,32 +16168,12 @@ export namespace Prisma {
     deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
   }
 
-  export type LikeUpdateManyWithoutFoodNestedInput = {
-    create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
-    upsert?: LikeUpsertWithWhereUniqueWithoutFoodInput | LikeUpsertWithWhereUniqueWithoutFoodInput[]
-    createMany?: LikeCreateManyFoodInputEnvelope
-    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
-    update?: LikeUpdateWithWhereUniqueWithoutFoodInput | LikeUpdateWithWhereUniqueWithoutFoodInput[]
-    updateMany?: LikeUpdateManyWithWhereWithoutFoodInput | LikeUpdateManyWithWhereWithoutFoodInput[]
-    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
-  }
-
-  export type CartItemUpdateManyWithoutFoodNestedInput = {
-    create?: XOR<CartItemCreateWithoutFoodInput, CartItemUncheckedCreateWithoutFoodInput> | CartItemCreateWithoutFoodInput[] | CartItemUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: CartItemCreateOrConnectWithoutFoodInput | CartItemCreateOrConnectWithoutFoodInput[]
-    upsert?: CartItemUpsertWithWhereUniqueWithoutFoodInput | CartItemUpsertWithWhereUniqueWithoutFoodInput[]
-    createMany?: CartItemCreateManyFoodInputEnvelope
-    set?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
-    disconnect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
-    delete?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
-    connect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
-    update?: CartItemUpdateWithWhereUniqueWithoutFoodInput | CartItemUpdateWithWhereUniqueWithoutFoodInput[]
-    updateMany?: CartItemUpdateManyWithWhereWithoutFoodInput | CartItemUpdateManyWithWhereWithoutFoodInput[]
-    deleteMany?: CartItemScalarWhereInput | CartItemScalarWhereInput[]
+  export type UserUpdateOneRequiredWithoutFoodsNestedInput = {
+    create?: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutFoodsInput
+    upsert?: UserUpsertWithoutFoodsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutFoodsInput, UserUpdateWithoutFoodsInput>, UserUncheckedUpdateWithoutFoodsInput>
   }
 
   export type FoodCategoryUpdateManyWithoutFoodNestedInput = {
@@ -16137,21 +16190,7 @@ export namespace Prisma {
     deleteMany?: FoodCategoryScalarWhereInput | FoodCategoryScalarWhereInput[]
   }
 
-  export type CommentUncheckedUpdateManyWithoutFoodNestedInput = {
-    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
-    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
-    upsert?: CommentUpsertWithWhereUniqueWithoutFoodInput | CommentUpsertWithWhereUniqueWithoutFoodInput[]
-    createMany?: CommentCreateManyFoodInputEnvelope
-    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
-    update?: CommentUpdateWithWhereUniqueWithoutFoodInput | CommentUpdateWithWhereUniqueWithoutFoodInput[]
-    updateMany?: CommentUpdateManyWithWhereWithoutFoodInput | CommentUpdateManyWithWhereWithoutFoodInput[]
-    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
-  }
-
-  export type LikeUncheckedUpdateManyWithoutFoodNestedInput = {
+  export type LikeUpdateManyWithoutFoodNestedInput = {
     create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
     upsert?: LikeUpsertWithWhereUniqueWithoutFoodInput | LikeUpsertWithWhereUniqueWithoutFoodInput[]
@@ -16179,6 +16218,20 @@ export namespace Prisma {
     deleteMany?: CartItemScalarWhereInput | CartItemScalarWhereInput[]
   }
 
+  export type CommentUncheckedUpdateManyWithoutFoodNestedInput = {
+    create?: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput> | CommentCreateWithoutFoodInput[] | CommentUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: CommentCreateOrConnectWithoutFoodInput | CommentCreateOrConnectWithoutFoodInput[]
+    upsert?: CommentUpsertWithWhereUniqueWithoutFoodInput | CommentUpsertWithWhereUniqueWithoutFoodInput[]
+    createMany?: CommentCreateManyFoodInputEnvelope
+    set?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    disconnect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    delete?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    connect?: CommentWhereUniqueInput | CommentWhereUniqueInput[]
+    update?: CommentUpdateWithWhereUniqueWithoutFoodInput | CommentUpdateWithWhereUniqueWithoutFoodInput[]
+    updateMany?: CommentUpdateManyWithWhereWithoutFoodInput | CommentUpdateManyWithWhereWithoutFoodInput[]
+    deleteMany?: CommentScalarWhereInput | CommentScalarWhereInput[]
+  }
+
   export type FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput = {
     create?: XOR<FoodCategoryCreateWithoutFoodInput, FoodCategoryUncheckedCreateWithoutFoodInput> | FoodCategoryCreateWithoutFoodInput[] | FoodCategoryUncheckedCreateWithoutFoodInput[]
     connectOrCreate?: FoodCategoryCreateOrConnectWithoutFoodInput | FoodCategoryCreateOrConnectWithoutFoodInput[]
@@ -16191,6 +16244,20 @@ export namespace Prisma {
     update?: FoodCategoryUpdateWithWhereUniqueWithoutFoodInput | FoodCategoryUpdateWithWhereUniqueWithoutFoodInput[]
     updateMany?: FoodCategoryUpdateManyWithWhereWithoutFoodInput | FoodCategoryUpdateManyWithWhereWithoutFoodInput[]
     deleteMany?: FoodCategoryScalarWhereInput | FoodCategoryScalarWhereInput[]
+  }
+
+  export type LikeUncheckedUpdateManyWithoutFoodNestedInput = {
+    create?: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput> | LikeCreateWithoutFoodInput[] | LikeUncheckedCreateWithoutFoodInput[]
+    connectOrCreate?: LikeCreateOrConnectWithoutFoodInput | LikeCreateOrConnectWithoutFoodInput[]
+    upsert?: LikeUpsertWithWhereUniqueWithoutFoodInput | LikeUpsertWithWhereUniqueWithoutFoodInput[]
+    createMany?: LikeCreateManyFoodInputEnvelope
+    set?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    disconnect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    delete?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    connect?: LikeWhereUniqueInput | LikeWhereUniqueInput[]
+    update?: LikeUpdateWithWhereUniqueWithoutFoodInput | LikeUpdateWithWhereUniqueWithoutFoodInput[]
+    updateMany?: LikeUpdateManyWithWhereWithoutFoodInput | LikeUpdateManyWithWhereWithoutFoodInput[]
+    deleteMany?: LikeScalarWhereInput | LikeScalarWhereInput[]
   }
 
   export type UserCreateNestedOneWithoutCategoriesInput = {
@@ -16249,24 +16316,16 @@ export namespace Prisma {
     deleteMany?: FoodCategoryScalarWhereInput | FoodCategoryScalarWhereInput[]
   }
 
-  export type FoodCreateNestedOneWithoutCategoriesInput = {
-    create?: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
-    connectOrCreate?: FoodCreateOrConnectWithoutCategoriesInput
-    connect?: FoodWhereUniqueInput
-  }
-
   export type CategoryCreateNestedOneWithoutFoodsInput = {
     create?: XOR<CategoryCreateWithoutFoodsInput, CategoryUncheckedCreateWithoutFoodsInput>
     connectOrCreate?: CategoryCreateOrConnectWithoutFoodsInput
     connect?: CategoryWhereUniqueInput
   }
 
-  export type FoodUpdateOneRequiredWithoutCategoriesNestedInput = {
+  export type FoodCreateNestedOneWithoutCategoriesInput = {
     create?: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
     connectOrCreate?: FoodCreateOrConnectWithoutCategoriesInput
-    upsert?: FoodUpsertWithoutCategoriesInput
     connect?: FoodWhereUniqueInput
-    update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutCategoriesInput, FoodUpdateWithoutCategoriesInput>, FoodUncheckedUpdateWithoutCategoriesInput>
   }
 
   export type CategoryUpdateOneRequiredWithoutFoodsNestedInput = {
@@ -16277,10 +16336,12 @@ export namespace Prisma {
     update?: XOR<XOR<CategoryUpdateToOneWithWhereWithoutFoodsInput, CategoryUpdateWithoutFoodsInput>, CategoryUncheckedUpdateWithoutFoodsInput>
   }
 
-  export type UserCreateNestedOneWithoutLikesInput = {
-    create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
-    connectOrCreate?: UserCreateOrConnectWithoutLikesInput
-    connect?: UserWhereUniqueInput
+  export type FoodUpdateOneRequiredWithoutCategoriesNestedInput = {
+    create?: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
+    connectOrCreate?: FoodCreateOrConnectWithoutCategoriesInput
+    upsert?: FoodUpsertWithoutCategoriesInput
+    connect?: FoodWhereUniqueInput
+    update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutCategoriesInput, FoodUpdateWithoutCategoriesInput>, FoodUncheckedUpdateWithoutCategoriesInput>
   }
 
   export type FoodCreateNestedOneWithoutLikesInput = {
@@ -16289,12 +16350,10 @@ export namespace Prisma {
     connect?: FoodWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutLikesNestedInput = {
+  export type UserCreateNestedOneWithoutLikesInput = {
     create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
     connectOrCreate?: UserCreateOrConnectWithoutLikesInput
-    upsert?: UserUpsertWithoutLikesInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesInput, UserUpdateWithoutLikesInput>, UserUncheckedUpdateWithoutLikesInput>
   }
 
   export type FoodUpdateOneRequiredWithoutLikesNestedInput = {
@@ -16305,10 +16364,12 @@ export namespace Prisma {
     update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutLikesInput, FoodUpdateWithoutLikesInput>, FoodUncheckedUpdateWithoutLikesInput>
   }
 
-  export type UserCreateNestedOneWithoutCommentsInput = {
-    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
-    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
+  export type UserUpdateOneRequiredWithoutLikesNestedInput = {
+    create?: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
+    connectOrCreate?: UserCreateOrConnectWithoutLikesInput
+    upsert?: UserUpsertWithoutLikesInput
     connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutLikesInput, UserUpdateWithoutLikesInput>, UserUncheckedUpdateWithoutLikesInput>
   }
 
   export type FoodCreateNestedOneWithoutCommentsInput = {
@@ -16317,12 +16378,14 @@ export namespace Prisma {
     connect?: FoodWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
+  export type UserCreateNestedOneWithoutCommentsInput = {
     create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
     connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
-    upsert?: UserUpsertWithoutCommentsInput
     connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type FoodUpdateOneRequiredWithoutCommentsNestedInput = {
@@ -16331,6 +16394,14 @@ export namespace Prisma {
     upsert?: FoodUpsertWithoutCommentsInput
     connect?: FoodWhereUniqueInput
     update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutCommentsInput, FoodUpdateWithoutCommentsInput>, FoodUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type UserUpdateOneRequiredWithoutCommentsNestedInput = {
+    create?: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
+    connectOrCreate?: UserCreateOrConnectWithoutCommentsInput
+    upsert?: UserUpsertWithoutCommentsInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutCommentsInput, UserUpdateWithoutCommentsInput>, UserUncheckedUpdateWithoutCommentsInput>
   }
 
   export type UserCreateNestedOneWithoutCartInput = {
@@ -16389,30 +16460,22 @@ export namespace Prisma {
     deleteMany?: CartItemScalarWhereInput | CartItemScalarWhereInput[]
   }
 
-  export type FoodCreateNestedOneWithoutCartItemsInput = {
-    create?: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
-    connectOrCreate?: FoodCreateOrConnectWithoutCartItemsInput
-    connect?: FoodWhereUniqueInput
-  }
-
   export type CartCreateNestedOneWithoutCartItemsInput = {
     create?: XOR<CartCreateWithoutCartItemsInput, CartUncheckedCreateWithoutCartItemsInput>
     connectOrCreate?: CartCreateOrConnectWithoutCartItemsInput
     connect?: CartWhereUniqueInput
   }
 
+  export type FoodCreateNestedOneWithoutCartItemsInput = {
+    create?: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
+    connectOrCreate?: FoodCreateOrConnectWithoutCartItemsInput
+    connect?: FoodWhereUniqueInput
+  }
+
   export type OrderCreateNestedOneWithoutCartItemsInput = {
     create?: XOR<OrderCreateWithoutCartItemsInput, OrderUncheckedCreateWithoutCartItemsInput>
     connectOrCreate?: OrderCreateOrConnectWithoutCartItemsInput
     connect?: OrderWhereUniqueInput
-  }
-
-  export type FoodUpdateOneRequiredWithoutCartItemsNestedInput = {
-    create?: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
-    connectOrCreate?: FoodCreateOrConnectWithoutCartItemsInput
-    upsert?: FoodUpsertWithoutCartItemsInput
-    connect?: FoodWhereUniqueInput
-    update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutCartItemsInput, FoodUpdateWithoutCartItemsInput>, FoodUncheckedUpdateWithoutCartItemsInput>
   }
 
   export type CartUpdateOneWithoutCartItemsNestedInput = {
@@ -16423,6 +16486,14 @@ export namespace Prisma {
     delete?: CartWhereInput | boolean
     connect?: CartWhereUniqueInput
     update?: XOR<XOR<CartUpdateToOneWithWhereWithoutCartItemsInput, CartUpdateWithoutCartItemsInput>, CartUncheckedUpdateWithoutCartItemsInput>
+  }
+
+  export type FoodUpdateOneRequiredWithoutCartItemsNestedInput = {
+    create?: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
+    connectOrCreate?: FoodCreateOrConnectWithoutCartItemsInput
+    upsert?: FoodUpsertWithoutCartItemsInput
+    connect?: FoodWhereUniqueInput
+    update?: XOR<XOR<FoodUpdateToOneWithWhereWithoutCartItemsInput, FoodUpdateWithoutCartItemsInput>, FoodUncheckedUpdateWithoutCartItemsInput>
   }
 
   export type OrderUpdateOneWithoutCartItemsNestedInput = {
@@ -16439,17 +16510,17 @@ export namespace Prisma {
     set?: string | null
   }
 
-  export type UserCreateNestedOneWithoutOrdersInput = {
-    create?: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOrdersInput
-    connect?: UserWhereUniqueInput
-  }
-
   export type CartItemCreateNestedManyWithoutOrderInput = {
     create?: XOR<CartItemCreateWithoutOrderInput, CartItemUncheckedCreateWithoutOrderInput> | CartItemCreateWithoutOrderInput[] | CartItemUncheckedCreateWithoutOrderInput[]
     connectOrCreate?: CartItemCreateOrConnectWithoutOrderInput | CartItemCreateOrConnectWithoutOrderInput[]
     createMany?: CartItemCreateManyOrderInputEnvelope
     connect?: CartItemWhereUniqueInput | CartItemWhereUniqueInput[]
+  }
+
+  export type UserCreateNestedOneWithoutOrdersInput = {
+    create?: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOrdersInput
+    connect?: UserWhereUniqueInput
   }
 
   export type CartItemUncheckedCreateNestedManyWithoutOrderInput = {
@@ -16461,14 +16532,6 @@ export namespace Prisma {
 
   export type EnumOrderStatusFieldUpdateOperationsInput = {
     set?: $Enums.OrderStatus
-  }
-
-  export type UserUpdateOneRequiredWithoutOrdersNestedInput = {
-    create?: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
-    connectOrCreate?: UserCreateOrConnectWithoutOrdersInput
-    upsert?: UserUpsertWithoutOrdersInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOrdersInput, UserUpdateWithoutOrdersInput>, UserUncheckedUpdateWithoutOrdersInput>
   }
 
   export type CartItemUpdateManyWithoutOrderNestedInput = {
@@ -16483,6 +16546,14 @@ export namespace Prisma {
     update?: CartItemUpdateWithWhereUniqueWithoutOrderInput | CartItemUpdateWithWhereUniqueWithoutOrderInput[]
     updateMany?: CartItemUpdateManyWithWhereWithoutOrderInput | CartItemUpdateManyWithWhereWithoutOrderInput[]
     deleteMany?: CartItemScalarWhereInput | CartItemScalarWhereInput[]
+  }
+
+  export type UserUpdateOneRequiredWithoutOrdersNestedInput = {
+    create?: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
+    connectOrCreate?: UserCreateOrConnectWithoutOrdersInput
+    upsert?: UserUpsertWithoutOrdersInput
+    connect?: UserWhereUniqueInput
+    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutOrdersInput, UserUpdateWithoutOrdersInput>, UserUncheckedUpdateWithoutOrdersInput>
   }
 
   export type CartItemUncheckedUpdateManyWithoutOrderNestedInput = {
@@ -16505,10 +16576,12 @@ export namespace Prisma {
     connect?: UserWhereUniqueInput
   }
 
-  export type UserUpdateOneRequiredWithoutReserveNestedInput = {
+  export type UserUpdateOneWithoutReserveNestedInput = {
     create?: XOR<UserCreateWithoutReserveInput, UserUncheckedCreateWithoutReserveInput>
     connectOrCreate?: UserCreateOrConnectWithoutReserveInput
     upsert?: UserUpsertWithoutReserveInput
+    disconnect?: UserWhereInput | boolean
+    delete?: UserWhereInput | boolean
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutReserveInput, UserUpdateWithoutReserveInput>, UserUncheckedUpdateWithoutReserveInput>
   }
@@ -16663,6 +16736,19 @@ export namespace Prisma {
     _max?: NestedIntFilter<$PrismaModel>
   }
 
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedStringNullableFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -16722,75 +16808,52 @@ export namespace Prisma {
     _max?: NestedEnumOrderStatusFilter<$PrismaModel>
   }
 
-  export type ReserveCreateWithoutUserInput = {
+  export type CartCreateWithoutUserInput = {
     id?: string
-    name: string
-    phone: number
-    quantity: number
-    date: string
-    time: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    cartItems?: CartItemCreateNestedManyWithoutCartInput
   }
 
-  export type ReserveUncheckedCreateWithoutUserInput = {
+  export type CartUncheckedCreateWithoutUserInput = {
     id?: string
-    name: string
-    phone: number
-    quantity: number
-    date: string
-    time: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    cartItems?: CartItemUncheckedCreateNestedManyWithoutCartInput
   }
 
-  export type ReserveCreateOrConnectWithoutUserInput = {
-    where: ReserveWhereUniqueInput
-    create: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput>
+  export type CartCreateOrConnectWithoutUserInput = {
+    where: CartWhereUniqueInput
+    create: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
   }
 
-  export type ReserveCreateManyUserInputEnvelope = {
-    data: ReserveCreateManyUserInput | ReserveCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type FoodCreateWithoutUserInput = {
+  export type CategoryCreateWithoutUserInput = {
     id?: string
     title: string
-    ingredients: JsonNullValueInput | InputJsonValue
+    englishTitle: string
     img: string
-    rating: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    comments?: CommentCreateNestedManyWithoutFoodInput
-    likes?: LikeCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+    foods?: FoodCategoryCreateNestedManyWithoutCategoryInput
   }
 
-  export type FoodUncheckedCreateWithoutUserInput = {
+  export type CategoryUncheckedCreateWithoutUserInput = {
     id?: string
     title: string
-    ingredients: JsonNullValueInput | InputJsonValue
+    englishTitle: string
     img: string
-    rating: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
-    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+    foods?: FoodCategoryUncheckedCreateNestedManyWithoutCategoryInput
   }
 
-  export type FoodCreateOrConnectWithoutUserInput = {
-    where: FoodWhereUniqueInput
-    create: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput>
+  export type CategoryCreateOrConnectWithoutUserInput = {
+    where: CategoryWhereUniqueInput
+    create: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput>
   }
 
-  export type FoodCreateManyUserInputEnvelope = {
-    data: FoodCreateManyUserInput | FoodCreateManyUserInput[]
+  export type CategoryCreateManyUserInputEnvelope = {
+    data: CategoryCreateManyUserInput | CategoryCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -16799,6 +16862,7 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    verified?: boolean
     food: FoodCreateNestedOneWithoutCommentsInput
   }
 
@@ -16808,6 +16872,7 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    verified?: boolean
   }
 
   export type CommentCreateOrConnectWithoutUserInput = {
@@ -16817,6 +16882,46 @@ export namespace Prisma {
 
   export type CommentCreateManyUserInputEnvelope = {
     data: CommentCreateManyUserInput | CommentCreateManyUserInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type FoodCreateWithoutUserInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemCreateNestedManyWithoutFoodInput
+    comments?: CommentCreateNestedManyWithoutFoodInput
+    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+    likes?: LikeCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodUncheckedCreateWithoutUserInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
+    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
+    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodCreateOrConnectWithoutUserInput = {
+    where: FoodWhereUniqueInput
+    create: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput>
+  }
+
+  export type FoodCreateManyUserInputEnvelope = {
+    data: FoodCreateManyUserInput | FoodCreateManyUserInput[]
     skipDuplicates?: boolean
   }
 
@@ -16872,115 +16977,90 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type CartCreateWithoutUserInput = {
+  export type ReserveCreateWithoutUserInput = {
     id?: string
+    name: string
+    phone: string
+    quantity: number
+    date: string
+    time: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    cartItems?: CartItemCreateNestedManyWithoutCartInput
   }
 
-  export type CartUncheckedCreateWithoutUserInput = {
+  export type ReserveUncheckedCreateWithoutUserInput = {
     id?: string
+    name: string
+    phone: string
+    quantity: number
+    date: string
+    time: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    cartItems?: CartItemUncheckedCreateNestedManyWithoutCartInput
   }
 
-  export type CartCreateOrConnectWithoutUserInput = {
-    where: CartWhereUniqueInput
-    create: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-  }
-
-  export type CategoryCreateWithoutUserInput = {
-    id?: string
-    title: string
-    englishTitle: string
-    img: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    foods?: FoodCategoryCreateNestedManyWithoutCategoryInput
-  }
-
-  export type CategoryUncheckedCreateWithoutUserInput = {
-    id?: string
-    title: string
-    englishTitle: string
-    img: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    foods?: FoodCategoryUncheckedCreateNestedManyWithoutCategoryInput
-  }
-
-  export type CategoryCreateOrConnectWithoutUserInput = {
-    where: CategoryWhereUniqueInput
-    create: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput>
-  }
-
-  export type CategoryCreateManyUserInputEnvelope = {
-    data: CategoryCreateManyUserInput | CategoryCreateManyUserInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ReserveUpsertWithWhereUniqueWithoutUserInput = {
+  export type ReserveCreateOrConnectWithoutUserInput = {
     where: ReserveWhereUniqueInput
-    update: XOR<ReserveUpdateWithoutUserInput, ReserveUncheckedUpdateWithoutUserInput>
     create: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput>
   }
 
-  export type ReserveUpdateWithWhereUniqueWithoutUserInput = {
-    where: ReserveWhereUniqueInput
-    data: XOR<ReserveUpdateWithoutUserInput, ReserveUncheckedUpdateWithoutUserInput>
+  export type ReserveCreateManyUserInputEnvelope = {
+    data: ReserveCreateManyUserInput | ReserveCreateManyUserInput[]
+    skipDuplicates?: boolean
   }
 
-  export type ReserveUpdateManyWithWhereWithoutUserInput = {
-    where: ReserveScalarWhereInput
-    data: XOR<ReserveUpdateManyMutationInput, ReserveUncheckedUpdateManyWithoutUserInput>
+  export type CartUpsertWithoutUserInput = {
+    update: XOR<CartUpdateWithoutUserInput, CartUncheckedUpdateWithoutUserInput>
+    create: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
+    where?: CartWhereInput
   }
 
-  export type ReserveScalarWhereInput = {
-    AND?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
-    OR?: ReserveScalarWhereInput[]
-    NOT?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
-    id?: StringFilter<"Reserve"> | string
-    name?: StringFilter<"Reserve"> | string
-    phone?: IntFilter<"Reserve"> | number
-    quantity?: IntFilter<"Reserve"> | number
-    date?: StringFilter<"Reserve"> | string
-    time?: StringFilter<"Reserve"> | string
-    userId?: StringFilter<"Reserve"> | string
-    createdAt?: DateTimeFilter<"Reserve"> | Date | string
-    updatedAt?: DateTimeFilter<"Reserve"> | Date | string
+  export type CartUpdateToOneWithWhereWithoutUserInput = {
+    where?: CartWhereInput
+    data: XOR<CartUpdateWithoutUserInput, CartUncheckedUpdateWithoutUserInput>
   }
 
-  export type FoodUpsertWithWhereUniqueWithoutUserInput = {
-    where: FoodWhereUniqueInput
-    update: XOR<FoodUpdateWithoutUserInput, FoodUncheckedUpdateWithoutUserInput>
-    create: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput>
+  export type CartUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cartItems?: CartItemUpdateManyWithoutCartNestedInput
   }
 
-  export type FoodUpdateWithWhereUniqueWithoutUserInput = {
-    where: FoodWhereUniqueInput
-    data: XOR<FoodUpdateWithoutUserInput, FoodUncheckedUpdateWithoutUserInput>
+  export type CartUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cartItems?: CartItemUncheckedUpdateManyWithoutCartNestedInput
   }
 
-  export type FoodUpdateManyWithWhereWithoutUserInput = {
-    where: FoodScalarWhereInput
-    data: XOR<FoodUpdateManyMutationInput, FoodUncheckedUpdateManyWithoutUserInput>
+  export type CategoryUpsertWithWhereUniqueWithoutUserInput = {
+    where: CategoryWhereUniqueInput
+    update: XOR<CategoryUpdateWithoutUserInput, CategoryUncheckedUpdateWithoutUserInput>
+    create: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput>
   }
 
-  export type FoodScalarWhereInput = {
-    AND?: FoodScalarWhereInput | FoodScalarWhereInput[]
-    OR?: FoodScalarWhereInput[]
-    NOT?: FoodScalarWhereInput | FoodScalarWhereInput[]
-    id?: StringFilter<"Food"> | string
-    title?: StringFilter<"Food"> | string
-    ingredients?: JsonFilter<"Food">
-    img?: StringFilter<"Food"> | string
-    rating?: FloatFilter<"Food"> | number
-    userId?: StringFilter<"Food"> | string
-    price?: IntFilter<"Food"> | number
-    createdAt?: DateTimeFilter<"Food"> | Date | string
-    updatedAt?: DateTimeFilter<"Food"> | Date | string
+  export type CategoryUpdateWithWhereUniqueWithoutUserInput = {
+    where: CategoryWhereUniqueInput
+    data: XOR<CategoryUpdateWithoutUserInput, CategoryUncheckedUpdateWithoutUserInput>
+  }
+
+  export type CategoryUpdateManyWithWhereWithoutUserInput = {
+    where: CategoryScalarWhereInput
+    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type CategoryScalarWhereInput = {
+    AND?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
+    OR?: CategoryScalarWhereInput[]
+    NOT?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
+    id?: StringFilter<"Category"> | string
+    title?: StringFilter<"Category"> | string
+    englishTitle?: StringFilter<"Category"> | string
+    userId?: StringFilter<"Category"> | string
+    img?: StringFilter<"Category"> | string
+    createdAt?: DateTimeFilter<"Category"> | Date | string
+    updatedAt?: DateTimeFilter<"Category"> | Date | string
   }
 
   export type CommentUpsertWithWhereUniqueWithoutUserInput = {
@@ -17009,6 +17089,38 @@ export namespace Prisma {
     content?: StringFilter<"Comment"> | string
     createdAt?: DateTimeFilter<"Comment"> | Date | string
     updatedAt?: DateTimeFilter<"Comment"> | Date | string
+    verified?: BoolFilter<"Comment"> | boolean
+  }
+
+  export type FoodUpsertWithWhereUniqueWithoutUserInput = {
+    where: FoodWhereUniqueInput
+    update: XOR<FoodUpdateWithoutUserInput, FoodUncheckedUpdateWithoutUserInput>
+    create: XOR<FoodCreateWithoutUserInput, FoodUncheckedCreateWithoutUserInput>
+  }
+
+  export type FoodUpdateWithWhereUniqueWithoutUserInput = {
+    where: FoodWhereUniqueInput
+    data: XOR<FoodUpdateWithoutUserInput, FoodUncheckedUpdateWithoutUserInput>
+  }
+
+  export type FoodUpdateManyWithWhereWithoutUserInput = {
+    where: FoodScalarWhereInput
+    data: XOR<FoodUpdateManyMutationInput, FoodUncheckedUpdateManyWithoutUserInput>
+  }
+
+  export type FoodScalarWhereInput = {
+    AND?: FoodScalarWhereInput | FoodScalarWhereInput[]
+    OR?: FoodScalarWhereInput[]
+    NOT?: FoodScalarWhereInput | FoodScalarWhereInput[]
+    id?: StringFilter<"Food"> | string
+    title?: StringFilter<"Food"> | string
+    ingredients?: JsonFilter<"Food">
+    img?: StringFilter<"Food"> | string
+    rating?: FloatFilter<"Food"> | number
+    userId?: StringFilter<"Food"> | string
+    createdAt?: DateTimeFilter<"Food"> | Date | string
+    updatedAt?: DateTimeFilter<"Food"> | Date | string
+    price?: IntFilter<"Food"> | number
   }
 
   export type LikeUpsertWithWhereUniqueWithoutUserInput = {
@@ -17066,147 +17178,35 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"Order"> | Date | string
   }
 
-  export type CartUpsertWithoutUserInput = {
-    update: XOR<CartUpdateWithoutUserInput, CartUncheckedUpdateWithoutUserInput>
-    create: XOR<CartCreateWithoutUserInput, CartUncheckedCreateWithoutUserInput>
-    where?: CartWhereInput
+  export type ReserveUpsertWithWhereUniqueWithoutUserInput = {
+    where: ReserveWhereUniqueInput
+    update: XOR<ReserveUpdateWithoutUserInput, ReserveUncheckedUpdateWithoutUserInput>
+    create: XOR<ReserveCreateWithoutUserInput, ReserveUncheckedCreateWithoutUserInput>
   }
 
-  export type CartUpdateToOneWithWhereWithoutUserInput = {
-    where?: CartWhereInput
-    data: XOR<CartUpdateWithoutUserInput, CartUncheckedUpdateWithoutUserInput>
+  export type ReserveUpdateWithWhereUniqueWithoutUserInput = {
+    where: ReserveWhereUniqueInput
+    data: XOR<ReserveUpdateWithoutUserInput, ReserveUncheckedUpdateWithoutUserInput>
   }
 
-  export type CartUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cartItems?: CartItemUpdateManyWithoutCartNestedInput
+  export type ReserveUpdateManyWithWhereWithoutUserInput = {
+    where: ReserveScalarWhereInput
+    data: XOR<ReserveUpdateManyMutationInput, ReserveUncheckedUpdateManyWithoutUserInput>
   }
 
-  export type CartUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    cartItems?: CartItemUncheckedUpdateManyWithoutCartNestedInput
-  }
-
-  export type CategoryUpsertWithWhereUniqueWithoutUserInput = {
-    where: CategoryWhereUniqueInput
-    update: XOR<CategoryUpdateWithoutUserInput, CategoryUncheckedUpdateWithoutUserInput>
-    create: XOR<CategoryCreateWithoutUserInput, CategoryUncheckedCreateWithoutUserInput>
-  }
-
-  export type CategoryUpdateWithWhereUniqueWithoutUserInput = {
-    where: CategoryWhereUniqueInput
-    data: XOR<CategoryUpdateWithoutUserInput, CategoryUncheckedUpdateWithoutUserInput>
-  }
-
-  export type CategoryUpdateManyWithWhereWithoutUserInput = {
-    where: CategoryScalarWhereInput
-    data: XOR<CategoryUpdateManyMutationInput, CategoryUncheckedUpdateManyWithoutUserInput>
-  }
-
-  export type CategoryScalarWhereInput = {
-    AND?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
-    OR?: CategoryScalarWhereInput[]
-    NOT?: CategoryScalarWhereInput | CategoryScalarWhereInput[]
-    id?: StringFilter<"Category"> | string
-    title?: StringFilter<"Category"> | string
-    englishTitle?: StringFilter<"Category"> | string
-    userId?: StringFilter<"Category"> | string
-    img?: StringFilter<"Category"> | string
-    createdAt?: DateTimeFilter<"Category"> | Date | string
-    updatedAt?: DateTimeFilter<"Category"> | Date | string
-  }
-
-  export type UserCreateWithoutFoodsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    img: string
-    role?: $Enums.Role
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-    likes?: LikeCreateNestedManyWithoutUserInput
-    orders?: OrderCreateNestedManyWithoutUserInput
-    cart?: CartCreateNestedOneWithoutUserInput
-    categories?: CategoryCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutFoodsInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    img: string
-    role?: $Enums.Role
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
-    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
-    cart?: CartUncheckedCreateNestedOneWithoutUserInput
-    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutFoodsInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
-  }
-
-  export type CommentCreateWithoutFoodInput = {
-    id?: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutCommentsInput
-  }
-
-  export type CommentUncheckedCreateWithoutFoodInput = {
-    id?: string
-    userId: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CommentCreateOrConnectWithoutFoodInput = {
-    where: CommentWhereUniqueInput
-    create: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput>
-  }
-
-  export type CommentCreateManyFoodInputEnvelope = {
-    data: CommentCreateManyFoodInput | CommentCreateManyFoodInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type LikeCreateWithoutFoodInput = {
-    id?: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutLikesInput
-  }
-
-  export type LikeUncheckedCreateWithoutFoodInput = {
-    id?: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type LikeCreateOrConnectWithoutFoodInput = {
-    where: LikeWhereUniqueInput
-    create: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput>
-  }
-
-  export type LikeCreateManyFoodInputEnvelope = {
-    data: LikeCreateManyFoodInput | LikeCreateManyFoodInput[]
-    skipDuplicates?: boolean
+  export type ReserveScalarWhereInput = {
+    AND?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
+    OR?: ReserveScalarWhereInput[]
+    NOT?: ReserveScalarWhereInput | ReserveScalarWhereInput[]
+    id?: StringFilter<"Reserve"> | string
+    name?: StringFilter<"Reserve"> | string
+    phone?: StringFilter<"Reserve"> | string
+    quantity?: IntFilter<"Reserve"> | number
+    date?: StringFilter<"Reserve"> | string
+    time?: StringFilter<"Reserve"> | string
+    userId?: StringFilter<"Reserve"> | string
+    createdAt?: DateTimeFilter<"Reserve"> | Date | string
+    updatedAt?: DateTimeFilter<"Reserve"> | Date | string
   }
 
   export type CartItemCreateWithoutFoodInput = {
@@ -17237,6 +17237,73 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type CommentCreateWithoutFoodInput = {
+    id?: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    verified?: boolean
+    user: UserCreateNestedOneWithoutCommentsInput
+  }
+
+  export type CommentUncheckedCreateWithoutFoodInput = {
+    id?: string
+    userId: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    verified?: boolean
+  }
+
+  export type CommentCreateOrConnectWithoutFoodInput = {
+    where: CommentWhereUniqueInput
+    create: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput>
+  }
+
+  export type CommentCreateManyFoodInputEnvelope = {
+    data: CommentCreateManyFoodInput | CommentCreateManyFoodInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutFoodsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    img: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cart?: CartCreateNestedOneWithoutUserInput
+    categories?: CategoryCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    likes?: LikeCreateNestedManyWithoutUserInput
+    orders?: OrderCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutFoodsInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    img: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cart?: CartUncheckedCreateNestedOneWithoutUserInput
+    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutFoodsInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
+  }
+
   export type FoodCategoryCreateWithoutFoodInput = {
     id?: string
     createdAt?: Date | string
@@ -17261,81 +17328,28 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
-  export type UserUpsertWithoutFoodsInput = {
-    update: XOR<UserUpdateWithoutFoodsInput, UserUncheckedUpdateWithoutFoodsInput>
-    create: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
-    where?: UserWhereInput
+  export type LikeCreateWithoutFoodInput = {
+    id?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user: UserCreateNestedOneWithoutLikesInput
   }
 
-  export type UserUpdateToOneWithWhereWithoutFoodsInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutFoodsInput, UserUncheckedUpdateWithoutFoodsInput>
+  export type LikeUncheckedCreateWithoutFoodInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type UserUpdateWithoutFoodsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-    likes?: LikeUpdateManyWithoutUserNestedInput
-    orders?: OrderUpdateManyWithoutUserNestedInput
-    cart?: CartUpdateOneWithoutUserNestedInput
-    categories?: CategoryUpdateManyWithoutUserNestedInput
-  }
-
-  export type UserUncheckedUpdateWithoutFoodsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
-    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
-    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
-    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type CommentUpsertWithWhereUniqueWithoutFoodInput = {
-    where: CommentWhereUniqueInput
-    update: XOR<CommentUpdateWithoutFoodInput, CommentUncheckedUpdateWithoutFoodInput>
-    create: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput>
-  }
-
-  export type CommentUpdateWithWhereUniqueWithoutFoodInput = {
-    where: CommentWhereUniqueInput
-    data: XOR<CommentUpdateWithoutFoodInput, CommentUncheckedUpdateWithoutFoodInput>
-  }
-
-  export type CommentUpdateManyWithWhereWithoutFoodInput = {
-    where: CommentScalarWhereInput
-    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutFoodInput>
-  }
-
-  export type LikeUpsertWithWhereUniqueWithoutFoodInput = {
+  export type LikeCreateOrConnectWithoutFoodInput = {
     where: LikeWhereUniqueInput
-    update: XOR<LikeUpdateWithoutFoodInput, LikeUncheckedUpdateWithoutFoodInput>
     create: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput>
   }
 
-  export type LikeUpdateWithWhereUniqueWithoutFoodInput = {
-    where: LikeWhereUniqueInput
-    data: XOR<LikeUpdateWithoutFoodInput, LikeUncheckedUpdateWithoutFoodInput>
-  }
-
-  export type LikeUpdateManyWithWhereWithoutFoodInput = {
-    where: LikeScalarWhereInput
-    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutFoodInput>
+  export type LikeCreateManyFoodInputEnvelope = {
+    data: LikeCreateManyFoodInput | LikeCreateManyFoodInput[]
+    skipDuplicates?: boolean
   }
 
   export type CartItemUpsertWithWhereUniqueWithoutFoodInput = {
@@ -17367,6 +17381,67 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"CartItem"> | Date | string
   }
 
+  export type CommentUpsertWithWhereUniqueWithoutFoodInput = {
+    where: CommentWhereUniqueInput
+    update: XOR<CommentUpdateWithoutFoodInput, CommentUncheckedUpdateWithoutFoodInput>
+    create: XOR<CommentCreateWithoutFoodInput, CommentUncheckedCreateWithoutFoodInput>
+  }
+
+  export type CommentUpdateWithWhereUniqueWithoutFoodInput = {
+    where: CommentWhereUniqueInput
+    data: XOR<CommentUpdateWithoutFoodInput, CommentUncheckedUpdateWithoutFoodInput>
+  }
+
+  export type CommentUpdateManyWithWhereWithoutFoodInput = {
+    where: CommentScalarWhereInput
+    data: XOR<CommentUpdateManyMutationInput, CommentUncheckedUpdateManyWithoutFoodInput>
+  }
+
+  export type UserUpsertWithoutFoodsInput = {
+    update: XOR<UserUpdateWithoutFoodsInput, UserUncheckedUpdateWithoutFoodsInput>
+    create: XOR<UserCreateWithoutFoodsInput, UserUncheckedCreateWithoutFoodsInput>
+    where?: UserWhereInput
+  }
+
+  export type UserUpdateToOneWithWhereWithoutFoodsInput = {
+    where?: UserWhereInput
+    data: XOR<UserUpdateWithoutFoodsInput, UserUncheckedUpdateWithoutFoodsInput>
+  }
+
+  export type UserUpdateWithoutFoodsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cart?: CartUpdateOneWithoutUserNestedInput
+    categories?: CategoryUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    likes?: LikeUpdateManyWithoutUserNestedInput
+    orders?: OrderUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
+  }
+
+  export type UserUncheckedUpdateWithoutFoodsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    password?: StringFieldUpdateOperationsInput | string
+    img?: StringFieldUpdateOperationsInput | string
+    role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
+    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
+  }
+
   export type FoodCategoryUpsertWithWhereUniqueWithoutFoodInput = {
     where: FoodCategoryWhereUniqueInput
     update: XOR<FoodCategoryUpdateWithoutFoodInput, FoodCategoryUncheckedUpdateWithoutFoodInput>
@@ -17394,6 +17469,22 @@ export namespace Prisma {
     updatedAt?: DateTimeFilter<"FoodCategory"> | Date | string
   }
 
+  export type LikeUpsertWithWhereUniqueWithoutFoodInput = {
+    where: LikeWhereUniqueInput
+    update: XOR<LikeUpdateWithoutFoodInput, LikeUncheckedUpdateWithoutFoodInput>
+    create: XOR<LikeCreateWithoutFoodInput, LikeUncheckedCreateWithoutFoodInput>
+  }
+
+  export type LikeUpdateWithWhereUniqueWithoutFoodInput = {
+    where: LikeWhereUniqueInput
+    data: XOR<LikeUpdateWithoutFoodInput, LikeUncheckedUpdateWithoutFoodInput>
+  }
+
+  export type LikeUpdateManyWithWhereWithoutFoodInput = {
+    where: LikeScalarWhereInput
+    data: XOR<LikeUpdateManyMutationInput, LikeUncheckedUpdateManyWithoutFoodInput>
+  }
+
   export type UserCreateWithoutCategoriesInput = {
     id?: string
     name: string
@@ -17403,12 +17494,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    foods?: FoodCreateNestedManyWithoutUserInput
+    cart?: CartCreateNestedOneWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
     likes?: LikeCreateNestedManyWithoutUserInput
     orders?: OrderCreateNestedManyWithoutUserInput
-    cart?: CartCreateNestedOneWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCategoriesInput = {
@@ -17420,12 +17511,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    cart?: CartUncheckedCreateNestedOneWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
     orders?: OrderUncheckedCreateNestedManyWithoutUserInput
-    cart?: CartUncheckedCreateNestedOneWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCategoriesInput = {
@@ -17477,12 +17568,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    foods?: FoodUpdateManyWithoutUserNestedInput
+    cart?: CartUpdateOneWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
     orders?: OrderUpdateManyWithoutUserNestedInput
-    cart?: CartUpdateOneWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCategoriesInput = {
@@ -17494,12 +17585,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
     orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
-    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type FoodCategoryUpsertWithWhereUniqueWithoutCategoryInput = {
@@ -17516,41 +17607,6 @@ export namespace Prisma {
   export type FoodCategoryUpdateManyWithWhereWithoutCategoryInput = {
     where: FoodCategoryScalarWhereInput
     data: XOR<FoodCategoryUpdateManyMutationInput, FoodCategoryUncheckedUpdateManyWithoutCategoryInput>
-  }
-
-  export type FoodCreateWithoutCategoriesInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFoodsInput
-    comments?: CommentCreateNestedManyWithoutFoodInput
-    likes?: LikeCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodUncheckedCreateWithoutCategoriesInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    userId: string
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
-    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodCreateOrConnectWithoutCategoriesInput = {
-    where: FoodWhereUniqueInput
-    create: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
   }
 
   export type CategoryCreateWithoutFoodsInput = {
@@ -17578,45 +17634,39 @@ export namespace Prisma {
     create: XOR<CategoryCreateWithoutFoodsInput, CategoryUncheckedCreateWithoutFoodsInput>
   }
 
-  export type FoodUpsertWithoutCategoriesInput = {
-    update: XOR<FoodUpdateWithoutCategoriesInput, FoodUncheckedUpdateWithoutCategoriesInput>
+  export type FoodCreateWithoutCategoriesInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemCreateNestedManyWithoutFoodInput
+    comments?: CommentCreateNestedManyWithoutFoodInput
+    user: UserCreateNestedOneWithoutFoodsInput
+    likes?: LikeCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodUncheckedCreateWithoutCategoriesInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
+    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
+    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodCreateOrConnectWithoutCategoriesInput = {
+    where: FoodWhereUniqueInput
     create: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
-    where?: FoodWhereInput
-  }
-
-  export type FoodUpdateToOneWithWhereWithoutCategoriesInput = {
-    where?: FoodWhereInput
-    data: XOR<FoodUpdateWithoutCategoriesInput, FoodUncheckedUpdateWithoutCategoriesInput>
-  }
-
-  export type FoodUpdateWithoutCategoriesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
-    comments?: CommentUpdateManyWithoutFoodNestedInput
-    likes?: LikeUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
-  }
-
-  export type FoodUncheckedUpdateWithoutCategoriesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
   }
 
   export type CategoryUpsertWithoutFoodsInput = {
@@ -17650,6 +17700,82 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type FoodUpsertWithoutCategoriesInput = {
+    update: XOR<FoodUpdateWithoutCategoriesInput, FoodUncheckedUpdateWithoutCategoriesInput>
+    create: XOR<FoodCreateWithoutCategoriesInput, FoodUncheckedCreateWithoutCategoriesInput>
+    where?: FoodWhereInput
+  }
+
+  export type FoodUpdateToOneWithWhereWithoutCategoriesInput = {
+    where?: FoodWhereInput
+    data: XOR<FoodUpdateWithoutCategoriesInput, FoodUncheckedUpdateWithoutCategoriesInput>
+  }
+
+  export type FoodUpdateWithoutCategoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
+    comments?: CommentUpdateManyWithoutFoodNestedInput
+    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
+    likes?: LikeUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateWithoutCategoriesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodCreateWithoutLikesInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemCreateNestedManyWithoutFoodInput
+    comments?: CommentCreateNestedManyWithoutFoodInput
+    user: UserCreateNestedOneWithoutFoodsInput
+    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodUncheckedCreateWithoutLikesInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
+    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
+    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodCreateOrConnectWithoutLikesInput = {
+    where: FoodWhereUniqueInput
+    create: XOR<FoodCreateWithoutLikesInput, FoodUncheckedCreateWithoutLikesInput>
+  }
+
   export type UserCreateWithoutLikesInput = {
     id?: string
     name: string
@@ -17659,12 +17785,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    foods?: FoodCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-    orders?: OrderCreateNestedManyWithoutUserInput
     cart?: CartCreateNestedOneWithoutUserInput
     categories?: CategoryCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
+    orders?: OrderCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutLikesInput = {
@@ -17676,12 +17802,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
     cart?: CartUncheckedCreateNestedOneWithoutUserInput
     categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutLikesInput = {
@@ -17689,39 +17815,45 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutLikesInput, UserUncheckedCreateWithoutLikesInput>
   }
 
-  export type FoodCreateWithoutLikesInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFoodsInput
-    comments?: CommentCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodUncheckedCreateWithoutLikesInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    userId: string
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodCreateOrConnectWithoutLikesInput = {
-    where: FoodWhereUniqueInput
+  export type FoodUpsertWithoutLikesInput = {
+    update: XOR<FoodUpdateWithoutLikesInput, FoodUncheckedUpdateWithoutLikesInput>
     create: XOR<FoodCreateWithoutLikesInput, FoodUncheckedCreateWithoutLikesInput>
+    where?: FoodWhereInput
+  }
+
+  export type FoodUpdateToOneWithWhereWithoutLikesInput = {
+    where?: FoodWhereInput
+    data: XOR<FoodUpdateWithoutLikesInput, FoodUncheckedUpdateWithoutLikesInput>
+  }
+
+  export type FoodUpdateWithoutLikesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
+    comments?: CommentUpdateManyWithoutFoodNestedInput
+    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
+    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateWithoutLikesInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
+    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
   }
 
   export type UserUpsertWithoutLikesInput = {
@@ -17744,12 +17876,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    foods?: FoodUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-    orders?: OrderUpdateManyWithoutUserNestedInput
     cart?: CartUpdateOneWithoutUserNestedInput
     categories?: CategoryUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
+    orders?: OrderUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutLikesInput = {
@@ -17761,53 +17893,47 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
     cart?: CartUncheckedUpdateOneWithoutUserNestedInput
     categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type FoodUpsertWithoutLikesInput = {
-    update: XOR<FoodUpdateWithoutLikesInput, FoodUncheckedUpdateWithoutLikesInput>
-    create: XOR<FoodCreateWithoutLikesInput, FoodUncheckedCreateWithoutLikesInput>
-    where?: FoodWhereInput
+  export type FoodCreateWithoutCommentsInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemCreateNestedManyWithoutFoodInput
+    user: UserCreateNestedOneWithoutFoodsInput
+    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+    likes?: LikeCreateNestedManyWithoutFoodInput
   }
 
-  export type FoodUpdateToOneWithWhereWithoutLikesInput = {
-    where?: FoodWhereInput
-    data: XOR<FoodUpdateWithoutLikesInput, FoodUncheckedUpdateWithoutLikesInput>
+  export type FoodUncheckedCreateWithoutCommentsInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
+    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
   }
 
-  export type FoodUpdateWithoutLikesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
-    comments?: CommentUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
-  }
-
-  export type FoodUncheckedUpdateWithoutLikesInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+  export type FoodCreateOrConnectWithoutCommentsInput = {
+    where: FoodWhereUniqueInput
+    create: XOR<FoodCreateWithoutCommentsInput, FoodUncheckedCreateWithoutCommentsInput>
   }
 
   export type UserCreateWithoutCommentsInput = {
@@ -17819,12 +17945,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
+    cart?: CartCreateNestedOneWithoutUserInput
+    categories?: CategoryCreateNestedManyWithoutUserInput
     foods?: FoodCreateNestedManyWithoutUserInput
     likes?: LikeCreateNestedManyWithoutUserInput
     orders?: OrderCreateNestedManyWithoutUserInput
-    cart?: CartCreateNestedOneWithoutUserInput
-    categories?: CategoryCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCommentsInput = {
@@ -17836,12 +17962,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
+    cart?: CartUncheckedCreateNestedOneWithoutUserInput
+    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
     foods?: FoodUncheckedCreateNestedManyWithoutUserInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
     orders?: OrderUncheckedCreateNestedManyWithoutUserInput
-    cart?: CartUncheckedCreateNestedOneWithoutUserInput
-    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCommentsInput = {
@@ -17849,39 +17975,45 @@ export namespace Prisma {
     create: XOR<UserCreateWithoutCommentsInput, UserUncheckedCreateWithoutCommentsInput>
   }
 
-  export type FoodCreateWithoutCommentsInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFoodsInput
-    likes?: LikeCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodUncheckedCreateWithoutCommentsInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    userId: string
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
-    cartItems?: CartItemUncheckedCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodCreateOrConnectWithoutCommentsInput = {
-    where: FoodWhereUniqueInput
+  export type FoodUpsertWithoutCommentsInput = {
+    update: XOR<FoodUpdateWithoutCommentsInput, FoodUncheckedUpdateWithoutCommentsInput>
     create: XOR<FoodCreateWithoutCommentsInput, FoodUncheckedCreateWithoutCommentsInput>
+    where?: FoodWhereInput
+  }
+
+  export type FoodUpdateToOneWithWhereWithoutCommentsInput = {
+    where?: FoodWhereInput
+    data: XOR<FoodUpdateWithoutCommentsInput, FoodUncheckedUpdateWithoutCommentsInput>
+  }
+
+  export type FoodUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
+    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
+    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+    likes?: LikeUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateWithoutCommentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
+    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
   }
 
   export type UserUpsertWithoutCommentsInput = {
@@ -17904,12 +18036,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
+    cart?: CartUpdateOneWithoutUserNestedInput
+    categories?: CategoryUpdateManyWithoutUserNestedInput
     foods?: FoodUpdateManyWithoutUserNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
     orders?: OrderUpdateManyWithoutUserNestedInput
-    cart?: CartUpdateOneWithoutUserNestedInput
-    categories?: CategoryUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCommentsInput = {
@@ -17921,53 +18053,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
+    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
+    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
     foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
     orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
-    cart?: CartUncheckedUpdateOneWithoutUserNestedInput
-    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type FoodUpsertWithoutCommentsInput = {
-    update: XOR<FoodUpdateWithoutCommentsInput, FoodUncheckedUpdateWithoutCommentsInput>
-    create: XOR<FoodCreateWithoutCommentsInput, FoodUncheckedCreateWithoutCommentsInput>
-    where?: FoodWhereInput
-  }
-
-  export type FoodUpdateToOneWithWhereWithoutCommentsInput = {
-    where?: FoodWhereInput
-    data: XOR<FoodUpdateWithoutCommentsInput, FoodUncheckedUpdateWithoutCommentsInput>
-  }
-
-  export type FoodUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
-    likes?: LikeUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
-  }
-
-  export type FoodUncheckedUpdateWithoutCommentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutCartInput = {
@@ -17979,12 +18070,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    foods?: FoodCreateNestedManyWithoutUserInput
+    categories?: CategoryCreateNestedManyWithoutUserInput
     comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
     likes?: LikeCreateNestedManyWithoutUserInput
     orders?: OrderCreateNestedManyWithoutUserInput
-    categories?: CategoryCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutCartInput = {
@@ -17996,12 +18087,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
     comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
     likes?: LikeUncheckedCreateNestedManyWithoutUserInput
     orders?: OrderUncheckedCreateNestedManyWithoutUserInput
-    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutCartInput = {
@@ -18057,12 +18148,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    foods?: FoodUpdateManyWithoutUserNestedInput
+    categories?: CategoryUpdateManyWithoutUserNestedInput
     comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
     likes?: LikeUpdateManyWithoutUserNestedInput
     orders?: OrderUpdateManyWithoutUserNestedInput
-    categories?: CategoryUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutCartInput = {
@@ -18074,12 +18165,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
     comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
     likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
     orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
-    categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type CartItemUpsertWithWhereUniqueWithoutCartInput = {
@@ -18096,41 +18187,6 @@ export namespace Prisma {
   export type CartItemUpdateManyWithWhereWithoutCartInput = {
     where: CartItemScalarWhereInput
     data: XOR<CartItemUpdateManyMutationInput, CartItemUncheckedUpdateManyWithoutCartInput>
-  }
-
-  export type FoodCreateWithoutCartItemsInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutFoodsInput
-    comments?: CommentCreateNestedManyWithoutFoodInput
-    likes?: LikeCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodUncheckedCreateWithoutCartItemsInput = {
-    id?: string
-    title: string
-    ingredients: JsonNullValueInput | InputJsonValue
-    img: string
-    rating: number
-    userId: string
-    price: number
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
-    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
-    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
-  }
-
-  export type FoodCreateOrConnectWithoutCartItemsInput = {
-    where: FoodWhereUniqueInput
-    create: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
   }
 
   export type CartCreateWithoutCartItemsInput = {
@@ -18150,6 +18206,41 @@ export namespace Prisma {
   export type CartCreateOrConnectWithoutCartItemsInput = {
     where: CartWhereUniqueInput
     create: XOR<CartCreateWithoutCartItemsInput, CartUncheckedCreateWithoutCartItemsInput>
+  }
+
+  export type FoodCreateWithoutCartItemsInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    comments?: CommentCreateNestedManyWithoutFoodInput
+    user: UserCreateNestedOneWithoutFoodsInput
+    categories?: FoodCategoryCreateNestedManyWithoutFoodInput
+    likes?: LikeCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodUncheckedCreateWithoutCartItemsInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
+    comments?: CommentUncheckedCreateNestedManyWithoutFoodInput
+    categories?: FoodCategoryUncheckedCreateNestedManyWithoutFoodInput
+    likes?: LikeUncheckedCreateNestedManyWithoutFoodInput
+  }
+
+  export type FoodCreateOrConnectWithoutCartItemsInput = {
+    where: FoodWhereUniqueInput
+    create: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
   }
 
   export type OrderCreateWithoutCartItemsInput = {
@@ -18175,47 +18266,6 @@ export namespace Prisma {
     create: XOR<OrderCreateWithoutCartItemsInput, OrderUncheckedCreateWithoutCartItemsInput>
   }
 
-  export type FoodUpsertWithoutCartItemsInput = {
-    update: XOR<FoodUpdateWithoutCartItemsInput, FoodUncheckedUpdateWithoutCartItemsInput>
-    create: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
-    where?: FoodWhereInput
-  }
-
-  export type FoodUpdateToOneWithWhereWithoutCartItemsInput = {
-    where?: FoodWhereInput
-    data: XOR<FoodUpdateWithoutCartItemsInput, FoodUncheckedUpdateWithoutCartItemsInput>
-  }
-
-  export type FoodUpdateWithoutCartItemsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
-    comments?: CommentUpdateManyWithoutFoodNestedInput
-    likes?: LikeUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
-  }
-
-  export type FoodUncheckedUpdateWithoutCartItemsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
-    img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    userId?: StringFieldUpdateOperationsInput | string
-    price?: IntFieldUpdateOperationsInput | number
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
-  }
-
   export type CartUpsertWithoutCartItemsInput = {
     update: XOR<CartUpdateWithoutCartItemsInput, CartUncheckedUpdateWithoutCartItemsInput>
     create: XOR<CartCreateWithoutCartItemsInput, CartUncheckedCreateWithoutCartItemsInput>
@@ -18239,6 +18289,47 @@ export namespace Prisma {
     userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type FoodUpsertWithoutCartItemsInput = {
+    update: XOR<FoodUpdateWithoutCartItemsInput, FoodUncheckedUpdateWithoutCartItemsInput>
+    create: XOR<FoodCreateWithoutCartItemsInput, FoodUncheckedCreateWithoutCartItemsInput>
+    where?: FoodWhereInput
+  }
+
+  export type FoodUpdateToOneWithWhereWithoutCartItemsInput = {
+    where?: FoodWhereInput
+    data: XOR<FoodUpdateWithoutCartItemsInput, FoodUncheckedUpdateWithoutCartItemsInput>
+  }
+
+  export type FoodUpdateWithoutCartItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    comments?: CommentUpdateManyWithoutFoodNestedInput
+    user?: UserUpdateOneRequiredWithoutFoodsNestedInput
+    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+    likes?: LikeUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateWithoutCartItemsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
+    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
   }
 
   export type OrderUpsertWithoutCartItemsInput = {
@@ -18270,52 +18361,13 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type UserCreateWithoutOrdersInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    img: string
-    role?: $Enums.Role
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    reserve?: ReserveCreateNestedManyWithoutUserInput
-    foods?: FoodCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-    likes?: LikeCreateNestedManyWithoutUserInput
-    cart?: CartCreateNestedOneWithoutUserInput
-    categories?: CategoryCreateNestedManyWithoutUserInput
-  }
-
-  export type UserUncheckedCreateWithoutOrdersInput = {
-    id?: string
-    name: string
-    email: string
-    password: string
-    img: string
-    role?: $Enums.Role
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
-    cart?: CartUncheckedCreateNestedOneWithoutUserInput
-    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
-  }
-
-  export type UserCreateOrConnectWithoutOrdersInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
-  }
-
   export type CartItemCreateWithoutOrderInput = {
     id?: string
     quantity?: number
     createdAt?: Date | string
     updatedAt?: Date | string
-    food: FoodCreateNestedOneWithoutCartItemsInput
     cart?: CartCreateNestedOneWithoutCartItemsInput
+    food: FoodCreateNestedOneWithoutCartItemsInput
   }
 
   export type CartItemUncheckedCreateWithoutOrderInput = {
@@ -18335,6 +18387,61 @@ export namespace Prisma {
   export type CartItemCreateManyOrderInputEnvelope = {
     data: CartItemCreateManyOrderInput | CartItemCreateManyOrderInput[]
     skipDuplicates?: boolean
+  }
+
+  export type UserCreateWithoutOrdersInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    img: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cart?: CartCreateNestedOneWithoutUserInput
+    categories?: CategoryCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
+    likes?: LikeCreateNestedManyWithoutUserInput
+    reserve?: ReserveCreateNestedManyWithoutUserInput
+  }
+
+  export type UserUncheckedCreateWithoutOrdersInput = {
+    id?: string
+    name: string
+    email: string
+    password: string
+    img: string
+    role?: $Enums.Role
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    cart?: CartUncheckedCreateNestedOneWithoutUserInput
+    categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
+    reserve?: ReserveUncheckedCreateNestedManyWithoutUserInput
+  }
+
+  export type UserCreateOrConnectWithoutOrdersInput = {
+    where: UserWhereUniqueInput
+    create: XOR<UserCreateWithoutOrdersInput, UserUncheckedCreateWithoutOrdersInput>
+  }
+
+  export type CartItemUpsertWithWhereUniqueWithoutOrderInput = {
+    where: CartItemWhereUniqueInput
+    update: XOR<CartItemUpdateWithoutOrderInput, CartItemUncheckedUpdateWithoutOrderInput>
+    create: XOR<CartItemCreateWithoutOrderInput, CartItemUncheckedCreateWithoutOrderInput>
+  }
+
+  export type CartItemUpdateWithWhereUniqueWithoutOrderInput = {
+    where: CartItemWhereUniqueInput
+    data: XOR<CartItemUpdateWithoutOrderInput, CartItemUncheckedUpdateWithoutOrderInput>
+  }
+
+  export type CartItemUpdateManyWithWhereWithoutOrderInput = {
+    where: CartItemScalarWhereInput
+    data: XOR<CartItemUpdateManyMutationInput, CartItemUncheckedUpdateManyWithoutOrderInput>
   }
 
   export type UserUpsertWithoutOrdersInput = {
@@ -18357,12 +18464,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUpdateManyWithoutUserNestedInput
-    foods?: FoodUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-    likes?: LikeUpdateManyWithoutUserNestedInput
     cart?: CartUpdateOneWithoutUserNestedInput
     categories?: CategoryUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
+    likes?: LikeUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutOrdersInput = {
@@ -18374,28 +18481,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
     cart?: CartUncheckedUpdateOneWithoutUserNestedInput
     categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
-  }
-
-  export type CartItemUpsertWithWhereUniqueWithoutOrderInput = {
-    where: CartItemWhereUniqueInput
-    update: XOR<CartItemUpdateWithoutOrderInput, CartItemUncheckedUpdateWithoutOrderInput>
-    create: XOR<CartItemCreateWithoutOrderInput, CartItemUncheckedCreateWithoutOrderInput>
-  }
-
-  export type CartItemUpdateWithWhereUniqueWithoutOrderInput = {
-    where: CartItemWhereUniqueInput
-    data: XOR<CartItemUpdateWithoutOrderInput, CartItemUncheckedUpdateWithoutOrderInput>
-  }
-
-  export type CartItemUpdateManyWithWhereWithoutOrderInput = {
-    where: CartItemScalarWhereInput
-    data: XOR<CartItemUpdateManyMutationInput, CartItemUncheckedUpdateManyWithoutOrderInput>
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
+    reserve?: ReserveUncheckedUpdateManyWithoutUserNestedInput
   }
 
   export type UserCreateWithoutReserveInput = {
@@ -18407,12 +18498,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    foods?: FoodCreateNestedManyWithoutUserInput
-    comments?: CommentCreateNestedManyWithoutUserInput
-    likes?: LikeCreateNestedManyWithoutUserInput
-    orders?: OrderCreateNestedManyWithoutUserInput
     cart?: CartCreateNestedOneWithoutUserInput
     categories?: CategoryCreateNestedManyWithoutUserInput
+    comments?: CommentCreateNestedManyWithoutUserInput
+    foods?: FoodCreateNestedManyWithoutUserInput
+    likes?: LikeCreateNestedManyWithoutUserInput
+    orders?: OrderCreateNestedManyWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutReserveInput = {
@@ -18424,12 +18515,12 @@ export namespace Prisma {
     role?: $Enums.Role
     createdAt?: Date | string
     updatedAt?: Date | string
-    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
-    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
-    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
-    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
     cart?: CartUncheckedCreateNestedOneWithoutUserInput
     categories?: CategoryUncheckedCreateNestedManyWithoutUserInput
+    comments?: CommentUncheckedCreateNestedManyWithoutUserInput
+    foods?: FoodUncheckedCreateNestedManyWithoutUserInput
+    likes?: LikeUncheckedCreateNestedManyWithoutUserInput
+    orders?: OrderUncheckedCreateNestedManyWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutReserveInput = {
@@ -18457,12 +18548,12 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    foods?: FoodUpdateManyWithoutUserNestedInput
-    comments?: CommentUpdateManyWithoutUserNestedInput
-    likes?: LikeUpdateManyWithoutUserNestedInput
-    orders?: OrderUpdateManyWithoutUserNestedInput
     cart?: CartUpdateOneWithoutUserNestedInput
     categories?: CategoryUpdateManyWithoutUserNestedInput
+    comments?: CommentUpdateManyWithoutUserNestedInput
+    foods?: FoodUpdateManyWithoutUserNestedInput
+    likes?: LikeUpdateManyWithoutUserNestedInput
+    orders?: OrderUpdateManyWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutReserveInput = {
@@ -18474,32 +18565,19 @@ export namespace Prisma {
     role?: EnumRoleFieldUpdateOperationsInput | $Enums.Role
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
-    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
-    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
     cart?: CartUncheckedUpdateOneWithoutUserNestedInput
     categories?: CategoryUncheckedUpdateManyWithoutUserNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutUserNestedInput
+    foods?: FoodUncheckedUpdateManyWithoutUserNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutUserNestedInput
+    orders?: OrderUncheckedUpdateManyWithoutUserNestedInput
   }
 
-  export type ReserveCreateManyUserInput = {
-    id?: string
-    name: string
-    phone: number
-    quantity: number
-    date: string
-    time: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type FoodCreateManyUserInput = {
+  export type CategoryCreateManyUserInput = {
     id?: string
     title: string
-    ingredients: JsonNullValueInput | InputJsonValue
+    englishTitle: string
     img: string
-    rating: number
-    price: number
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -18510,6 +18588,18 @@ export namespace Prisma {
     content: string
     createdAt?: Date | string
     updatedAt?: Date | string
+    verified?: boolean
+  }
+
+  export type FoodCreateManyUserInput = {
+    id?: string
+    title: string
+    ingredients: JsonNullValueInput | InputJsonValue
+    img: string
+    rating: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    price: number
   }
 
   export type LikeCreateManyUserInput = {
@@ -18527,85 +18617,42 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type CategoryCreateManyUserInput = {
+  export type ReserveCreateManyUserInput = {
     id?: string
-    title: string
-    englishTitle: string
-    img: string
+    name: string
+    phone: string
+    quantity: number
+    date: string
+    time: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type ReserveUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
-    date?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReserveUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
-    date?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ReserveUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    phone?: IntFieldUpdateOperationsInput | number
-    quantity?: IntFieldUpdateOperationsInput | number
-    date?: StringFieldUpdateOperationsInput | string
-    time?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type FoodUpdateWithoutUserInput = {
+  export type CategoryUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
+    englishTitle?: StringFieldUpdateOperationsInput | string
     img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUpdateManyWithoutFoodNestedInput
-    likes?: LikeUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+    foods?: FoodCategoryUpdateManyWithoutCategoryNestedInput
   }
 
-  export type FoodUncheckedUpdateWithoutUserInput = {
+  export type CategoryUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
+    englishTitle?: StringFieldUpdateOperationsInput | string
     img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
-    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
-    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
-    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    foods?: FoodCategoryUncheckedUpdateManyWithoutCategoryNestedInput
   }
 
-  export type FoodUncheckedUpdateManyWithoutUserInput = {
+  export type CategoryUncheckedUpdateManyWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    ingredients?: JsonNullValueInput | InputJsonValue
+    englishTitle?: StringFieldUpdateOperationsInput | string
     img?: StringFieldUpdateOperationsInput | string
-    rating?: FloatFieldUpdateOperationsInput | number
-    price?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18615,6 +18662,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
     food?: FoodUpdateOneRequiredWithoutCommentsNestedInput
   }
 
@@ -18624,6 +18672,7 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
   }
 
   export type CommentUncheckedUpdateManyWithoutUserInput = {
@@ -18632,6 +18681,48 @@ export namespace Prisma {
     content?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type FoodUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUpdateManyWithoutFoodNestedInput
+    comments?: CommentUpdateManyWithoutFoodNestedInput
+    categories?: FoodCategoryUpdateManyWithoutFoodNestedInput
+    likes?: LikeUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
+    cartItems?: CartItemUncheckedUpdateManyWithoutFoodNestedInput
+    comments?: CommentUncheckedUpdateManyWithoutFoodNestedInput
+    categories?: FoodCategoryUncheckedUpdateManyWithoutFoodNestedInput
+    likes?: LikeUncheckedUpdateManyWithoutFoodNestedInput
+  }
+
+  export type FoodUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    ingredients?: JsonNullValueInput | InputJsonValue
+    img?: StringFieldUpdateOperationsInput | string
+    rating?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    price?: IntFieldUpdateOperationsInput | number
   }
 
   export type LikeUpdateWithoutUserInput = {
@@ -18681,48 +18772,37 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CategoryUpdateWithoutUserInput = {
+  export type ReserveUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    englishTitle?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    foods?: FoodCategoryUpdateManyWithoutCategoryNestedInput
-  }
-
-  export type CategoryUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    englishTitle?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    foods?: FoodCategoryUncheckedUpdateManyWithoutCategoryNestedInput
-  }
-
-  export type CategoryUncheckedUpdateManyWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    englishTitle?: StringFieldUpdateOperationsInput | string
-    img?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    date?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type CommentCreateManyFoodInput = {
-    id?: string
-    userId: string
-    content: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type ReserveUncheckedUpdateWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    date?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type LikeCreateManyFoodInput = {
-    id?: string
-    userId: string
-    createdAt?: Date | string
-    updatedAt?: Date | string
+  export type ReserveUncheckedUpdateManyWithoutUserInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    phone?: StringFieldUpdateOperationsInput | string
+    quantity?: IntFieldUpdateOperationsInput | number
+    date?: StringFieldUpdateOperationsInput | string
+    time?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type CartItemCreateManyFoodInput = {
@@ -18734,6 +18814,15 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
+  export type CommentCreateManyFoodInput = {
+    id?: string
+    userId: string
+    content: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    verified?: boolean
+  }
+
   export type FoodCategoryCreateManyFoodInput = {
     id?: string
     categoryId: string
@@ -18741,49 +18830,11 @@ export namespace Prisma {
     updatedAt?: Date | string
   }
 
-  export type CommentUpdateWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
-  }
-
-  export type CommentUncheckedUpdateWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CommentUncheckedUpdateManyWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    content?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LikeUpdateWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutLikesNestedInput
-  }
-
-  export type LikeUncheckedUpdateWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type LikeUncheckedUpdateManyWithoutFoodInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    userId?: StringFieldUpdateOperationsInput | string
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  export type LikeCreateManyFoodInput = {
+    id?: string
+    userId: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type CartItemUpdateWithoutFoodInput = {
@@ -18813,6 +18864,33 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
+  export type CommentUpdateWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
+    user?: UserUpdateOneRequiredWithoutCommentsNestedInput
+  }
+
+  export type CommentUncheckedUpdateWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
+  }
+
+  export type CommentUncheckedUpdateManyWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    content?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    verified?: BoolFieldUpdateOperationsInput | boolean
+  }
+
   export type FoodCategoryUpdateWithoutFoodInput = {
     id?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -18830,6 +18908,27 @@ export namespace Prisma {
   export type FoodCategoryUncheckedUpdateManyWithoutFoodInput = {
     id?: StringFieldUpdateOperationsInput | string
     categoryId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUpdateWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneRequiredWithoutLikesNestedInput
+  }
+
+  export type LikeUncheckedUpdateWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type LikeUncheckedUpdateManyWithoutFoodInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    userId?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -18912,8 +19011,8 @@ export namespace Prisma {
     quantity?: IntFieldUpdateOperationsInput | number
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    food?: FoodUpdateOneRequiredWithoutCartItemsNestedInput
     cart?: CartUpdateOneWithoutCartItemsNestedInput
+    food?: FoodUpdateOneRequiredWithoutCartItemsNestedInput
   }
 
   export type CartItemUncheckedUpdateWithoutOrderInput = {

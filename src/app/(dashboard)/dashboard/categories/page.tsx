@@ -1,5 +1,5 @@
-import CategoryTable from "./category-table";
-import AddCategoryModal from "./add-category-modal";
+import CategoryTable from "./_components/category-table";
+import AddCategoryModal from "./_components/add-category-modal";
 
 const Categories = () => {
   return (

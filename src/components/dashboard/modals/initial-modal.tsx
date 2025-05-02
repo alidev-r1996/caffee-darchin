@@ -5,14 +5,10 @@ import {
   Dialog,
   DialogContent,
   DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog";
-import InputText from "../../ui/inputText";
-import UploadFile from "@/components/upload";
-import { useState } from "react";
 
 type modalFormProps = {
   title: string;
@@ -31,10 +27,10 @@ const FormModal = ({ title, label, description,children, open, onClose, buttonTy
       <DialogTrigger asChild>
         <Button variant={buttonType ?? "primary"}>{title} </Button>
       </DialogTrigger>
-      <DialogContent className="sm:max-w-[425px] border shadow">
+      <DialogContent className="w-full max-h-[120vh] md:max-h-[80vh] overflow-y-auto border shadow mt-16 md:mt-10">
         <DialogHeader>
           <DialogTitle className="font-bold text-xl text-center"> {label}</DialogTitle>
-          <DialogDescription>
+          <DialogDescription className="text-center my-4">
             {description}
           </DialogDescription>
         </DialogHeader>

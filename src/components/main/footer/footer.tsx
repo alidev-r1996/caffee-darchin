@@ -4,7 +4,7 @@ import { Instagram, Twitter, Facebook  } from 'lucide-react';
 
 const Footer = () => {
   return (
-    <footer className=" flex flex-col bg-slate-50 mt-10">
+    <footer className=" flex flex-col bg-slate-50 dark:bg-slate-900 mt-10">
       <div className="flex flex-col md:flex-row gap-8 p-4">
       <div className="w-full md:w-1/2 flex flex-col gap-2">
         <h1 className="font-bold text-xl">آدرس ما</h1>
@@ -51,7 +51,7 @@ const Footer = () => {
         </div>
       </div>
       </div>
-      <div className="py-3 text-center bg-slate-800 text-white">
+      <div className="py-3 text-center bg-slate-800 text-white text-xs md:text-sm px-3">
         <p>تمامی حقوق مادی و معنوی این وبسایت متعلق به <strong className="text-rose-600">کافه رستوران دارچین</strong> می‌باشد.</p>
       </div>
     </footer>

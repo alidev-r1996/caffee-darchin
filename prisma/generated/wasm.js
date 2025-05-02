@@ -138,9 +138,9 @@ exports.Prisma.FoodScalarFieldEnum = {
   img: 'img',
   rating: 'rating',
   userId: 'userId',
-  price: 'price',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  price: 'price'
 };
 
 exports.Prisma.CategoryScalarFieldEnum = {
@@ -175,7 +175,8 @@ exports.Prisma.CommentScalarFieldEnum = {
   foodId: 'foodId',
   content: 'content',
   createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
+  updatedAt: 'updatedAt',
+  verified: 'verified'
 };
 
 exports.Prisma.CartScalarFieldEnum = {

@@ -1,10 +1,10 @@
 "use server";
 
-import { prisma } from "../prisma";
+import { prisma } from "../utils/prisma";
 import { getUserId } from "./user-action";
 
 export async function GetCategory() {
-    return await prisma.category.findMany();
+  return await prisma.category.findMany();
 }
 
 export async function RemoveCategory(categoryId: string) {
@@ -14,6 +14,7 @@ export async function RemoveCategory(categoryId: string) {
         id: categoryId,
       },
     });
+
     return { message: "Category deleted successfully" };
   } catch (error) {
     console.log(error);
@@ -21,7 +22,11 @@ export async function RemoveCategory(categoryId: string) {
   }
 }
 
-export async function AddCategory(title: string, englishTitle: string, img:string) {
+export async function AddCategory(
+  title: string,
+  englishTitle: string,
+  img: string
+) {
   const userId = await getUserId();
   try {
     await prisma.category.create({
@@ -39,8 +44,12 @@ export async function AddCategory(title: string, englishTitle: string, img:strin
   }
 }
 
-
-export async function EditCategory(title: string, englishTitle: string, img:string, categoryId: string) {
+export async function EditCategory(
+  title: string,
+  englishTitle: string,
+  img: string,
+  categoryId: string
+) {
   try {
     await prisma.category.update({
       where: {

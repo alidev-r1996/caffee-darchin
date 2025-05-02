@@ -1,10 +1,8 @@
 "use client";
 
-
 import { Button } from "@/components/ui/button";
-import FoodTable from "./food-table";
-import AddFoodModal from "./add-food-modal";
-
+import FoodTable from "./_components/food-table";
+import AddFoodModal from "./_components/add-food-modal";
 
 const Foods = () => {
   return (
@@ -13,7 +11,7 @@ const Foods = () => {
         <h1 className="font-bold text-2xl">غذاها </h1>
         <AddFoodModal />
       </div>
-    <FoodTable />
+      <FoodTable />
     </div>
   );
 };

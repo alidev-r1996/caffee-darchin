@@ -11,9 +11,9 @@ const SocialLogin = () => {
         >
           <button
             type="submit"
-            className="flex gap-2 text-xs md:text-sm whitespace-nowrap items-center mx-auto [&>svg]:text-orange-600 [&>svg]:size-6"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-orange-600 [&>svg]:size-6"
           >
-            <BsGoogle /> Signin With Google
+            <BsGoogle /> ورود با گوگل
           </button>
         </form>
         <form
@@ -23,9 +23,9 @@ const SocialLogin = () => {
         >
           <button
             type="submit"
-            className="flex gap-2 text-xs md:text-sm whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:size-6"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:size-6"
           >
-            <BsGithub /> Signin With GitHub
+            <BsGithub /> ورود با گیت‌هاب
           </button>
         </form>
       </div>

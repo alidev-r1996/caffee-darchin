@@ -1,6 +1,6 @@
 "use server";
 
-import { prisma } from "../prisma";
+import { prisma } from "../utils/prisma";
 import { getUserId } from "./user-action";
 
 export async function GetFood() {

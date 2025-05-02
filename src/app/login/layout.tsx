@@ -1,4 +1,10 @@
+import { Vazirmatn } from "next/font/google";
 import "../globals.css";
+
+const font = Vazirmatn({
+  variable: "--font-vazir",
+  subsets: ["latin"],
+});
 
 export const metadata = {
   title: 'Next.js',
@@ -11,8 +17,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en">
-      <body className="flex flex-col items-center justify-center w-screen h-screen">{children}</body>
+    <html lang="en" dir="rtl">
+      <body className={`${font.className} flex flex-col items-center justify-center max-w-screen max-h-screen`}>{children}</body>
     </html>
   )
 }

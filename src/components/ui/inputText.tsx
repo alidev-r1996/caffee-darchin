@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils";
+import { cn } from "@/lib/utils/utils";
 import { RefObject } from "react";
 
 type InputTextProps = {
@@ -9,7 +9,7 @@ type InputTextProps = {
   value?: string;
   type?: "text" | "email" | "password" | "number";
   className?: string;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>)=>void
+  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
 };
 
 const InputText: React.FC<InputTextProps> = ({
@@ -19,7 +19,7 @@ const InputText: React.FC<InputTextProps> = ({
   value,
   onChange,
   type = "text",
-  className
+  className,
 }) => {
   return (
     <label htmlFor="name" className={cn("w-full", className)}>

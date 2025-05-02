@@ -1,14 +1,21 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { getToken } from 'next-auth/jwt';
 
+
 // This should match the path you want to protect
-const protectedPaths = ['/', '/profile', 'notifications']; // Specify your protected routes here
+const protectedPaths = ['/', '/profile','/dashboard']; // Specify your protected routes here
 
 export async function middleware(req: NextRequest) {
   const session = await getToken({ req, secret: process.env.AUTH_SECRET });
+  const pathname = req.nextUrl.pathname;
+  const url = req.url;
+  const role = session?.role;
 
   // If the user is authenticated and accesses the sign-in page, redirect them
   if (session && req.nextUrl.pathname === '/login') {
+    if (role == "ADMIN"){
+      return NextResponse.redirect(new URL('/dashboard', req.url))
+    }
     return NextResponse.redirect(new URL('/', req.url)); // or any page you want authenticated users to access
   }
 
@@ -23,7 +30,7 @@ export async function middleware(req: NextRequest) {
 
 // Optionally, you can define the paths where your middleware should run
 export const config = {
-  matcher: ['/profile/:path*', '/dashboard/:path*', '/login', '/notifications/:path'], // Specify routes to apply middleware
+  matcher: ['/profile/:path*', '/dashboard/:path*', '/login'], // Specify routes to apply middleware
 };
 
 

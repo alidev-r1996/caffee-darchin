@@ -15,7 +15,7 @@ const About = () => {
   return (
     <div id="about" className="relative w-full h-full md:h-[40vh]">
       {/* Background image */}
-      {/* <div className="absolute inset-0 h-full bg-[url('/images/about.jpg')] bg-no-repeat bg-cover bg-center bg-fixed blur-[1px]  brightness-45"></div> */}
+      <div className="absolute inset-0 h-full about-bg blur-[1px]  brightness-45"></div>
 
       {/* Overlay text */}
       <div className="relative z-10 flex flex-col gap-8 p-4 md:flex-row items-center justify-center h-full">

@@ -119,3 +119,14 @@
     @apply bg-background text-foreground;
   }
 }
+
+
+.about-bg {
+  background-image: url('/images/about.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  background-attachment: fixed;
+}
+
+

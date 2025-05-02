@@ -2,15 +2,16 @@ import InputText from "@/components/ui/inputText";
 import { Button } from "@/components/ui/button";
 import DateInput from "@/components/ui/date-picker";
 import TimeInput from "@/components/ui/time-picker";
+import { AddReserve } from "@/lib/actions/reserver-action";
 
 const Reservation = () => {
   return (
     <div id="reserve" className="flex flex-col gap-4 my-4 w-full p-4">
       <h1 className="font-black text-2xl text-center my-5">رزرو میز </h1>
       <form
-        action={async(formData:FormData)=>{
-            "use server"
-            console.log(formData)
+        action={async(formDate:FormData)=> {
+          "use server"
+          await AddReserve(formDate)
         }}
         className="flex flex-col md:flex-row items-center md:flex-wrap gap-2 w-full p-4 border"
       >

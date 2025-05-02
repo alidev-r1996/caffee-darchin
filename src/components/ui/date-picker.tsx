@@ -11,8 +11,10 @@ type DateInputProps = {
   name: string;
 };
 
-const DateInput: FC<DateInputProps> = ({ label, name }) => {
+const DateInput: FC<DateInputProps> = ({ label, name}) => {
   const [value, setValue] = useState<Value>(new Date());
+  const minDate = new Date().setDate(new Date().getDate() + 1);
+  const maxDate = new Date().setDate(new Date().getDate() + 7);
 
   return (
     <label htmlFor="date" className="w-full md:w-max flex-1">
@@ -20,8 +22,12 @@ const DateInput: FC<DateInputProps> = ({ label, name }) => {
         {label}
       </p>
       <DatePicker
+        minDate={minDate}
+        maxDate={maxDate}
         value={value}
-        onChange={setValue}
+        onChange={(dateObj) => {
+          setValue(dateObj);
+        }}
         id="date"
         name={name}
         calendar={persian}

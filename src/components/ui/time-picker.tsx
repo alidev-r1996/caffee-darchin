@@ -22,7 +22,9 @@ const TimeInput: FC<TimeInputProps> = ({ label, name }) => {
       </p>
       <DatePicker
         value={time}
-        onChange={setTime}
+        onChange={(dateObj) => {
+          setTime(dateObj);
+        }}
         id="time"
         name={name}
         calendar={persian}

@@ -41,7 +41,7 @@ const NavBarMobile = () => {
       className={`${
         scroll
           ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow border-b"
-          : "bg-slate-50"
+          : "bg-slate-50 dark:bg-slate-800/95"
       } flex itesms-center justify-between p-4 md:hidden`}
     >
       <Sheet open={show} onOpenChange={setShow}>
@@ -58,7 +58,7 @@ const NavBarMobile = () => {
           </SheetHeader>
           <ul className="flex flex-col gap-5 p-4">
             {navbarItems.map((item) => (
-              <li onClick={() => setShow(false)} key={item.id} className="p-2 rounded hover:border-r-4 hover:border-r-black hover:bg-slate-100 transition-all duration-300 px-3 hover:shadow">
+              <li onClick={() => setShow(false)} key={item.id} className="p-2 rounded hover:border-r-4 hover:border-r-black hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow">
                 <Link href={item.href}>{item.title}</Link>
               </li>
             ))}
@@ -69,7 +69,7 @@ const NavBarMobile = () => {
         </SheetContent>
       </Sheet>
       <ul className="flex items-center gap-1">
-        <li className="bg-white border p-[6px] rounded transition-all duration-300 hover:bg-slate-100">
+        <li className="bg-white border p-[5px] rounded transition-all duration-300 hover:bg-slate-100 dark:bg-slate-700">
           <Link href="/login">
             <UserRound />
           </Link>
