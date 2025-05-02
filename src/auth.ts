@@ -59,7 +59,19 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     signOut: "/goodbye",
   },
   session: {
-    strategy: "jwt", // ✅ this is faster than "database"
+    strategy: "jwt",
+  },
+  secret: process.env.AUTH_SECRET, // ✅ Add this line if missing
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production",
+      },
+    },
   },
   callbacks: {
     async signIn({ user, account }) {
