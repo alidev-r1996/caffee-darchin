@@ -1,21 +1,19 @@
 import { NextRequest, NextResponse } from 'next/server';
-import { getToken } from 'next-auth/jwt';
-
+// import { getToken } from 'next-auth/jwt';
+import { auth } from "@/auth";
 
 // This should match the path you want to protect
 const protectedPaths = ['/', '/profile','/dashboard']; // Specify your protected routes here
 
 export async function middleware(req: NextRequest) {
-  const session = await getToken({ req, secret: process.env.AUTH_SECRET });
+  // const session = await getToken({ req, secret: process.env.AUTH_SECRET });
+  const session = await auth();
   const pathname = req.nextUrl.pathname;
   const url = req.url;
-  const role = session?.role;
+ 
 
   // If the user is authenticated and accesses the sign-in page, redirect them
   if (session && pathname === '/login') {
-    if (role == "ADMIN"){
-      return NextResponse.redirect(new URL('/dashboard', url))
-    }
     return NextResponse.redirect(new URL('/', url)); // or any page you want authenticated users to access
   }
 
