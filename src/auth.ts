@@ -61,18 +61,18 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   session: {
     strategy: "jwt",
   },
-  secret: process.env.AUTH_SECRET, // ✅ Add this line if missing
-  cookies: {
-    sessionToken: {
-      name: `__Secure-next-auth.session-token`,
-      options: {
-        httpOnly: true,
-        sameSite: "lax",
-        path: "/",
-        secure: process.env.NODE_ENV === "production",
-      },
-    },
-  },
+  secret: process.env.AUTH_SECRET,
+  // cookies: {
+  //   sessionToken: {
+  //     name: `__Secure-next-auth.session-token`,
+  //     options: {
+  //       httpOnly: true,
+  //       sameSite: "lax",
+  //       path: "/",
+  //       secure: process.env.NODE_ENV === "production",
+  //     },
+  //   },
+  // },
   callbacks: {
     async signIn({ user, account }) {
       const { prisma } = await import("@/lib/utils/prisma");
@@ -101,27 +101,27 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       // Redirect to homepage after login
       return "/";
     },
-    async jwt({ token, user }) {
-      const { prisma } = await import("@/lib/utils/prisma");
-      const role = await prisma.user.findUnique({
-        where: {
-          email: token.email as string,
-        },
-        select: {
-          role: true,
-        },
-      });
+    // async jwt({ token, user }) {
+    //   const { prisma } = await import("@/lib/utils/prisma");
+    //   const role = await prisma.user.findUnique({
+    //     where: {
+    //       email: token.email as string,
+    //     },
+    //     select: {
+    //       role: true,
+    //     },
+    //   });
 
-      if (user) {
-        token.role = role?.role;
-      }
-      return token;
-    },
-    async session({ session, token }: { session: Session; token: any }) {
-      if (token) {
-        session.user.role = token.role;
-      }
-      return session;
-    },
+    //   if (user) {
+    //     token.role = role?.role;
+    //   }
+    //   return token;
+    // },
+    // async session({ session, token }: { session: Session; token: any }) {
+    //   if (token) {
+    //     session.user.role = token.role;
+    //   }
+    //   return session;
+    // },
   },
 });
