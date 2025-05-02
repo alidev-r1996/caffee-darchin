@@ -16,12 +16,12 @@ import {
 import { usePathname } from "next/navigation";
 
 const navbarItems = [
-    { id: 1, title: "صفحه اصلی", href: "#/" },
-    { id: 2, title: "درباره ما", href: "#about" },
-    { id: 3, title: "منوی اصلی", href: "#menu" },
-  ];
+  { id: 1, title: "صفحه اصلی", href: "#/" },
+  { id: 2, title: "درباره ما", href: "#about" },
+  { id: 3, title: "منوی اصلی", href: "#menu" },
+];
 
-const NavBarMobile = () => {
+const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
   const [scroll, setScroll] = useState(false);
   const [show, setShow] = useState(false);
   const pathname = usePathname();
@@ -58,7 +58,11 @@ const NavBarMobile = () => {
           </SheetHeader>
           <ul className="flex flex-col gap-5 p-4">
             {navbarItems.map((item) => (
-              <li onClick={() => setShow(false)} key={item.id} className="p-2 rounded hover:border-r-4 hover:border-r-black hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow">
+              <li
+                onClick={() => setShow(false)}
+                key={item.id}
+                className="p-2 rounded hover:border-r-4 hover:border-r-black hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow"
+              >
                 <Link href={item.href}>{item.title}</Link>
               </li>
             ))}
@@ -75,8 +79,15 @@ const NavBarMobile = () => {
           </Link>
         </li>
         <li>
-        <Button className="hover:shadow-blue-500"><Link href='#reserve'>رزرو میز</Link> </Button>
-
+          <Button className="hover:shadow-blue-500">
+          {role == "ADMIN" ? (
+              <Link href={"/dashboard"}>
+                <p>داشبورد مدیریت</p>
+              </Link>
+            ) : (
+              <Link href="#reserve">رزرو میز</Link>
+            )}
+          </Button>
         </li>
       </ul>
     </nav>

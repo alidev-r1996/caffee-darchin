@@ -3,7 +3,7 @@ import {Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import "../globals.css";
 import NavBar from "@/components/main/navbar/navbar";
-import HeroSection from "@/components/main/hero-section";
+import HeroSection from "@/components/main/herosection/hero-section";
 import { ModeToggle } from "@/components/dark-toggle";
 import Footer from "@/components/main/footer/footer";
 

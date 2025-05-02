@@ -16,7 +16,6 @@ export default async function Menu({ params }: { params: string }) {
 
   return (
     <div id="menu" className="flex flex-col gap-4">
-      <h1 className="font-black text-2xl text-center my-5">منوی اصلی</h1>
       <TabMenu category={category} />
       <MenuContent foods={foods} />
     </div>

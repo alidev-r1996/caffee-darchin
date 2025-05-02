@@ -112,3 +112,23 @@ export async function EditUser(
     return { message: "Failed to update user" };
   }
 }
+
+export async function GetUserRole() {
+  const userId = await getUserId();
+  if (!userId) return;
+  const user = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    select: {
+      role: true,
+    },
+  });
+  const role: any = user?.role;
+  if (!role) return null;
+  if (role == "ADMIN") {
+    return "ADMIN";
+  } else {
+    return "USER";
+  }
+}
