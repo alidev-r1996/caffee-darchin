@@ -3,8 +3,38 @@
 import { prisma } from "../utils/prisma";
 import { getUserId } from "./user-action";
 
+export async function GetCategoryPaginate(page: number, limit?: number) {
+  const limitDefault = limit ?? 8;
+  const skip = (page - 1) * limitDefault;
+  let category: any[];
+  let count = 0;
+
+  return await prisma.$transaction(async (tx) => {
+    category = await tx.category.findMany({
+      skip: skip,
+      take: limit,
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+    count = await tx.category.count();
+
+    return {
+      category,
+      meta: {
+        totalCateogry: count,
+        totalPage: Math.ceil(count / limitDefault),
+      },
+    };
+  });
+}
+
 export async function GetCategory() {
-  return await prisma.category.findMany();
+  return await prisma.category.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+  });
 }
 
 export async function RemoveCategory(categoryId: string) {

@@ -16,3 +16,9 @@ export type EditCategoryModalProps = {
   englishTitle: string;
   image: string;
 };
+
+export type pageQueryType = {
+  searchParams: Promise<{
+    page: string;
+  }>;
+};

@@ -19,6 +19,9 @@ export async function GetComments() {
         },
       },
     },
+    orderBy:{
+      createdAt: "desc"
+    }
   });
 }
 

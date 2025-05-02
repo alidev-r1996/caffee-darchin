@@ -17,6 +17,9 @@ export async function GetFood() {
         },
       },
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
 }
 

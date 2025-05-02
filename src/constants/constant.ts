@@ -73,7 +73,7 @@ export const categoryFormFields = [
   },
   {
     id: 2,
-    label: "قیمت",
+    label: "عنوان انگلیسی",
     name: "englishTitle",
     placeholder: "عنوان را به لاتین وارد کنید",
   },

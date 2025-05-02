@@ -27,6 +27,9 @@ export async function GetAllUsers() {
         id: userId,
       },
     },
+    orderBy: {
+      createdAt: "desc",
+    },
   });
   return users;
 }

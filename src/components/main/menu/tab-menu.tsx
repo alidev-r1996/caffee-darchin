@@ -1,5 +1,6 @@
 "use client";
 
+import { AvatarDemo } from "@/components/AvatarUi";
 import Image from "next/image";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
 
@@ -30,9 +31,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
                 : "bg-slate-100 dark:bg-slate-800"
             } flex items-center gap-2 flex-1 md:flex-none justify-between cursor-pointer px-3 py-1  rounded `}
           >
-            <div className="relative size-12">
-                <Image src={item.img} alt="" fill className=""/>
-            </div>
+                <AvatarDemo src={item.img} className="size-12"/>
             <p>{item.title}</p>
           </div>
         );
