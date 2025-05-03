@@ -5,31 +5,34 @@ type PersoneCardProps = {
   img: string;
   name: string;
   role: string;
-  id: number
+  id: number;
 };
 
-const childVariant = {
-    hidden: {
-      y: 200,
-      opacity: 0,
+const personelVariant = {
+  hidden: {
+    opacity: 0,
+    y: 200,
+  },
+  visible: (i: number) => ({
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: i * 0.3,
+      duration: 0.5,
+      ease: "easeOut",
     },
-    visible: {
-      y: 0,
-      opacity: 1,
-      transition: {
-        duration: 0.6,
-      },
-    },
-  };
-  
+  }),
+};
+
 
 const PersonelCard = ({ img, name, role, id }: PersoneCardProps) => {
   return (
     <motion.div
-      variants={childVariant}
+      variants={personelVariant}
       initial="hidden"
       whileInView="visible"
-      viewport={{ once: true }}
+      custom={id}
+      viewport={{once:true}}
       className="relative flex-1 w-full aspect-square group overflow-hidden border-2 border-rose-400 rounded shadow"
     >
       <Image

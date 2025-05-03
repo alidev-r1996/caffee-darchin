@@ -15,7 +15,7 @@ export default async function Menu({ params }: { params: string }) {
   const [category, foods] = await Promise.all([getCategory(), getFoods(params)]);
 
   return (
-    <div id="menu" className="flex flex-col gap-4">
+    <div id="menu" className="flex flex-col gap-4 max-w-full overflow-hidden">
       <TabMenu category={category} />
       <MenuContent foods={foods} />
     </div>

@@ -16,7 +16,7 @@ const TimeInput: FC<TimeInputProps> = ({ label, name }) => {
   const [time, setTime] = useState<Value>(new Date());
 
   return (
-    <label htmlFor="time" className="w-full md:w-max flex-1">
+    <label htmlFor="time" className="w-full flex-1">
       <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
         {label}
       </p>

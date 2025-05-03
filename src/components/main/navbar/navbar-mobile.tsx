@@ -14,12 +14,25 @@ import {
   SheetTrigger,
 } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
+import { motion } from "framer-motion";
+import { ModeToggle } from "@/components/dark-toggle";
 
 const navbarItems = [
   { id: 1, title: "صفحه اصلی", href: "#/" },
   { id: 2, title: "درباره ما", href: "#about" },
   { id: 3, title: "منوی اصلی", href: "#menu" },
 ];
+
+
+const navContainerVariant = {
+  hidden: {},
+  visible: { transition: { staggerChildren: 0.3 } },
+};
+
+const navChildVariant = {
+  hidden: { opacity: 0, y: -10 },
+  visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
+};
 
 const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
   const [scroll, setScroll] = useState(false);
@@ -72,15 +85,26 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
           </SheetFooter>
         </SheetContent>
       </Sheet>
-      <ul className="flex items-center gap-1">
-        <li className="bg-white border p-[5px] rounded transition-all duration-300 hover:bg-slate-100 dark:bg-slate-700">
+      <motion.ul
+        variants={navChildVariant}
+        initial="hidden"
+        whileInView="visible"
+        className="flex items-center gap-2"
+      >
+        <motion.li
+          variants={navChildVariant}
+          className="bg-slate-100 border dark:bg-slate-700/90 p-[5px] rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
+        >
           <Link href="/login">
             <UserRound />
           </Link>
-        </li>
-        <li>
+        </motion.li>
+        <motion.li variants={navChildVariant}>
+          <ModeToggle />
+        </motion.li>
+        <motion.li variants={navChildVariant}>
           <Button className="hover:shadow-blue-500">
-          {role == "ADMIN" ? (
+            {role == "ADMIN" ? (
               <Link href={"/dashboard"}>
                 <p>داشبورد مدیریت</p>
               </Link>
@@ -88,8 +112,8 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
               <Link href="#reserve">رزرو میز</Link>
             )}
           </Button>
-        </li>
-      </ul>
+        </motion.li>
+      </motion.ul>
     </nav>
   );
 };

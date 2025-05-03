@@ -34,7 +34,7 @@ export default function HeroAnimated() {
           variants={headingVarints}
           initial="hidden"
           animate="visible"
-          className="font-black text-center p-1 text-3xl md:text-7xl"
+          className="font-black text-center p-1 text-3xl md:text-7xl text-amber-600 dark:text-amber-400"
         >
           کـــــــــافه دارچـــــــــــین
         </motion.h1>
@@ -43,7 +43,7 @@ export default function HeroAnimated() {
           variants={headingVarints}
           initial="hidden"
           animate="visible"
-          className="text-zinc-400"
+          className="text-zinc-400 text-center text-sm md:text-base"
         >
           {" "}
           فضایی مدرن، صمیمی و جذاب برای یک خاطره فراموش نشدنی

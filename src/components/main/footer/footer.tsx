@@ -27,7 +27,7 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           custom={0}
-          viewport={{ once: true, amount: .8 }}
+          viewport={{ once: true, amount: .6 }}
           className="w-full md:w-1/2 flex flex-col gap-2"
         >
           <h1 className="font-bold text-xl">آدرس ما</h1>

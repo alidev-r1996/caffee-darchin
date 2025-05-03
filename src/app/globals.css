@@ -120,13 +120,39 @@
   }
 }
 
-
 .about-bg {
-  background-image: url('/images/about.jpg');
+  background-image: url("/images/about.jpg");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
 }
 
+.comment-bg {
+  background-image: url("/images/cover.png");
+  background-repeat: repeat;
+  background-size: 200px 200px;
+  -webkit-mask-image:
+    linear-gradient(to right, transparent, black 10%, black 80%, transparent),
+    linear-gradient(to bottom, transparent, black 5%, black 80%, transparent);
+  mask-image:
+    linear-gradient(to right, transparent, black 10%, black 80%, transparent),
+    linear-gradient(to bottom, transparent, black 5%, black 80%, transparent);
+  -webkit-mask-composite: intersect;
+  mask-composite: intersect;
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: 100% 100%;
+  mask-size: 100% 100%;
+}
 
+
+@keyframes scrollX {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.commentAnimation {
+  animation: scrollX 20s linear infinite alternate-reverse;
+  will-change: transform;
+}

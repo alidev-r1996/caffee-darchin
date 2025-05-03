@@ -1,4 +1,5 @@
 import About from "@/components/main/about";
+import Comments from "@/components/main/comments/comments";
 import Menu from "@/components/main/menu/menu";
 import Personel from "@/components/main/personel/personel";
 import Reservation from "@/components/main/reserve/reserver-table";
@@ -17,6 +18,7 @@ export default async function Home(props: Props) {
       <About />
       <Menu params={params}/>
       <Reservation />
+      {/* <Comments /> */}
       <Personel />
     </main>
   );

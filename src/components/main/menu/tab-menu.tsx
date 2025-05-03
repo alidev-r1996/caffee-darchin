@@ -3,6 +3,7 @@
 import { AvatarDemo } from "@/components/AvatarUi";
 import { motion } from "framer-motion";
 import { usePathname, useRouter, useSearchParams } from "next/navigation";
+import { useEffect } from "react";
 
 const headingVariant = {
   hidden: { y: 100, opacity: 0.2 },
@@ -46,6 +47,14 @@ const TabMenu = ({ category }: { category: any[] }) => {
     const url = `${pathname}?${params.toString()}`;
     router.push(url, { scroll: false });
   };
+
+  useEffect(()=>{
+    if(!searchParams.get("category")){
+      params.set("category", "pizza");
+      const url = `${pathname}?${params.toString()}`;
+      router.push(url, { scroll: false });
+    }
+  },[])
 
   return (
     <div className="mt-10">

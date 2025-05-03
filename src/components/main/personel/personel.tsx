@@ -24,17 +24,6 @@ const headingVarints = {
   },
 };
 
-const containerVariant = {
-    hidden: {},
-  visible: {
-    transition: {
-      ease: "easeOut",
-      delay: 0.3,
-      staggerChildren: 0.2,
-      when: "beforeChildren",
-    },
-  },
-};
 
 const Personel = () => {
   return (
@@ -52,8 +41,7 @@ const Personel = () => {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        variants={containerVariant}
-        viewport={{ once: true, amount: "all" }}
+        viewport={{ once: true, amount: 0.5 }}
         className="flex flex-col md:flex-row items-center gap-4 cursor-pointer"
       >
         {personel.map((item) => {
