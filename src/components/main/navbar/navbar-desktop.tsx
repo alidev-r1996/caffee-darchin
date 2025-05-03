@@ -59,8 +59,8 @@ const NavBarDesktop = ({
         ))}
       </motion.ul>
       <motion.h1
-        initial={{ scaleX: 0, opacity: 0, rotateZ: 0 }}
-        whileInView={{ scaleX: 1, opacity: 1, rotateZ: 1080 }}
+        initial={{ scale: 0, opacity: 0, rotateX: 0 }}
+        whileInView={{ scale: 1, opacity: 1, rotateX: 1080 }}
         transition={{ ease: "easeInOut", duration: 1 }}
         className="font-black text-shadow text-2xl"
       >
