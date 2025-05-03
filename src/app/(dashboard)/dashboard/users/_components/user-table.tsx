@@ -5,9 +5,10 @@ import Loading from "@/components/loading";
 import UserRow from "./user-row";
 import { userItems } from "@/constants/constant";
 import { useGetUser } from "../_hook/useUser";
+import Paginate from "@/components/ui/paginate";
 
-const UserTable = () => {
-  const { data, isLoading, isError } = useGetUser();
+const UserTable = ({page}:{page:string}) => {
+  const { data, isLoading, isError } = useGetUser(page);
 
   if (isLoading)
     return (
@@ -16,7 +17,7 @@ const UserTable = () => {
       </div>
     );
   if (isError) return <div>Error</div>;
-  if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
+  if (!data || data?.users.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
   return (
     <div className="w-full overflow-x-auto mt-5">
@@ -34,11 +35,21 @@ const UserTable = () => {
           </TableUi.Row>
         </TableUi.Header>
         <TableUi.Body>
-          {data.map((item: any, index: number) => {
+          {data.users.map((item: any, index: number) => {
             return <UserRow key={index} index={index} item={item} />;
           })}
         </TableUi.Body>
       </TableUi>
+      {data.meta.totalPage > 1 && (
+        <div className="flex items-center justify-center mt-8">
+          <Paginate
+            shape="square"
+            theme="blue"
+            currentPage={page}
+            totalPage={data.meta.totalPage}
+          />
+        </div>
+      )}
     </div>
   );
 };

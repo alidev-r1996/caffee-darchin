@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  GetReservePaginate,
   RemoveReserver,
   getReserveRequests,
 } from "@/lib/actions/reserver-action";
@@ -20,10 +21,10 @@ export function useRemoveRequest(userId: string) {
   return { mutateAsync, isPending };
 }
 
-export function useGetRequest() {
+export function useGetRequest(page:string) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["reserves"],
-    queryFn: async () => await getReserveRequests(),
+    queryKey: ["reserves",page],
+    queryFn: async () => await GetReservePaginate(page),
   });
 
   return { data, isLoading, isError };

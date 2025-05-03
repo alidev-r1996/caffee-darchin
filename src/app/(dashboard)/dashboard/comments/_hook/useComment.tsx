@@ -2,6 +2,7 @@
 
 import {
   ConfirmComment,
+  GetCommentPaginate,
   GetComments,
   RemoveComment,
 } from "@/lib/actions/comment-action";
@@ -55,10 +56,10 @@ export function useConfirmComment({
   return { open, setOpen, mutateAsync, isPending };
 }
 
-export function useGetComment() {
+export function useGetComment(page: string) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["comments"],
-    queryFn: async () => await GetComments(),
+    queryKey: ["comments", page],
+    queryFn: async () => await GetCommentPaginate(page),
   });
 
   return { data, isLoading, isError };

@@ -5,9 +5,10 @@ import FoodRow from "./food-row";
 import Loading from "@/components/loading";
 import { FoodItems } from "@/constants/constant";
 import { useGetFood } from "../_hook/useFood";
+import Paginate from "@/components/ui/paginate";
 
-const FoodTable = () => {
-  const {data,isError,isLoading} = useGetFood();
+const FoodTable = ({ page }: { page: string }) => {
+  const { data, isError, isLoading } = useGetFood(page);
 
   if (isLoading)
     return (
@@ -16,7 +17,7 @@ const FoodTable = () => {
       </div>
     );
   if (isError) return <div>Error</div>;
-  if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
+  if (!data || data.food?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
   return (
     <div className="w-full overflow-x-auto mt-5">
@@ -34,11 +35,21 @@ const FoodTable = () => {
           </TableUi.Row>
         </TableUi.Header>
         <TableUi.Body>
-          {data.map((item: any, index: number) => {
+          {data.food.map((item: any, index: number) => {
             return <FoodRow key={index} index={index} item={item} />;
           })}
         </TableUi.Body>
       </TableUi>
+      {data.meta.totalPage > 1 && (
+        <div className="flex items-center justify-center mt-8">
+          <Paginate
+            shape="square"
+            theme="blue"
+            currentPage={page}
+            totalPage={data.meta.totalPage}
+          />
+        </div>
+      )}
     </div>
   );
 };

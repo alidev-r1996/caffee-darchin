@@ -120,3 +120,37 @@ export async function EditFood(
     return { message: "Failed to edit food" };
   }
 }
+
+export async function GetFoodPaginate(page: string, limit?: number) {
+  const limitDefault = limit ?? 8;
+  const skip = (Number(page) - 1) * limitDefault;
+
+  return await prisma.$transaction(async (tx) => {
+    const food = await tx.food.findMany({
+      skip,
+      take: limitDefault,
+      include: {
+        categories: {
+          select: {
+            category: {
+              select: { id: true, title: true },
+            },
+          },
+        },
+      },
+      orderBy: { createdAt: "desc" },
+    });
+
+    const count = await tx.food.count();
+
+    return {
+      food,
+      meta: {
+        totalCategory: count,
+        totalPage: Math.ceil(count / limitDefault),
+        currentPage: Number(page),
+      },
+    };
+  });
+}
+

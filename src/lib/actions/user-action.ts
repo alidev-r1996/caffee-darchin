@@ -132,3 +132,35 @@ export async function GetUserRole() {
     return "USER";
   }
 }
+
+export async function GetUserPaginate(page: string, limit?: number) {
+  const userId = await getUserId();
+  const limitDefault = limit ?? 8;
+  const skip = (Number(page) - 1) * limitDefault;
+
+  return await prisma.$transaction(async (tx) => {
+    const users = await tx.user.findMany({
+      skip,
+      take: limitDefault,
+      where: {
+        NOT: {
+          id: userId,
+        },
+      },
+      orderBy: {
+        createdAt: "desc",
+      },
+    });
+
+    const count = await tx.user.count();
+
+    return {
+      users,
+      meta: {
+        totalCategory: count,
+        totalPage: Math.ceil(count / limitDefault),
+        currentPage: Number(page),
+      },
+    };
+  });
+}

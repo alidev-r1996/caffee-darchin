@@ -68,3 +68,44 @@ export async function ConfirmComment(
     return { message: "Something went wrong" };
   }
 }
+
+export async function GetCommentPaginate(page: string, limit?: number) {
+  const limitDefault = limit ?? 8;
+  const skip = (Number(page) - 1) * limitDefault;
+
+  return await prisma.$transaction(async (tx) => {
+    const comments = await tx.comment.findMany({
+      skip,
+      take: limitDefault,
+      include: {
+        user: {
+          select: {
+            name: true,
+            email: true,
+            id: true,
+          },
+        },
+        food: {
+          select: {
+            title: true,
+            id: true,
+          },
+        },
+      },
+      orderBy:{
+        createdAt: "desc"
+      }
+    });
+
+    const count = await tx.comment.count();
+
+    return {
+      comments,
+      meta: {
+        totalCategory: count,
+        totalPage: Math.ceil(count / limitDefault),
+        currentPage: Number(page),
+      },
+    };
+  });
+}

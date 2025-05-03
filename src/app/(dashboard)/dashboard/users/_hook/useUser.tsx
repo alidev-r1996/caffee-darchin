@@ -4,6 +4,7 @@ import {
   AddUser,
   EditUser,
   GetAllUsers,
+  GetUserPaginate,
   RemoveUser,
 } from "@/lib/actions/user-action";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
@@ -121,10 +122,10 @@ export function useEditUser({
   };
 }
 
-export function useGetUser() {
+export function useGetUser(page:string) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["users"],
-    queryFn: async () => await GetAllUsers(),
+    queryKey: ["users",page],
+    queryFn: async () => await GetUserPaginate(page),
   });
 
   return { data, isLoading, isError };

@@ -17,8 +17,11 @@ export type EditCategoryModalProps = {
   image: string;
 };
 
-export type pageQueryType = {
-  searchParams: Promise<{
-    page: string;
+export type DashboardPagePropsType = {
+  params?: Promise<{
+    slug: string;
+  }>
+  searchParams?: Promise<{
+    page: string
   }>;
 };

@@ -6,10 +6,11 @@ import CategoryRow from "./category-row";
 import Loading from "@/components/loading";
 import { categoryItems } from "@/constants/constant";
 import { useGetCategory } from "../_hook/useCategory";
+import Paginate from "@/components/ui/paginate";
 
 
-const CategoryTable = () => {
-  const { data, isLoading, isError } = useGetCategory();
+const CategoryTable = ({page}: {page:string}) => {
+  const { data, isLoading, isError } = useGetCategory(page);
 
   if (isLoading)
     return (
@@ -18,7 +19,7 @@ const CategoryTable = () => {
       </div>
     );
   if (isError) return <div>Error</div>;
-  if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
+  if (!data || data?.category.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
   return (
     <div className="w-full overflow-x-auto mt-5">
@@ -36,11 +37,21 @@ const CategoryTable = () => {
           </TableUi.Row>
         </TableUi.Header>
         <TableUi.Body>
-          {data.map((item: any, index: number) => {
+          {data.category.map((item: any, index: number) => {
             return <CategoryRow key={index} index={index} item={item} />;
           })}
         </TableUi.Body>
       </TableUi>
+      {data.meta.totalPage > 1 && (
+        <div className="flex items-center justify-center mt-8">
+          <Paginate
+            shape="square"
+            theme="blue"
+            currentPage={page}
+            totalPage={data.meta.totalPage}
+          />
+        </div>
+      )}
     </div>
   );
 };

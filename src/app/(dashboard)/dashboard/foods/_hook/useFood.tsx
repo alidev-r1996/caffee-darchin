@@ -1,7 +1,13 @@
 "use client";
 
 import { GetCategory } from "@/lib/actions/category-action";
-import { AddFood, EditFood, GetFood } from "@/lib/actions/food-action";
+import {
+  AddFood,
+  EditFood,
+  GetFood,
+  GetFoodPaginate,
+  RemoveFood,
+} from "@/lib/actions/food-action";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import { useRouter } from "next/navigation";
 import { useState } from "react";
@@ -132,10 +138,25 @@ export function useEditFood({
   };
 }
 
-export function useGetFood() {
+export function useGetFood(page: string) {
   const { data, isLoading, isError } = useQuery({
-    queryKey: ["foods"],
-    queryFn: async () => await GetFood(),
+    queryKey: ["foods", page],
+    queryFn: async () => await GetFoodPaginate(page),
   });
   return { data, isLoading, isError };
+}
+
+export function UseRemoveFood(foodId: string) {
+  const queryClient = useQueryClient();
+
+  const { mutateAsync, isPending } = useMutation({
+    mutationFn: async () => {
+      return await RemoveFood(foodId);
+    },
+    onSuccess: () => {
+      queryClient.invalidateQueries({ queryKey: ["foods"] });
+    },
+  });
+
+  return { mutateAsync, isPending };
 }

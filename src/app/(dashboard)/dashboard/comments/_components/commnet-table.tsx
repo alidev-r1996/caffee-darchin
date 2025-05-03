@@ -5,11 +5,12 @@ import Loading from "@/components/loading";
 import CommentRow from "./comment-row";
 import { commentItems } from "@/constants/constant";
 import { useGetComment } from "../_hook/useComment";
+import Paginate from "@/components/ui/paginate";
 
 
 
-const CommentTable = () => {
-  const { isError, isLoading, data} = useGetComment();
+const CommentTable = ({page}:{page:string}) => {
+  const { isError, isLoading, data} = useGetComment(page);
 
   if (isLoading)
     return (
@@ -18,7 +19,7 @@ const CommentTable = () => {
       </div>
     );
   if (isError) return <div>Error</div>;
-  if (!data || data?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
+  if (!data || data?.comments.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
   return (
     <div className="w-full overflow-x-auto mt-5">
@@ -36,11 +37,21 @@ const CommentTable = () => {
           </TableUi.Row>
         </TableUi.Header>
         <TableUi.Body>
-          {data.map((item: any, index: number) => {
+          {data.comments.map((item: any, index: number) => {
             return <CommentRow key={index} index={index} item={item} />;
           })}
         </TableUi.Body>
       </TableUi>
+      {data.meta.totalPage > 1 && (
+        <div className="flex items-center justify-center mt-8">
+          <Paginate
+            shape="square"
+            theme="blue"
+            currentPage={page}
+            totalPage={data.meta.totalPage}
+          />
+        </div>
+      )}
     </div>
   );
 };

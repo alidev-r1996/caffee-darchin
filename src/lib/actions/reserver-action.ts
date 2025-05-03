@@ -105,3 +105,27 @@ export async function AddReserve(formData: FormData) {
     return { message: "Something went wrong!" };
   }
 }
+
+export async function GetReservePaginate(page: string, limit?: number) {
+  const limitDefault = limit ?? 8;
+  const skip = (Number(page) - 1) * limitDefault;
+
+  return await prisma.$transaction(async (tx) => {
+    const request = await tx.reserve.findMany({
+      skip,
+      take: limitDefault,
+      orderBy: { createdAt: "desc" },
+    });
+
+    const count = await tx.reserve.count();
+
+    return {
+      request,
+      meta: {
+        totalCategory: count,
+        totalPage: Math.ceil(count / limitDefault),
+        currentPage: Number(page),
+      },
+    };
+  });
+}
