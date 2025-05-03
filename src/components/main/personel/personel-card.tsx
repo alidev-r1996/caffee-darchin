@@ -39,7 +39,7 @@ const PersonelCard = ({ img, name, role, id }: PersoneCardProps) => {
         src={`/images/personel/${img}`}
         alt=" "
         fill
-        className="object-cover rounded shadow "
+        className="object-cover rounded shadow dark:brightness-75"
       />
       <div className="bg-slate-800/60 absolute grid place-items-center size-full z-50 top-0 left-0 scale-x-0 group-hover:scale-x-100  group-focus:scale-x-100 transition-all duration-300">
         <div className="w-1/2 bg-white dark:bg-slate-800 p-4 rounded-tl-none rounded text-center absolute translate-y-[500px] group-hover:translate-y-0 transition-all duration-500">

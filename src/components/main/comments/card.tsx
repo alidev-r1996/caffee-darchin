@@ -16,7 +16,7 @@ const CommentCard: FC<commnetCardProps> = ({
   text,
 }) => {
   return (
-    <div className="bg-slate-50 shadow rounded-2xl p-4 flex items-start gap-4 min-w-[500px] h-max max-w-[500px] even:translate-y-16">
+    <div className="bg-slate-50 dark:bg-slate-800 shadow rounded-2xl p-4 flex items-start gap-4 min-w-[500px] h-max max-w-[500px] even:translate-y-16">
       <Image
   src={`/images/comments/${img}`}
   alt={author}
@@ -29,7 +29,7 @@ const CommentCard: FC<commnetCardProps> = ({
       <div className="flex flex-col gap-4">
         <div className="flex items-start justify-between">
           <div className="flex flex-col">
-            <h1 className="font-bold">{author}</h1>
+            <h1 className="font-bold dark:text-amber-500">{author}</h1>
           </div>
           <StartRating totalStars={5} rating={rating} size="small" />
         </div>

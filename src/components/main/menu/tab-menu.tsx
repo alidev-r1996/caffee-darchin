@@ -73,7 +73,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: "all" }}
-        className="md:flex grid grid-cols-2 items-center justify-center gap-2 mb-6 p-2 max-w-full md:overflow-auto"
+        className="md:flex grid grid-cols-2 items-center justify-center gap-2 mb-6 p-2 max-w-full md:overflow-x-auto"
       >
         {category.map((item) => (
           <motion.div

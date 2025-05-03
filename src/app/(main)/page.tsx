@@ -17,8 +17,8 @@ export default async function Home(props: Props) {
     <main className="max-w-screen">
       <About />
       <Menu params={params}/>
-      <Reservation />
       {/* <Comments /> */}
+      <Reservation />
       <Personel />
     </main>
   );
