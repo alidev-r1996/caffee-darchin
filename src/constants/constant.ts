@@ -141,9 +141,9 @@ export const requestItems = [
 ];
 
 export const userFormFields = [
-  { id: 1, label: "نام", name: "title" },
-  { id: 2, label: "ایمیل", name: "price" },
-  { id: 3, label: "رمز عبور", name: "price" },
+  { id: 1, label: "نام", name: "name" },
+  { id: 2, label: "ایمیل", name: "email" },
+  { id: 3, label: "رمز عبور", name: "password" },
 ];
 
 export const rolesOption = [

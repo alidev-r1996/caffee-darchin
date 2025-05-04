@@ -79,14 +79,15 @@ export function useEditUser({
   password,
   role,
 }: EditUserModalProps) {
-  const [select, setSelect] = useState<"USER" | "ADMIN">(role);
 
+  const [select, setSelect] = useState<"USER" | "ADMIN">(role);
   const [user, setUser] = useState({
     name: name,
     email: email,
     password: password,
     image: image,
   });
+
   const [open, setOpen] = useState(false);
   const queryClient = useQueryClient();
 
