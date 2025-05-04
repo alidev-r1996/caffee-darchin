@@ -12,10 +12,12 @@ type RemoveFoodModalProps = {
 };
 
 const RemoveFoodModal = ({ foodId, foodTitle }: RemoveFoodModalProps) => {
-  const { isPending, mutateAsync } = UseRemoveFood(foodId);
+  const { isPending, mutateAsync, open, setOpen } = UseRemoveFood(foodId);
 
   return (
     <FormModal
+      open={open}
+      onClose={() => setOpen(!open)}
       label={`حذف غذای ${foodTitle} `}
       title="حذف  "
       buttonType="destructive"

@@ -14,6 +14,7 @@ import { EditUserModalProps } from "../_types/user.types";
 export function useRemoveUser(userId: string) {
   const queryClient = useQueryClient();
 
+  const [open, setOpen] = useState(false)
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () => {
       return await RemoveUser(userId);
@@ -22,7 +23,7 @@ export function useRemoveUser(userId: string) {
       queryClient.invalidateQueries({ queryKey: ["foods"] });
     },
   });
-  return { mutateAsync, isPending };
+  return { mutateAsync, isPending, open, setOpen };
 }
 
 export function useAddUser() {

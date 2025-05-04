@@ -6,10 +6,12 @@ import { RemoveRequestProps } from "../_types/requests.types";
 import { useRemoveRequest } from "../_hook/useRequest";
 
 const RemoveRequestModal = ({ userId, userName }: RemoveRequestProps) => {
-  const { mutateAsync, isPending } = useRemoveRequest(userId);
+  const { mutateAsync, isPending, open, setOpen } = useRemoveRequest(userId);
 
   return (
     <FormModal
+      open={open}
+      onClose={() => setOpen(!open)}
       label={`حذف درخواست ${userName} `}
       title="حذف  "
       buttonType="destructive"

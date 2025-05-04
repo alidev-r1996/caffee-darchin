@@ -6,10 +6,12 @@ import { RemoveUserProps } from "../_types/user.types";
 import { useRemoveUser } from "../_hook/useUser";
 
 const RemoveUserModal = ({ userId, userName }: RemoveUserProps) => {
-  const { mutateAsync, isPending } = useRemoveUser(userId);
+  const { mutateAsync, isPending, open, setOpen } = useRemoveUser(userId);
 
   return (
     <FormModal
+      open={open}
+      onClose={() => setOpen(!open)}
       label={`حذف کاربر ${userName} `}
       title="حذف  "
       buttonType="destructive"

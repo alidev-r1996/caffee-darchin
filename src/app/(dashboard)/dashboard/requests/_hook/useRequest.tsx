@@ -6,9 +6,11 @@ import {
   getReserveRequests,
 } from "@/lib/actions/reserver-action";
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+import { useState } from "react";
 
 export function useRemoveRequest(userId: string) {
   const queryClient = useQueryClient();
+  const [open, setOpen] = useState(false)
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () => {
@@ -16,9 +18,10 @@ export function useRemoveRequest(userId: string) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["reserves"] });
+      setOpen(!open)
     },
   });
-  return { mutateAsync, isPending };
+  return { mutateAsync, isPending, open, setOpen };
 }
 
 export function useGetRequest(page:string) {

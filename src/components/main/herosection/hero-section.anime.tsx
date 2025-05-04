@@ -45,7 +45,6 @@ export default function HeroAnimated() {
           animate="visible"
           className="text-zinc-400 text-center text-sm md:text-base"
         >
-          {" "}
           فضایی مدرن، صمیمی و جذاب برای یک خاطره فراموش نشدنی
         </motion.p>
       </div>

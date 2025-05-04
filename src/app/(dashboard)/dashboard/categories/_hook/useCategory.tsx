@@ -76,19 +76,23 @@ export  function useEditCategory({title, englishTitle, image, id}:useEditCategor
 
 export function useRemoveCategory(categoryId: string){
     const queryClient = useQueryClient();
+    const [open, setOpen]= useState(false)
 
   const { mutateAsync, isPending } = useMutation({
+
     mutationFn: async () => {
       return await RemoveCategory(categoryId);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["categories"] });
+      setOpen(false)
     },
   });
 
-  return {mutateAsync, isPending}
+  return {mutateAsync, isPending, open, setOpen}
 
 }
+
 
 export function useGetCategory(page:string){
   const { data, isLoading, isError } = useQuery({

@@ -13,10 +13,12 @@ const RemoveCategoryModal = ({
   categoryId,
   categoryTitle,
 }: RemoveCategoryModalProps) => {
-  const { mutateAsync, isPending } = useRemoveCategory(categoryId);
+  const { mutateAsync, isPending, open, setOpen } = useRemoveCategory(categoryId);
 
   return (
     <FormModal
+      open={open}
+      onClose={() => setOpen(!open)}
       label={`حذف دسته‌بندی ${categoryTitle} `}
       title="حذف  "
       buttonType="destructive"

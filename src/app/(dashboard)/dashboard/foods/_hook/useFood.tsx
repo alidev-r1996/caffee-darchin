@@ -148,6 +148,7 @@ export function useGetFood(page: string) {
 
 export function UseRemoveFood(foodId: string) {
   const queryClient = useQueryClient();
+  const [open, setOpen] = useState(false)
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () => {
@@ -155,8 +156,9 @@ export function UseRemoveFood(foodId: string) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["foods"] });
+      setOpen(!open)
     },
   });
 
-  return { mutateAsync, isPending };
+  return { mutateAsync, isPending, open, setOpen };
 }
