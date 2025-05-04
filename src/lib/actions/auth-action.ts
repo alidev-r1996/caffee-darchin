@@ -1,6 +1,8 @@
 "use server";
 
-import { signIn } from "../../auth";
+import { revalidatePath } from "next/cache";
+import { signIn, signOut } from "../../auth";
+import { redirect } from "next/navigation";
 
 export async function LoginCredentials(formData: FormData) {
   const { name, email, password } = Object.fromEntries(formData.entries());
@@ -23,3 +25,10 @@ export async function LoginGoogle() {
 export async function LoginGithub() {
   await signIn("github", { callbackUrl: "/" });
 }
+
+export async function LogoutUser(){
+  await signOut();
+  revalidatePath('/')
+  redirect('/')
+}
+
