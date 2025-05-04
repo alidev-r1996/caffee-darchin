@@ -6,7 +6,7 @@ import { getToken } from 'next-auth/jwt';
 const protectedPaths = ['/', '/profile','/dashboard']; // Specify your protected routes here
 
 export async function middleware(req: NextRequest) {
-  const session = await getToken({ req, secret: process.env.AUTH_SECRET });
+  const session = await getToken({ req, secret: process.env.AUTH_SECRET, cookieName: '__Secure-next-auth.session-token', });
   const pathname = req.nextUrl.pathname;
   const url = req.url;
   const role = session?.role;
