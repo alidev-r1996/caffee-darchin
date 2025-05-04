@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { AlignLeft, UserRound } from "lucide-react";
+import { AlignLeft, UserRound, UserRoundPlus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import {
@@ -16,6 +16,7 @@ import {
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import { ModeToggle } from "@/components/dark-toggle";
+import SignoutButton from "./signout-button";
 
 const navbarItems = [
   { id: 1, title: "صفحه اصلی", href: "#/" },
@@ -93,11 +94,11 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
       >
         <motion.li
           variants={navChildVariant}
-          className="bg-slate-100 border dark:bg-slate-700/90 p-[5px] rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
+          className="bg-slate-100 border dark:bg-slate-700/90  rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
         >
-          <Link href="/login">
-            <UserRound />
-          </Link>
+           {!role ?  <Link href="/login" className="flex items-center p-[5px]">
+            <UserRoundPlus   />
+          </Link>: <SignoutButton />}
         </motion.li>
         <motion.li variants={navChildVariant}>
           <ModeToggle />
