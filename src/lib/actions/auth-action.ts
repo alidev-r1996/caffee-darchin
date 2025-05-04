@@ -1,6 +1,10 @@
 "use server";
 
+<<<<<<< HEAD
 import { revalidatePath } from "next/cache";
+=======
+import { revalidatePath,  } from "next/cache";
+>>>>>>> auth
 import { signIn, signOut } from "../../auth";
 import { redirect } from "next/navigation";
 

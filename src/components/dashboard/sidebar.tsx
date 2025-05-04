@@ -2,6 +2,8 @@
 import { sidebarItem } from "@/constants/constant";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import SignoutButton from "../main/navbar/signout-button";
+import SignoutDashboard from "./signout-dashboard";
 
 
 
@@ -25,6 +27,7 @@ const SideBar = () => {
             </Link>
           );
         })}
+        <SignoutDashboard />
       </div>
     </div>
   );

@@ -73,6 +73,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   //     },
   //   },
   // },
+  trustHost: true,
   callbacks: {
     async signIn({ user, account }) {
       const { prisma } = await import("@/lib/utils/prisma");

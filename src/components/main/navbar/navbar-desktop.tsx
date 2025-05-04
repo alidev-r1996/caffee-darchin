@@ -3,9 +3,10 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import { UserRound } from "lucide-react";
+import { UserRoundPlus   } from "lucide-react";
 import { ModeToggle } from "@/components/dark-toggle";
 import { motion } from "framer-motion";
+import SignoutButton from "./signout-button";
 
 const navbarItems = [
   { id: 1, title: "صفحه اصلی", href: "#/" },
@@ -72,17 +73,18 @@ const NavBarDesktop = ({
         whileInView="visible"
         className="flex items-center gap-2"
       >
-        <motion.li
-          variants={navChildVariant}
-          className="bg-slate-100 border dark:bg-slate-700/90 p-[5px] rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
-        >
-          <Link href="/login">
-            <UserRound />
-          </Link>
-        </motion.li>
         <motion.li variants={navChildVariant}>
           <ModeToggle />
         </motion.li>
+        <motion.li
+          variants={navChildVariant}
+          className="bg-slate-100 border dark:bg-slate-700/90 rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
+        >
+         {!role ?  <Link href="/login" className="flex items-center p-[5px]">
+            <UserRoundPlus   />
+          </Link>: <SignoutButton />}
+        </motion.li>
+        
         <motion.li variants={navChildVariant}>
           <Button className="hover:shadow-blue-500">
             {role == "ADMIN" ? (
