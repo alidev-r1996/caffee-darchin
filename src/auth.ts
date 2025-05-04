@@ -62,17 +62,19 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     strategy: "jwt",
   },
   secret: process.env.AUTH_SECRET,
-  // cookies: {
-  //   sessionToken: {
-  //     name: `__Secure-next-auth.session-token`,
-  //     options: {
-  //       httpOnly: true,
-  //       sameSite: "lax",
-  //       path: "/",
-  //       secure: process.env.NODE_ENV === "production",
-  //     },
-  //   },
-  // },
+  cookies: {
+    sessionToken: {
+      name: process.env.NODE_ENV === "production"
+        ? "__Secure-next-auth.session-token"
+        : "authjs.session-token",
+      options: {
+        httpOnly: true,
+        sameSite: "lax",
+        path: "/",
+        secure: process.env.NODE_ENV === "production", // only secure in prod
+      },
+    },
+  },
   trustHost: true,
   callbacks: {
     async signIn({ user, account }) {

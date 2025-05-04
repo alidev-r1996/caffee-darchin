@@ -6,13 +6,25 @@ import { getToken } from 'next-auth/jwt';
 const protectedPaths = ['/', '/profile','/dashboard']; // Specify your protected routes here
 
 export async function middleware(req: NextRequest) {
-  const session = await getToken({ req, secret: process.env.AUTH_SECRET});
+
+  const cookieName =
+  process.env.NODE_ENV === 'production'
+    ? '__Secure-next-auth.session-token'
+    : 'authjs.session-token';
+
+  const session = await getToken({ req, secret: process.env.AUTH_SECRET, cookieName,});
   const pathname = req.nextUrl.pathname;
   const url = req.url;
   const role = session?.role;
 
   if (!session){
     console.log("no session token detected!")
+  }
+
+  console.log("Cookies from request:", req.cookies.getAll());
+
+  if (process.env.NODE_ENV !== 'production') {
+    console.log("Session in middleware:", session);
   }
 
   // If the user is authenticated and accesses the sign-in page, redirect them
