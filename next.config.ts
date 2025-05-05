@@ -1,12 +1,15 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
   images: {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "img.clerk.com",
+        hostname: "**.ufs.sh", // wildcard for all ufs.sh subdomains
+      },
+      {
+        protocol: "https",
+        hostname: "uploadthing.com", // if using direct links
       },
       {
         protocol: "https",
@@ -14,11 +17,11 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "bvthk1nwyv.ufs.sh",
+        hostname: "img.clerk.com", // if using Clerk avatars
       },
       {
         protocol: "https",
-        hostname: "lh3.googleusercontent.com",
+        hostname: "*.googleusercontent.com", // for Google avatars
       },
     ],
   },

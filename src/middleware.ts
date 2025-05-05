@@ -17,16 +17,7 @@ export async function middleware(req: NextRequest) {
   const url = req.url;
   const role = session?.role;
 
-  if (!session){
-    console.log("no session token detected!")
-  }
-
-  console.log("Cookies from request:", req.cookies.getAll());
-
-  if (process.env.NODE_ENV !== 'production') {
-    console.log("Session in middleware:", session);
-  }
-
+  
   // If the user is authenticated and accesses the sign-in page, redirect them
   if (session && pathname === '/login') {
     if (role == "ADMIN"){

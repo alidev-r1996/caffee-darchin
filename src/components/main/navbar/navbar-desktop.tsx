@@ -31,7 +31,6 @@ const NavBarDesktop = ({
 }) => {
   const [scroll, setScroll] = useState(false);
 
-  console.log(role);
   useEffect(() => {
     const handleScroll = () => {
       setScroll(window.scrollY > 100);
