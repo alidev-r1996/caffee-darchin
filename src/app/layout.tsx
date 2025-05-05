@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import { Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import "./globals.css";
-import RegisterSW from "./register";
+import RegisterSW from "../lib/pwa/register";
 
 const font = Vazirmatn({
   variable: "--font-vazir",
