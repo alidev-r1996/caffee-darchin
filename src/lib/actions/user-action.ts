@@ -5,6 +5,7 @@ import { prisma } from "@/lib/utils/prisma";
 
 export async function getUserId() {
   const session = await auth();
+  if (!session) return null;
   if (session?.user?.email) {
     const user = await prisma.user.findUnique({
       where: {
@@ -35,11 +36,11 @@ export async function GetAllUsers() {
 }
 
 export async function getUserInfo() {
-  const session = await auth();
-  if (session?.user?.email) {
+  const userId = await getUserId();
+  if (userId) {
     const user = await prisma.user.findUnique({
       where: {
-        email: session.user.email,
+        id: userId,
       },
       select: {
         img: true,
@@ -48,6 +49,8 @@ export async function getUserInfo() {
       },
     });
     return user;
+  } else {
+    return null;
   }
 }
 
@@ -135,6 +138,7 @@ export async function GetUserRole() {
 
 export async function GetUserPaginate(page: string, limit?: number) {
   const userId = await getUserId();
+  if (!userId) return null;
   const limitDefault = limit ?? 8;
   const skip = (Number(page) - 1) * limitDefault;
 
