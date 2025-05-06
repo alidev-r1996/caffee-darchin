@@ -24,7 +24,7 @@ const Reservation = () => {
 
           {/* FORM */}
           <div className="md:px-6 md:p-4 flex flex-col justify-center w-full ">
-            <h2 className="text-2xl font-black text-center mb-6  text-amber-600 dark:text-amber-400">
+            <h2 className="text-2xl font-black text-center my-6 text-amber-600 dark:text-amber-400">
               رزرو میز
             </h2>
             <form

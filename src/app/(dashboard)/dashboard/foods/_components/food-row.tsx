@@ -11,7 +11,10 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        {item.title}
+      <p title={item.title} className="text-xs cursor-pointer">
+          {item.title.slice(0, 20)}
+          {item.title.length > 20 && "..."}
+        </p>
       </TableUi.Col>
       <TableUi.Col>{ConvertToPersianDigit(item.price)} تومان</TableUi.Col>
       <TableUi.Col>

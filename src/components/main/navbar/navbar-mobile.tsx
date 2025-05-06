@@ -92,6 +92,9 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
         whileInView="visible"
         className="flex items-center gap-2"
       >
+        <motion.li variants={navChildVariant}>
+          <ModeToggle />
+        </motion.li>
         <motion.li
           variants={navChildVariant}
           className="bg-slate-100 border dark:bg-slate-700/90  rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
@@ -100,9 +103,7 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
             <UserRoundPlus   />
           </Link>: <SignoutButton />}
         </motion.li>
-        <motion.li variants={navChildVariant}>
-          <ModeToggle />
-        </motion.li>
+        
         <motion.li variants={navChildVariant}>
           <Button className="hover:shadow-blue-500">
             {role == "ADMIN" ? (

@@ -66,7 +66,7 @@ type TableType = FC<TableProps> & {
 // Define the component
 const Table: TableType = ({ children, className }) => {
   return (
-    <table className={cn("w-full overflow-x-auto", className)}>
+    <table className={cn("w-full overflow-x-auto text-sm md:text-base", className)}>
       {children}
     </table>
   );

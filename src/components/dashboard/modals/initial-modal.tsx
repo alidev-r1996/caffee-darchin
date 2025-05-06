@@ -25,7 +25,7 @@ const FormModal = ({ title, label, description,children, open, onClose, buttonTy
   return (
     <Dialog open={open} onOpenChange={onClose}>
       <DialogTrigger asChild>
-        <Button variant={buttonType ?? "primary"}>{title} </Button>
+        <Button variant={buttonType ?? "primary"} className="text-sm md:text-base">{title} </Button>
       </DialogTrigger>
       <DialogContent className="w-full !max-h-max overflow-y-auto border shadow mt-16">
         <DialogHeader>

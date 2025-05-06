@@ -11,7 +11,10 @@ const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        {item.name}
+         <p title={item.name} className="text-xs cursor-pointer">
+          {item.name.slice(0, 20)}
+          {item.name.length > 20 && "..."}
+        </p>
       </TableUi.Col>
       <TableUi.Col>{item.email}</TableUi.Col>
       <TableUi.Col>{item.password}</TableUi.Col>

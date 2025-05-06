@@ -63,7 +63,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="font-black text-2xl text-center my-5"
+        className="font-black text-2xl text-center my-5 "
       >
         منوی اصلی
       </motion.h1>

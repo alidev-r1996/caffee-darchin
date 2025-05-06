@@ -21,7 +21,7 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: "https",
-        hostname: "*.googleusercontent.com", // for Google avatars
+        hostname: "lh3.googleusercontent.com", // for Google avatars
       },
     ],
   },
