@@ -5,6 +5,7 @@ import EditFoodModal from "./edit-food.modal";
 import RemoveFoodModal from "./remove-food.modal";
 import { AvatarDemo } from "@/components/AvatarUi";
 import { FoodRowProps } from "../_types/food.types";
+import CardAvatar from "@/components/cardAvatar";
 
 const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
   return (
@@ -32,7 +33,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
         })}
       </TableUi.Col>
       <TableUi.Col>
-        <AvatarDemo src={item.img} className="mx-auto size-12" />
+        <CardAvatar src={item.img} className="mx-auto size-12" />
       </TableUi.Col>
       <TableUi.Col>{item.ingredients.join(", ")}</TableUi.Col>
       <TableUi.Col>

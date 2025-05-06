@@ -5,6 +5,7 @@ import RemoveUserModal from "./remove-user-modal";
 import EditUserModal from "./edit-user-modal";
 import { AvatarDemo } from "@/components/AvatarUi";
 import { UserRowProps } from "../_types/user.types";
+import UserAvatar from "@/components/UserAvatar";
 
 const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
   return (
@@ -19,7 +20,7 @@ const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
       <TableUi.Col>{item.email}</TableUi.Col>
       <TableUi.Col>{item.password}</TableUi.Col>
       <TableUi.Col>
-        <AvatarDemo src={item.img} className="mx-auto size-12" />
+        <UserAvatar src={item.img} className="mx-auto size-12"/>
       </TableUi.Col>
       <TableUi.Col>
         <p className="px-4 mx-auto py-1 max-w-max rounded bg-slate-200 dark:bg-slate-700 shadow">

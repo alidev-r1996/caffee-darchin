@@ -6,6 +6,7 @@ import RemoveCategoryModal from "./remove-category-modal";
 import { AvatarDemo } from "@/components/AvatarUi";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import { CategoryRowProps } from "../_types/category.type";
+import CardAvatar from "@/components/cardAvatar";
 
 
 
@@ -18,7 +19,7 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
       </TableUi.Col>
       <TableUi.Col>{item.englishTitle}</TableUi.Col>
       <TableUi.Col>
-        <AvatarDemo src={item.img} className="mx-auto size-12" />
+        <CardAvatar className="mx-auto size-12" src={item.img}/>
       </TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
