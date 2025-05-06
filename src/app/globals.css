@@ -156,3 +156,8 @@
   animation: scrollX 20s linear infinite alternate-reverse;
   will-change: transform;
 }
+
+
+.rti--tag{
+  font-size: 12px;
+}

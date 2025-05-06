@@ -3,6 +3,7 @@ import { Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import "./globals.css";
 import RegisterSW from "../lib/pwa/register";
+import InstallPWA from "@/lib/pwa/install";
 
 const font = Vazirmatn({
   variable: "--font-vazir",
@@ -31,6 +32,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="Darchin Caffee" />
       </head>
       <body className={`${font.className} antialiased`}>
+        <InstallPWA />
         <RegisterSW />
         <ThemeProvider
           attribute="class"

@@ -13,10 +13,10 @@ const UserAvatar = ({ className, src, alt }: UserAvatarProps) => {
     <div className={`${className} relative rounded-full overflow-hidden`}>
       <Image
         src={src}
-        alt={alt ?? " "}
+        alt={alt ?? "img"}
         fill
         referrerPolicy="no-referrer"
-        className="object-fill peer"
+        className="object-fill peer text-transparent"
         onError={(event) =>
           (event.currentTarget.src = "/images/load-img-error.png")
         }
