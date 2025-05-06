@@ -5,7 +5,7 @@ import Link from "next/link";
 import { AvatarDemo } from "../AvatarUi";
 
 const DashboardHeader = async() => {
-  const userInfo = await getUserInfo();
+  const userInfo: any = await getUserInfo();
     
 
   return (

@@ -4,6 +4,7 @@ import DateInput from "@/components/ui/date-picker";
 import TimeInput from "@/components/ui/time-picker";
 import { AddReserve } from "@/lib/actions/reserver-action";
 import FadeUp from "./Fadeup-animate";
+import Image from "next/image";
 
 const Reservation = () => {
   return (
@@ -14,12 +15,8 @@ const Reservation = () => {
       >
         <div className="max-w-6xl w-full rounded overflow-hidden shadow-xl grid grid-cols-1 md:grid-cols-2 bg-white dark:bg-slate-800">
           {/* IMAGE */}
-          <div className="hidden md:block">
-            <img
-              src="/images/reserve.jpg" //
-              alt="رزرو میز"
-              className="h-full w-full object-cover"
-            />
+          <div className="hidden md:block relative h-full w-full object-cover">
+            <Image src={'/images/reserve.jpg'} fill alt=""/>
           </div>
 
           {/* FORM */}

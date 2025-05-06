@@ -3,7 +3,7 @@ import type { MetadataRoute } from 'next'
 export default function manifest(): MetadataRoute.Manifest {
   return {
     name: 'کافه رستوران دارچین',
-    short_name: 'Darchin Caffee',
+    short_name: 'Darchin Caffee',  //installed app name
     description: 'کافه رستوران دارچین',
     start_url: '/',
     display: 'standalone',
