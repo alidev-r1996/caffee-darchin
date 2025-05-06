@@ -3,9 +3,8 @@ import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import React from "react";
 import RemoveUserModal from "./remove-user-modal";
 import EditUserModal from "./edit-user-modal";
-import { AvatarDemo } from "@/components/AvatarUi";
 import { UserRowProps } from "../_types/user.types";
-import UserAvatar from "@/components/UserAvatar";
+import UserAvatar from "@/components/userAvatar";
 
 const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
   return (
