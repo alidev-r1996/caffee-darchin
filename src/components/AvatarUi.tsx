@@ -10,7 +10,7 @@ type AvatarDemoProps = {
 export function AvatarDemo({ src, fallback, className }: AvatarDemoProps) {
   return (
     <Avatar className={className}>
-      <AvatarImage src={`http://localhost:3000/api/image-proxy?url=${encodeURIComponent(src)}`} alt="img" />
+      <AvatarImage src={src} alt="img" />
       <AvatarFallback>{fallback ? fallback : <Image />}</AvatarFallback>
     </Avatar>
   );
