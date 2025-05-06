@@ -36,7 +36,7 @@ const InstallPWA = () => {
   if (!showInstall) return null;
 
   return (
-    <div className="fixed bottom-4 right-4 bg-white p-4 rounded-xl shadow-xl border flex items-center gap-4 z-50">
+    <div className="fixed bottom-4 right-4 bg-white dark:bg-slate-600 p-4 rounded-xl shadow-xl border flex items-center gap-4 z-50">
       <p className="text-sm">می‌تونی برنامه رو نصب کنی!</p>
       <button
         onClick={handleInstallClick}
