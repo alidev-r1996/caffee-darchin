@@ -1,9 +1,7 @@
 import { TableUi } from "@/components/tableui";
-import Image from "next/image";
 import React from "react";
 import EditCategoryModal from "./edit-category-modal";
 import RemoveCategoryModal from "./remove-category-modal";
-import { AvatarDemo } from "@/components/AvatarUi";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import { CategoryRowProps } from "../_types/category.type";
 import CardAvatar from "@/components/cardAvatar";

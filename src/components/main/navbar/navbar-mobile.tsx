@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { AlignLeft, UserRound, UserRoundPlus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
@@ -120,4 +120,4 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
   );
 };
 
-export default NavBarMobile;
+export default memo(NavBarMobile);

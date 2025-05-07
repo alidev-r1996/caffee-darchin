@@ -6,6 +6,7 @@ import UserRow from "./user-row";
 import { userItems } from "@/constants/constant";
 import { useGetUser } from "../_hook/useUser";
 import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
 
 const UserTable = ({page}:{page:string}) => {
   const { data, isLoading, isError } = useGetUser(page);
@@ -54,4 +55,4 @@ const UserTable = ({page}:{page:string}) => {
   );
 };
 
-export default UserTable;
+export default memo(UserTable);

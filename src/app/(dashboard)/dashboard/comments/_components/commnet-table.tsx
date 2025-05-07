@@ -6,6 +6,7 @@ import CommentRow from "./comment-row";
 import { commentItems } from "@/constants/constant";
 import { useGetComment } from "../_hook/useComment";
 import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
 
 
 
@@ -56,4 +57,4 @@ const CommentTable = ({page}:{page:string}) => {
   );
 };
 
-export default CommentTable;
+export default memo(CommentTable);

@@ -1,6 +1,6 @@
 "use client";
 
-import { AvatarDemo } from "@/components/AvatarUi";
+import CardAvatar from "@/components/cardAvatar";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import { motion } from "framer-motion";
 
@@ -55,7 +55,7 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
       className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-800 border border-dashed border-amber-200 dark:border-zinc-700 hover:shadow-md transition-shadow"
     >
       <div className="relative size-16 md:size-20">
-        <AvatarDemo
+        <CardAvatar
           src={item.img}
           className="size-16 md:size-20 object-fill rounded-full "
         />

@@ -6,6 +6,7 @@ import RequestRow from "./request-row";
 import { requestItems } from "@/constants/constant";
 import { useGetRequest } from "../_hook/useRequest";
 import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
 
 const RequestTable = ({page}:{page:string}) => {
   const { data, isError, isLoading } = useGetRequest(page);
@@ -54,4 +55,4 @@ const RequestTable = ({page}:{page:string}) => {
   );
 };
 
-export default RequestTable;
+export default memo(RequestTable);

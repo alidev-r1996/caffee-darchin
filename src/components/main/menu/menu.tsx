@@ -1,3 +1,4 @@
+import { memo } from "react";
 import MenuContent from "./content-menu";
 import TabMenu from "./tab-menu";
 
@@ -11,7 +12,7 @@ async function getFoods(params: string) {
   return res.json();
 }
 
-export default async function Menu({ params }: { params: string }) {
+const Menu = async({ params }: { params: string }) => {
   const [category, foods] = await Promise.all([getCategory(), getFoods(params)]);
 
   return (
@@ -21,3 +22,5 @@ export default async function Menu({ params }: { params: string }) {
     </div>
   );
 }
+
+export default memo(Menu);

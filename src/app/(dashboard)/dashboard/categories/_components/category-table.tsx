@@ -1,12 +1,12 @@
 "use client";
 
 import { TableUi } from "@/components/tableui";
-
 import CategoryRow from "./category-row";
 import Loading from "@/components/loading";
 import { categoryItems } from "@/constants/constant";
 import { useGetCategory } from "../_hook/useCategory";
 import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
 
 
 const CategoryTable = ({page}: {page:string}) => {
@@ -56,4 +56,4 @@ const CategoryTable = ({page}: {page:string}) => {
   );
 };
 
-export default CategoryTable;
+export default memo(CategoryTable);

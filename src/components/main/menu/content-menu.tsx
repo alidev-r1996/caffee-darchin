@@ -1,6 +1,5 @@
-import { ConvertToPersianDigit } from "@/helper/persianDigits";
-import { AvatarDemo } from "@/components/AvatarUi";
 import FoodCardMenu from "./food-card-menu";
+import { memo } from "react";
 
 const MenuContent = ({ foods }: {foods: any[]}) => {
 
@@ -17,4 +16,4 @@ const MenuContent = ({ foods }: {foods: any[]}) => {
      );
 }
  
-export default MenuContent;
+export default memo(MenuContent);

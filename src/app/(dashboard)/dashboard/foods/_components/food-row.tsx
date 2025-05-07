@@ -3,7 +3,6 @@ import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import React from "react";
 import EditFoodModal from "./edit-food.modal";
 import RemoveFoodModal from "./remove-food.modal";
-import { AvatarDemo } from "@/components/AvatarUi";
 import { FoodRowProps } from "../_types/food.types";
 import CardAvatar from "@/components/cardAvatar";
 

@@ -2,8 +2,6 @@
 
 import FormModal from "@/components/dashboard/modals/initial-modal";
 import { Button } from "@/components/ui/button";
-import { RemoveFood } from "@/lib/actions/food-action";
-import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { UseRemoveFood } from "../_hook/useFood";
 
 type RemoveFoodModalProps = {

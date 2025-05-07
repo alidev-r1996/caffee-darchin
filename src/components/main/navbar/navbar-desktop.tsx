@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
-import { useEffect, useState } from "react";
+import { memo, useEffect, useState } from "react";
 import { UserRoundPlus   } from "lucide-react";
 import { ModeToggle } from "@/components/dark-toggle";
 import { motion } from "framer-motion";
@@ -100,4 +100,4 @@ const NavBarDesktop = ({
   );
 };
 
-export default NavBarDesktop;
+export default memo(NavBarDesktop);

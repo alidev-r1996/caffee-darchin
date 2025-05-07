@@ -6,6 +6,7 @@ import Loading from "@/components/loading";
 import { FoodItems } from "@/constants/constant";
 import { useGetFood } from "../_hook/useFood";
 import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
 
 const FoodTable = ({ page }: { page: string }) => {
   const { data, isError, isLoading } = useGetFood(page);
@@ -54,4 +55,4 @@ const FoodTable = ({ page }: { page: string }) => {
   );
 };
 
-export default FoodTable;
+export default memo(FoodTable);
