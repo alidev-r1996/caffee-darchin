@@ -48,13 +48,6 @@ const TabMenu = ({ category }: { category: any[] }) => {
     router.push(url, { scroll: false });
   };
 
-  useEffect(()=>{
-    if(!searchParams.get("category")){
-      params.set("category", "pizza");
-      const url = `${pathname}?${params.toString()}`;
-      router.push(url, { scroll: false });
-    }
-  },[])
 
   return (
     <div className="mt-10">
