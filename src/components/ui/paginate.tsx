@@ -3,14 +3,14 @@
 import convertToPersianDigits from "@/lib/utils/PersianDigits";
 import { Paginate_number_maker } from "@/lib/utils/paginate";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { memo, useEffect, useMemo, useState } from "react";
+import { memo, useMemo } from "react";
 import { BiChevronRight } from "react-icons/bi";
 
 type PaginateProps = {
   theme: "red" | "green" | "blue";
   shape: "circle" | "square";
   totalPage: number;
-  currentPage: string | number;
+  currentPage: number | string; // بهتره همیشه عدد باشه
 };
 
 const btnStyle = {
@@ -30,58 +30,53 @@ const shapeStyle = {
   square: "rounded",
 };
 
-const Paginate: React.FC<PaginateProps> = ({
-  theme,
-  shape,
-  totalPage,
-  currentPage,
-}) => {
-  const pathname = usePathname() ?? "";
-  const searchParams = useSearchParams() ?? new URLSearchParams("");
+const Paginate: React.FC<PaginateProps> = ({ theme, shape, totalPage, currentPage }) => {
+  const pathname = usePathname();
+  const searchParams = useSearchParams();
   const router = useRouter();
-  const [page, setPage] = useState(Number(currentPage ?? 1));
 
-  const searchString = useMemo(() => searchParams.toString(), [searchParams]);
+  const pages = useMemo(
+    () => Paginate_number_maker(totalPage, Number(currentPage)),
+    [totalPage, currentPage]
+  );
 
-  useEffect(() => {
-    const params = new URLSearchParams(searchString);
+  const goToPage = (page: number) => {
+    const params = new URLSearchParams(searchParams.toString());
     params.set("page", String(page));
     router.push(`${pathname}?${params.toString()}`, { scroll: false });
-  }, [page, pathname, searchString]);
-
-  const pages = useMemo(() => Paginate_number_maker(totalPage, page), [page, totalPage]);
+  };
 
   return (
     <div dir="ltr" className="flex items-center gap-1 w-max [&>button]:cursor-pointer">
-      {/* Previous Button */}
+      {/* Previous */}
       <button
-        onClick={() => setPage(page - 1)}
-        disabled={page === 1}
+        onClick={() => goToPage(Number(currentPage) - 1)}
+        disabled={currentPage === 1}
         className={`${btnStyle[theme]} ${shapeStyle[shape]} p-1 size-7 transition-all duration-300 disabled:!opacity-40 bg-transparent border disabled:pointer-events-none`}
       >
         <BiChevronRight className="w-full h-full rotate-180" />
       </button>
 
-      {/* Page Numbers */}
+      {/* Pages */}
       <div className="flex items-center gap-1 [&>button]:cursor-pointer">
         {pages.map((i, index) => (
           <button
             key={index}
             disabled={i === "..."}
-            onClick={() => typeof i === "number" && setPage(i)}
+            onClick={() => typeof i === "number" && goToPage(i)}
             className={`size-7 p-1 flex items-center justify-center ${shapeStyle[shape]} ${
               i !== "..." ? btnStyle[theme] : ""
-            } ${page === i ? activeBtnStyle[theme] : ""}`}
+            } ${currentPage === i ? activeBtnStyle[theme] : ""}`}
           >
             {convertToPersianDigits(i.toString())}
           </button>
         ))}
       </div>
 
-      {/* Next Button */}
+      {/* Next */}
       <button
-        disabled={page === totalPage}
-        onClick={() => setPage(page + 1)}
+        onClick={() => goToPage(Number(currentPage) + 1)}
+        disabled={currentPage === totalPage}
         className={`${btnStyle[theme]} ${shapeStyle[shape]} p-1 size-7 transition-all duration-300 disabled:!opacity-40 bg-transparent border disabled:pointer-events-none`}
       >
         <BiChevronRight className="w-full h-full" />

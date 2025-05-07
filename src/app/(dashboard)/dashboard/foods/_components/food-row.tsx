@@ -11,7 +11,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-      <p title={item.title} className="text-xs cursor-pointer">
+        <p title={item.title} className="text-xs cursor-pointer">
           {item.title.slice(0, 20)}
           {item.title.length > 20 && "..."}
         </p>
@@ -34,10 +34,19 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
       <TableUi.Col>
         <CardAvatar src={item.img} className="mx-auto size-12" />
       </TableUi.Col>
-      <TableUi.Col>{item.ingredients.join(", ")}</TableUi.Col>
+      <TableUi.Col>
+        <p
+          title={item.ingredients.join(", ")}
+          className="text-xs cursor-pointer"
+        >
+          {item.ingredients.slice(0, 20).join(", ")}
+          {item.ingredients.length > 20 && "..."}
+        </p>
+      </TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
-          <EditFoodModal key={item.id}
+          <EditFoodModal
+            key={item.id}
             id={item.id}
             title={item.title}
             price={item.price}
@@ -45,7 +54,11 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
             rating={item.rating}
             ingredients={item.ingredients}
           />
-          <RemoveFoodModal key={item.id} foodId={item.id} foodTitle={item.title} />
+          <RemoveFoodModal
+            key={item.id}
+            foodId={item.id}
+            foodTitle={item.title}
+          />
         </div>
       </TableUi.Col>
     </TableUi.Row>
