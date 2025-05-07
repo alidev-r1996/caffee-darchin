@@ -18,7 +18,6 @@ const AddFoodModal = () => {
     tag,
     food,
     setFood,
-    select,
     setSelect,
     setTag,
   } = useAddFood();

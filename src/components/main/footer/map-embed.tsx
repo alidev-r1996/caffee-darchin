@@ -7,7 +7,7 @@ export default function Map() {
 
   return (
     <div className="w-full aspect-video rounded overflow-hidden">
-      <iframe
+      <iframe title="لوکیشن"
         src={mapUrl}
         className="w-full h-full"
         allowFullScreen

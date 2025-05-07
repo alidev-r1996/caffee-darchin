@@ -1,5 +1,5 @@
 import { cn } from "@/lib/utils/utils";
-import { RefObject } from "react";
+import { RefObject, memo } from "react";
 
 type InputTextProps = {
   id?: number | string;
@@ -39,4 +39,4 @@ const InputText: React.FC<InputTextProps> = ({
   );
 };
 
-export default InputText;
+export default memo(InputText);

@@ -35,7 +35,7 @@ const RequestRow: React.FC<RequestRowProps> = ({ index, item }) => {
       </TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
-          <RemoveRequestModal userId={item.id} userName={item.title} />
+          <RemoveRequestModal key={item.id} userId={item.id} userName={item.title} />
         </div>
       </TableUi.Col>
     </TableUi.Row>

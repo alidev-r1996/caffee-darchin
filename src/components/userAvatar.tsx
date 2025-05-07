@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { memo } from "react";
 
 type UserAvatarProps = {
   src: string;
@@ -15,6 +16,7 @@ const UserAvatar = ({ className, src, alt }: UserAvatarProps) => {
         src={src}
         alt={alt ?? "img"}
         fill
+        sizes="100vw"
         referrerPolicy="no-referrer"
         className="object-fill peer text-transparent"
         onError={(event) =>
@@ -25,4 +27,4 @@ const UserAvatar = ({ className, src, alt }: UserAvatarProps) => {
   );
 };
 
-export default UserAvatar;
+export default memo(UserAvatar);

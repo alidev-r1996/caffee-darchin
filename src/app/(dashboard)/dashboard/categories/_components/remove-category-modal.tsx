@@ -3,11 +3,9 @@
 import FormModal from "@/components/dashboard/modals/initial-modal";
 import { Button } from "@/components/ui/button";
 import { useRemoveCategory } from "../_hook/useCategory";
+import { RemoveCategoryModalProps } from "../_types/category.type";
 
-type RemoveCategoryModalProps = {
-  categoryId: string;
-  categoryTitle: string;
-};
+
 
 const RemoveCategoryModal = ({
   categoryId,

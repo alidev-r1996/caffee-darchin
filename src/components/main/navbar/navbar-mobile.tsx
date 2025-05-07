@@ -99,7 +99,7 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
           variants={navChildVariant}
           className="bg-slate-100 border dark:bg-slate-700/90  rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
         >
-           {!role ?  <Link href="/login" className="flex items-center p-[5px]">
+           {!role ?  <Link href="/login" aria-label="login" className="flex items-center p-[5px]">
             <UserRoundPlus   />
           </Link>: <SignoutButton />}
         </motion.li>

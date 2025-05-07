@@ -59,6 +59,7 @@ export default function HeroAnimated() {
           src={"/images/hero1.png"}
           alt="hero"
           fill
+          sizes="100vw"
           className="object-contain"
         />
       </motion.div>

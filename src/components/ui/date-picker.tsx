@@ -1,6 +1,6 @@
 "use client";
 
-import { FC, useState } from "react";
+import { FC, memo, useState } from "react";
 import DatePicker from "react-multi-date-picker";
 import persian from "react-date-object/calendars/persian";
 import persian_fa from "react-date-object/locales/persian_fa";
@@ -40,4 +40,4 @@ const DateInput: FC<DateInputProps> = ({ label, name}) => {
   );
 };
 
-export default DateInput;
+export default memo(DateInput);

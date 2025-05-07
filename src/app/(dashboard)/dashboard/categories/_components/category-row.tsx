@@ -22,12 +22,14 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
           <EditCategoryModal
+          key={item.id}
             id={item.id}
             title={item.title}
             englishTitle={item.englishTitle}
             image={item.img}
           />
           <RemoveCategoryModal
+          key={item.id}
             categoryId={item.id}
             categoryTitle={item.title}
           />

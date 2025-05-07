@@ -6,8 +6,6 @@ import SocialLogin from "./social-login";
 
 
 
-
-
 const SignIn = async () => {
 
   return (

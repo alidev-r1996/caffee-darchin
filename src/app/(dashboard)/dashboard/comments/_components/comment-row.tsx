@@ -5,8 +5,6 @@ import RemoveCommentModal from "./remove-comment-modal";
 import ConfirmCommentModal from "./confirm-comment-modal";
 import { CommentRowProps } from "../_types/comments.types";
 
-
-
 const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
@@ -39,6 +37,7 @@ const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
           <ConfirmCommentModal
+            key={item.user.id}
             foodId={item.foodId}
             userId={item.user.id}
             time={item.createdAt}
@@ -46,6 +45,7 @@ const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
             status={item.verified as boolean}
           />
           <RemoveCommentModal
+            key={item.user.id}
             foodId={item.foodId}
             userId={item.user.id}
             time={item.createdAt}

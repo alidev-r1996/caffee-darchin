@@ -25,3 +25,9 @@ export type DashboardPagePropsType = {
     page: string
   }>;
 };
+
+
+export type RemoveCategoryModalProps = {
+  categoryId: string;
+  categoryTitle: string;
+};

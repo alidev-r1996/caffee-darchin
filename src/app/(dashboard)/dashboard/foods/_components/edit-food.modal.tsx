@@ -22,7 +22,6 @@ const EditFoodModal = ({
     setOpen,
     mutateAsync,
     isPending,
-    select,
     setSelect,
     tag,
     setTag,

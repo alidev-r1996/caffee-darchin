@@ -37,7 +37,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
       <TableUi.Col>{item.ingredients.join(", ")}</TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
-          <EditFoodModal
+          <EditFoodModal key={item.id}
             id={item.id}
             title={item.title}
             price={item.price}
@@ -45,7 +45,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
             rating={item.rating}
             ingredients={item.ingredients}
           />
-          <RemoveFoodModal foodId={item.id} foodTitle={item.title} />
+          <RemoveFoodModal key={item.id} foodId={item.id} foodTitle={item.title} />
         </div>
       </TableUi.Col>
     </TableUi.Row>
