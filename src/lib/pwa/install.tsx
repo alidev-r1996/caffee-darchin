@@ -6,10 +6,15 @@ const InstallPWA = () => {
   const [showInstall, setShowInstall] = useState(false);
 
   useEffect(() => {
+    // اگر کاربر نصب کرده یا قبلاً گفته "بعداً"، نمایش نده
+    const dismissed = localStorage.getItem("pwa-dismissed");
+    const isInstalled = window.matchMedia("(display-mode: standalone)").matches;
+    if (dismissed === "true" || isInstalled) return;
+
     const handler = (e: any) => {
       e.preventDefault();
       setDeferredPrompt(e);
-      setShowInstall(true); // دکمه نصب رو نمایش بده
+      setShowInstall(true);
     };
 
     window.addEventListener("beforeinstallprompt", handler);
@@ -20,16 +25,18 @@ const InstallPWA = () => {
   const handleInstallClick = async () => {
     if (!deferredPrompt) return;
 
-    deferredPrompt.prompt(); // دیالوگ نصب رو باز کنه
+    deferredPrompt.prompt();
     const { outcome } = await deferredPrompt.userChoice;
 
     if (outcome === "accepted") {
-      console.log("User accepted the install prompt");
-    } else {
-      console.log("User dismissed the install prompt");
+      localStorage.setItem("pwa-dismissed", "true"); // دیگه نشون نده
     }
-
     setDeferredPrompt(null);
+    setShowInstall(false);
+  };
+
+  const handleLaterClick = () => {
+    localStorage.setItem("pwa-dismissed", "true"); // دیگه نشون نده
     setShowInstall(false);
   };
 
@@ -40,9 +47,15 @@ const InstallPWA = () => {
       <p className="text-sm">می‌تونی برنامه رو نصب کنی!</p>
       <button
         onClick={handleInstallClick}
-        className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700"
+        className="bg-blue-600 text-white px-4 py-1 rounded hover:bg-blue-700 cursor-pointer"
       >
         نصب
+      </button>
+      <button
+        onClick={handleLaterClick}
+        className="bg-gray-300 text-gray-800 px-4 py-1 rounded hover:bg-gray-400 cursor-pointer"
+      >
+        بعداً
       </button>
     </div>
   );
