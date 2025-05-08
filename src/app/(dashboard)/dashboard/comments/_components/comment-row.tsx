@@ -4,13 +4,14 @@ import React from "react";
 import RemoveCommentModal from "./remove-comment-modal";
 import ConfirmCommentModal from "./confirm-comment-modal";
 import { CommentRowProps } from "../_types/comments.types";
+import TruncateText from "@/components/dashboard/truncate";
 
 const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        {item.user.name}
+        <TruncateText text={item.user.name} />
       </TableUi.Col>
       <TableUi.Col>{item.email}</TableUi.Col>
       <TableUi.Col>{item.food.title}</TableUi.Col>
@@ -23,8 +24,8 @@ const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
       </TableUi.Col>
       <TableUi.Col>
         <p title={item.content} className="text-xs cursor-pointer">
-          {item.content.slice(0, 20)}
-          {item.content.length > 20 && "..."}
+          {item.content.slice(0, 15)}
+          {item.content.length > 15 && "..."}
         </p>
       </TableUi.Col>
       <TableUi.Col>

@@ -5,15 +5,18 @@ import RemoveCategoryModal from "./remove-category-modal";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import { CategoryRowProps } from "../_types/category.type";
 import CardAvatar from "@/components/cardAvatar";
+import TruncateText from "@/components/dashboard/truncate";
 
 const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        {item.title}
+        <TruncateText text={item.title} />
       </TableUi.Col>
-      <TableUi.Col>{item.englishTitle}</TableUi.Col>
+      <TableUi.Col>
+        <TruncateText text={item.englishTitle} />
+      </TableUi.Col>
       <TableUi.Col>
         <CardAvatar className="mx-auto size-12" src={item.img} />
       </TableUi.Col>

@@ -5,19 +5,17 @@ import RemoveUserModal from "./remove-user-modal";
 import EditUserModal from "./edit-user-modal";
 import { UserRowProps } from "../_types/user.types";
 import UserAvatar from "@/components/userAvatar";
+import TruncateText from "@/components/dashboard/truncate";
 
 const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        <p title={item.name} className="text-xs cursor-pointer">
-          {item.name.slice(0, 20)}
-          {item.name.length > 20 && "..."}
-        </p>
+        <TruncateText text={item.name} />
       </TableUi.Col>
-      <TableUi.Col>{item.email}</TableUi.Col>
-      <TableUi.Col>{item.password}</TableUi.Col>
+      <TableUi.Col><TruncateText text={item.email} /></TableUi.Col>
+      <TableUi.Col><TruncateText text={item.password} /></TableUi.Col>
       <TableUi.Col>
         <UserAvatar src={item.img} className="mx-auto size-12" />
       </TableUi.Col>

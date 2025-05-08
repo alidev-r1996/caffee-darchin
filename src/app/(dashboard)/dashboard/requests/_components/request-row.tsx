@@ -3,16 +3,14 @@ import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import React from "react";
 import RemoveRequestModal from "./remove-request-modal";
 import { RequestRowProps } from "../_types/requests.types";
+import TruncateText from "@/components/dashboard/truncate";
 
 const RequestRow: React.FC<RequestRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        <p title={item.name} className="text-xs cursor-pointer">
-          {item.name.slice(0, 20)}
-          {item.name.length > 20 && "..."}
-        </p>
+        <TruncateText text={item.name} />
       </TableUi.Col>
       <TableUi.Col>{ConvertToPersianDigit(item.phone)}</TableUi.Col>
       <TableUi.Col>

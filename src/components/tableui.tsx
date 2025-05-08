@@ -32,7 +32,7 @@ export const TableColumn: FC<TableProps> = ({ children, className }) => {
   return (
     <td
       className={cn(
-        "py-1 px-6 first:max-w-max text-center whitespace-nowrap mx-auto",
+        "py-1 md:px-6 px-2 first:max-w-max text-center whitespace-nowrap mx-auto",
         className
       )}
     >
@@ -45,7 +45,7 @@ export const TableTitle: FC<TableProps> = ({ children, className }) => {
   return (
     <th
       className={cn(
-        "py-1 px-6 first:px-2 first:py-3 text-center whitespace-nowrap mx-auto dark:bg-slate-800 bg-slate-100 text-blue-500",
+        "py-1 md:px-6 px-2 first:px-2 first:py-3 text-center whitespace-nowrap mx-auto dark:bg-slate-800 bg-slate-100 text-blue-500",
         className
       )}
     >

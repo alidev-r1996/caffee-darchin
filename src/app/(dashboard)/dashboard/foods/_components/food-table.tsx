@@ -21,7 +21,8 @@ const FoodTable = ({ page }: { page: string }) => {
   if (!data || data.food?.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
 
   return (
-    <div className="w-full overflow-x-auto mt-5">
+    <div className="w-full overflow-hidden mt-5">
+      <div className="w-full overflow-x-auto">
       <TableUi>
         <TableUi.Header>
           <TableUi.Row>
@@ -41,6 +42,7 @@ const FoodTable = ({ page }: { page: string }) => {
           })}
         </TableUi.Body>
       </TableUi>
+      </div>
       {data.meta.totalPage > 1 && (
         <div className="flex items-center justify-center my-8">
           <Paginate

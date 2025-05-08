@@ -5,16 +5,14 @@ import EditFoodModal from "./edit-food.modal";
 import RemoveFoodModal from "./remove-food.modal";
 import { FoodRowProps } from "../_types/food.types";
 import CardAvatar from "@/components/cardAvatar";
+import TruncateText from "@/components/dashboard/truncate";
 
 const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
       <TableUi.Col className="sticky right-0 z-10 bg-background">
-        <p title={item.title} className="text-xs cursor-pointer">
-          {item.title.slice(0, 20)}
-          {item.title.length > 20 && "..."}
-        </p>
+        <TruncateText text={item.title} />
       </TableUi.Col>
       <TableUi.Col>{ConvertToPersianDigit(item.price)} تومان</TableUi.Col>
       <TableUi.Col>
@@ -24,9 +22,10 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
               key={index}
               className="flex flex-wrap items-center gap-0.5 mx-auto"
             >
-              <p className="rounded bg-slate-200 dark:bg-slate-700 px-4 py-0.5">
-                {i.category.title}
-              </p>
+              <TruncateText
+                text={i.category.title}
+                className="rounded bg-slate-200 dark:bg-slate-700 px-4 py-0.5"
+              />
             </div>
           );
         })}
@@ -35,13 +34,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
         <CardAvatar src={item.img} className="mx-auto size-12" />
       </TableUi.Col>
       <TableUi.Col>
-        <p
-          title={item.ingredients.join(", ")}
-          className="text-xs cursor-pointer"
-        >
-          {item.ingredients.join(", ").slice(0, 20)}
-          {item.ingredients.join(", ").length > 20 && "..."}
-        </p>
+        <TruncateText text={item.ingredients} />
       </TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
