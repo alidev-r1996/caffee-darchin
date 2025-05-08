@@ -45,7 +45,7 @@ const CommentRow: React.FC<CommentRowProps> = ({ index, item }) => {
             status={item.verified as boolean}
           />
           <RemoveCommentModal
-            key={item.user.id}
+            key={item.user.name}
             foodId={item.foodId}
             userId={item.user.id}
             time={item.createdAt}

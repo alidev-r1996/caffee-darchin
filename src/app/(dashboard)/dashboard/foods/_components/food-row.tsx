@@ -39,8 +39,8 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
           title={item.ingredients.join(", ")}
           className="text-xs cursor-pointer"
         >
-          {item.ingredients.slice(0, 20).join(", ")}
-          {item.ingredients.length > 20 && "..."}
+          {item.ingredients.join(", ").slice(0, 20)}
+          {item.ingredients.join(", ").length > 20 && "..."}
         </p>
       </TableUi.Col>
       <TableUi.Col>
@@ -55,7 +55,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item }) => {
             ingredients={item.ingredients}
           />
           <RemoveFoodModal
-            key={item.id}
+            key={item.title}
             foodId={item.id}
             foodTitle={item.title}
           />

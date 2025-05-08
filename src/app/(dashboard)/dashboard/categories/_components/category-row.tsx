@@ -6,8 +6,6 @@ import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import { CategoryRowProps } from "../_types/category.type";
 import CardAvatar from "@/components/cardAvatar";
 
-
-
 const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
@@ -17,19 +15,19 @@ const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
       </TableUi.Col>
       <TableUi.Col>{item.englishTitle}</TableUi.Col>
       <TableUi.Col>
-        <CardAvatar className="mx-auto size-12" src={item.img}/>
+        <CardAvatar className="mx-auto size-12" src={item.img} />
       </TableUi.Col>
       <TableUi.Col>
         <div className="flex gap-2 justify-center items-center">
           <EditCategoryModal
-          key={item.id}
+            key={item.englishTitle}
             id={item.id}
             title={item.title}
             englishTitle={item.englishTitle}
             image={item.img}
           />
           <RemoveCategoryModal
-          key={item.id}
+            key={item.id}
             categoryId={item.id}
             categoryTitle={item.title}
           />

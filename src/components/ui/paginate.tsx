@@ -10,7 +10,7 @@ type PaginateProps = {
   theme: "red" | "green" | "blue";
   shape: "circle" | "square";
   totalPage: number;
-  currentPage: number | string; // بهتره همیشه عدد باشه
+  currentPage: string | number;
 };
 
 const btnStyle = {
@@ -30,15 +30,17 @@ const shapeStyle = {
   square: "rounded",
 };
 
-const Paginate: React.FC<PaginateProps> = ({ theme, shape, totalPage, currentPage }) => {
-  const pathname = usePathname();
-  const searchParams = useSearchParams();
+const Paginate: React.FC<PaginateProps> = ({
+  theme,
+  shape,
+  totalPage,
+  currentPage,
+}) => {
+  const pathname = usePathname() ?? "";
+  const searchParams = useSearchParams() ?? new URLSearchParams("");
   const router = useRouter();
 
-  const pages = useMemo(
-    () => Paginate_number_maker(totalPage, Number(currentPage)),
-    [totalPage, currentPage]
-  );
+  const pages = useMemo(() => Paginate_number_maker(totalPage, Number(currentPage)), [currentPage, totalPage]);
 
   const goToPage = (page: number) => {
     const params = new URLSearchParams(searchParams.toString());
@@ -48,16 +50,16 @@ const Paginate: React.FC<PaginateProps> = ({ theme, shape, totalPage, currentPag
 
   return (
     <div dir="ltr" className="flex items-center gap-1 w-max [&>button]:cursor-pointer">
-      {/* Previous */}
+      {/* Previous Button */}
       <button
         onClick={() => goToPage(Number(currentPage) - 1)}
-        disabled={currentPage === 1}
+        disabled={currentPage == 1}
         className={`${btnStyle[theme]} ${shapeStyle[shape]} p-1 size-7 transition-all duration-300 disabled:!opacity-40 bg-transparent border disabled:pointer-events-none`}
       >
         <BiChevronRight className="w-full h-full rotate-180" />
       </button>
 
-      {/* Pages */}
+      {/* Page Numbers */}
       <div className="flex items-center gap-1 [&>button]:cursor-pointer">
         {pages.map((i, index) => (
           <button
@@ -66,17 +68,17 @@ const Paginate: React.FC<PaginateProps> = ({ theme, shape, totalPage, currentPag
             onClick={() => typeof i === "number" && goToPage(i)}
             className={`size-7 p-1 flex items-center justify-center ${shapeStyle[shape]} ${
               i !== "..." ? btnStyle[theme] : ""
-            } ${currentPage === i ? activeBtnStyle[theme] : ""}`}
+            } ${currentPage == i ? activeBtnStyle[theme] : ""}`}
           >
             {convertToPersianDigits(i.toString())}
           </button>
         ))}
       </div>
 
-      {/* Next */}
+      {/* Next Button */}
       <button
+        disabled={currentPage == totalPage}
         onClick={() => goToPage(Number(currentPage) + 1)}
-        disabled={currentPage === totalPage}
         className={`${btnStyle[theme]} ${shapeStyle[shape]} p-1 size-7 transition-all duration-300 disabled:!opacity-40 bg-transparent border disabled:pointer-events-none`}
       >
         <BiChevronRight className="w-full h-full" />

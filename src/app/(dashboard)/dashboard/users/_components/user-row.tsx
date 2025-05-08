@@ -37,9 +37,9 @@ const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
             role={item.role}
           />
           <RemoveUserModal
-            key={item.id}
+            key={item.img}
             userId={item.id}
-            userName={item.title}
+            userName={item.name}
           />
         </div>
       </TableUi.Col>
