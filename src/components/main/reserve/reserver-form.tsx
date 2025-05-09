@@ -3,6 +3,7 @@ import InputText from "@/components/ui/inputText";
 import { AddReserve } from "@/lib/actions/reserver-action";
 import DateInput from "@/components/ui/date-picker";
 import TimeInput from "@/components/ui/time-picker";
+import ReserveButton from "./reserver-button";
 
 const FormReserve = () => {
   return (
@@ -28,9 +29,7 @@ const FormReserve = () => {
       />
       <DateInput label="تاریخ" name="date" />
       <TimeInput label="ساعت" name="time" />
-      <Button className="mt-4 col-span-2 w-full md:w-auto self-center px-8 py-3 rounded-full bg-amber-500 hover:bg-amber-600 text-white font-semibold shadow-md">
-        درخواست رزرو
-      </Button>
+      <ReserveButton />
     </form>
   );
 };

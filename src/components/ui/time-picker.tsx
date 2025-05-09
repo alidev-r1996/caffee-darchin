@@ -34,7 +34,7 @@ const TimeInput: FC<TimeInputProps> = ({ label, name }) => {
         inputClass="w-full placeholder:text-xs p-2 text-sm border border-slate-200 dark:border-slate-600 rounded peer focus:outline-none focus:border-slate-400 dark:focus:border-slate-400"
         disableDayPicker
         format="HH:mm"
-        plugins={[<TimePicker key="time-picker" hideSeconds />]}
+        plugins={[<TimePicker key="time-picker" hideSeconds className="dark:bg-slate-900 rounded"/>]}
       />
     </label>
   );

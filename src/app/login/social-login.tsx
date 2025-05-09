@@ -23,7 +23,7 @@ const SocialLogin = () => {
         >
           <button
             type="submit"
-            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:size-6"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:dark:text-slate-300 [&>svg]:size-6"
           >
             <BsGithub /> ورود با گیت‌هاب
           </button>
