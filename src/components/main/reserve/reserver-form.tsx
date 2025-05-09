@@ -1,5 +1,3 @@
-"use client";
-
 import { Button } from "@/components/ui/button";
 import InputText from "@/components/ui/inputText";
 import { AddReserve } from "@/lib/actions/reserver-action";
