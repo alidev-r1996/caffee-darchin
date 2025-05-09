@@ -47,7 +47,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         }
 
         if (!user) {
-          throw new Error("Invalid credentials.");
+          return null
         }
         console.log(user, "use in authorize");
         return user;

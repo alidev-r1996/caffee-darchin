@@ -6,14 +6,23 @@ import { redirect } from "next/navigation";
 
 export async function LoginCredentials(formData: FormData) {
   const { name, email, password } = Object.fromEntries(formData.entries());
-  if (email && password) {
-    await signIn(
-      "credentials",
-      { name, email, password },
-      { callbackUrl: "/" }
-    );
+
+  if (!email || !password) {
+    alert("ایمیل و رمز عبور الزامی است!");
+    return;
+  }
+
+  const res = await signIn("credentials", {
+    redirect: false,
+    email: email as string,
+    password: password as string,
+    name: name as string,
+  });
+
+  if (res?.ok) {
+    window.location.href = "/";
   } else {
-    throw new Error("Invalid Email or Password!");
+    alert("نام کاربری یا رمز عبور اشتباه است!");
   }
 }
 

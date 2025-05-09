@@ -1,23 +1,10 @@
 "use server";
 
+import { auth } from "@/auth";
+import { prisma } from "@/lib/utils/prisma";
 import { Resend } from "resend";
-import { prisma } from "../utils/prisma";
-import { getUserId } from "./user-action";
 
-export async function RemoveReserver(userId: string) {
-  try {
-    const user = await prisma.reserve.delete({
-      where: {
-        id: userId,
-      },
-    });
-    return { message: "User deleted successfully" };
-  } catch (error) {
-    return { message: "Something went wrong!" };
-  }
-}
-
-export async function createEmailTemplate(
+async function createEmailTemplate(
   name: string,
   phone: string,
   quantity: string,
@@ -60,17 +47,13 @@ export async function createEmailTemplate(
   return html;
 }
 
-export async function getReserveRequests() {
-  return await prisma.reserve.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-  });
-}
+export async function POST(req: Request) {
+  const formData = await req.formData();
+  const session = await auth();
+  if (!session) {
+    return Response.json({ message: "برای رزرو میز ابتدا باید وارد شوید!" });
+  }
 
-export async function AddReserve(formData: FormData) {
-  const userId = await getUserId();
-  if (!userId) return {message: "برای رزرو میز ابتدا باید ثبت‌نام کنید"};
   const { name, phone, persons, time, date } = Object.fromEntries(
     formData.entries()
   );
@@ -82,7 +65,7 @@ export async function AddReserve(formData: FormData) {
         quantity: Number(persons),
         time: time as string,
         date: date as string,
-        userId: userId,
+        userId: "cma5k6s3c0000vx6gwx7m08yy",
       },
     });
 
@@ -99,33 +82,13 @@ export async function AddReserve(formData: FormData) {
         date as string
       ),
     });
-
-    return { message: "رزرو شما با موفقیت انجام شد، همکاران ما به زودی با شما تماس خواهند گرفت!" };
-  } catch (error) {
-    return { message: "سرور دچار مشکل شده است، لطفا بعدا مجدداً تلاش کنید!" };
-  }
-}
-
-export async function GetReservePaginate(page: string, limit?: number) {
-  const limitDefault = limit ?? 8;
-  const skip = (Number(page) - 1) * limitDefault;
-
-  return await prisma.$transaction(async (tx) => {
-    const request = await tx.reserve.findMany({
-      skip,
-      take: limitDefault,
-      orderBy: { createdAt: "desc" },
+    return Response.json({
+      message:
+        "رزرو شما با موفقیت انجام شد، همکاران ما به زودی با شما تماس خواهند گرفت!",
     });
-
-    const count = await tx.reserve.count();
-
-    return {
-      request,
-      meta: {
-        totalCategory: count,
-        totalPage: Math.ceil(count / limitDefault),
-        currentPage: Number(page),
-      },
-    };
-  });
+  } catch (error) {
+    return Response.json({
+      message: "سرور دچار مشکل شده است، لطفا بعدا مجدداً تلاش کنید!",
+    });
+  }
 }
