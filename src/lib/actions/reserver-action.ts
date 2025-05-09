@@ -68,10 +68,7 @@ export async function getReserveRequests() {
   });
 }
 
-export async function AddReserve(
-  prevState: { message: string | null },
-  formData: FormData
-): Promise<{ message: string | null }> {
+export async function AddReserve(formData: FormData){
   const userId = await getUserId();
   if (!userId)
     return { message: "برای رزرو میز ابتدا وارد حساب کاربری خود شوید!" };
