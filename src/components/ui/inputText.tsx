@@ -29,6 +29,8 @@ const InputText: React.FC<InputTextProps> = ({
       <input
         type={type}
         name={name}
+        required
+        minLength={name == "phone" ? 11 : name == "persons" || "rating" ? 1 : 3}
         id={name}
         onChange={onChange}
         value={value}

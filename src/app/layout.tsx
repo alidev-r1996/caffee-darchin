@@ -4,6 +4,7 @@ import { ThemeProvider } from "@/components/provider/theme-provider";
 import "./globals.css";
 import RegisterSW from "../lib/pwa/register";
 import InstallPWA from "@/lib/pwa/install";
+import { Toaster } from "@/components/ui/sonner"
 
 const font = Vazirmatn({
   variable: "--font-vazir",
@@ -44,6 +45,7 @@ export default function RootLayout({
           <main className="max-w-screen-2xl mx-auto">
             {children}
           </main>
+          <Toaster />
         </ThemeProvider>
       </body>
     </html>

@@ -3,8 +3,11 @@ import { AddReserve } from "@/lib/actions/reserver-action";
 import DateInput from "@/components/ui/date-picker";
 import TimeInput from "@/components/ui/time-picker";
 import ReserveButton from "./reserver-button";
+import { auth } from "@/auth";
 
-const FormReserve = () => {
+const FormReserve = async() => {
+  const userId = await auth() ?? null;
+
   return (
     <form
       action={async (formData) => {
@@ -28,7 +31,8 @@ const FormReserve = () => {
       />
       <DateInput label="تاریخ" name="date" />
       <TimeInput label="ساعت" name="time" />
-      <ReserveButton />
+      <ReserveButton userId={userId}/>
+      {!userId && <p className="text-rose-500 text-xs text-center col-span-2">ابتدا باید وارد حساب کاربری خود شوید!</p>}
     </form>
   );
 };
