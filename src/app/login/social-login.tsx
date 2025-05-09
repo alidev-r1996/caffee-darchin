@@ -7,7 +7,7 @@ const SocialLogin = () => {
         <form
           action={LoginGoogle}
           id="google"
-          className="p-2 w-1/2  border border-slate-200 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer"
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer"
         >
           <button
             type="submit"
@@ -19,11 +19,11 @@ const SocialLogin = () => {
         <form
           action={LoginGithub}
           id="github"
-          className="p-2 w-1/2  border border-slate-200 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer "
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer "
         >
           <button
             type="submit"
-            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:size-6"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:dark:text-slate-300 [&>svg]:size-6"
           >
             <BsGithub /> ورود با گیت‌هاب
           </button>

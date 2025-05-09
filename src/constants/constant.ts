@@ -160,31 +160,3 @@ export const userItems = [
   { id: 6, title: "سمت  " },
   { id: 7, title: "عملیات " },
 ];
-
-export const reserveFormItems = [
-  {
-    id: 1,
-    name: "name",
-    placeholder: "نام خود را وارد کنید",
-    label: "نام",
-    required: true,
-    type: "string",
-  },
-  {
-    id: 2,
-    name: "phone",
-    placeholder: "شماره تلفن خود را وارد کنید",
-    label: "شماره تلفن",
-    required: true,
-    type: "number",
-  },
-  {
-    id: 3,
-    name: "persons",
-    placeholder: "تعداد نفرات را وارد کنید",
-    label: "تعداد نفرات",
-    required: true,
-    type: "number",
-    className: "col-span-2",
-  },
-];

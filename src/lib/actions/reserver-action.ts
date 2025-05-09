@@ -68,29 +68,30 @@ export async function getReserveRequests() {
   });
 }
 
-export async function AddReserve(formData: FormData) {
+export async function AddReserve(formData: FormData){
   const userId = await getUserId();
-  if (!userId) return {message: "برای رزرو میز ابتدا باید ثبت‌نام کنید"};
-  const { name, phone, persons, time, date } = Object.fromEntries(
-    formData.entries()
-  );
+  if (!userId)
+    return { message: "برای رزرو میز ابتدا وارد حساب کاربری خود شوید!" };
+
+  const { name, phone, persons, time, date } = Object.fromEntries(formData);
+
   try {
-    const reserve = await prisma.reserve.create({
+    await prisma.reserve.create({
       data: {
         name: name as string,
         phone: phone as string,
         quantity: Number(persons),
         time: time as string,
         date: date as string,
-        userId: userId,
+        userId,
       },
     });
 
-    const resend = new Resend(process.env.RESEND_API_KEY as string);
+    const resend = new Resend(process.env.RESEND_API_KEY!);
     await resend.emails.send({
       from: "onboarding@resend.dev",
-      to: process.env.EMAIL_USER as string,
-      subject: "درخواست رزرو میز ",
+      to: process.env.EMAIL_USER!,
+      subject: "درخواست رزرو میز",
       html: await createEmailTemplate(
         name as string,
         phone as string,
@@ -100,9 +101,9 @@ export async function AddReserve(formData: FormData) {
       ),
     });
 
-    return { message: "رزرو شما با موفقیت انجام شد، همکاران ما به زودی با شما تماس خواهند گرفت!" };
+    return { message: "✅ رزرو با موفقیت انجام شد!" };
   } catch (error) {
-    return { message: "سرور دچار مشکل شده است، لطفا بعدا مجدداً تلاش کنید!" };
+    return { message: "❌ خطایی رخ داد. لطفاً دوباره تلاش کنید." };
   }
 }
 
