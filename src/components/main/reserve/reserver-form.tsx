@@ -1,17 +1,18 @@
-import { Button } from "@/components/ui/button";
+"use client"
+
 import InputText from "@/components/ui/inputText";
 import { AddReserve } from "@/lib/actions/reserver-action";
 import DateInput from "@/components/ui/date-picker";
 import TimeInput from "@/components/ui/time-picker";
 import ReserveButton from "./reserver-button";
+import { useActionState } from "react";
 
 const FormReserve = () => {
+  const [state, formAction] = useActionState(AddReserve, { message: null });
+
   return (
     <form
-      action={async (formData: FormData) => {
-        "use server";
-        await AddReserve(formData);
-      }}
+      action={formAction}
       className="md:grid flex flex-col p-4  md:grid-cols-2 gap-4"
     >
       <InputText label="نام" name="name" placeholder="نام خود را وارد کنید" />
