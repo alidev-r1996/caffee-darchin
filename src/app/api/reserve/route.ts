@@ -1,8 +1,8 @@
 "use server";
 
 import { auth } from "@/auth";
-import { prisma } from "@/lib/utils/prisma";
 import { Resend } from "resend";
+import { PrismaClient } from "../../../../prisma/generated";
 
 async function createEmailTemplate(
   name: string,
@@ -54,6 +54,8 @@ export async function POST(req: Request) {
     return Response.json({ message: "برای رزرو میز ابتدا باید وارد شوید!" });
   }
 
+  const prisma = new PrismaClient();
+
   const { name, phone, persons, time, date } = Object.fromEntries(
     formData.entries()
   );
@@ -82,11 +84,13 @@ export async function POST(req: Request) {
         date as string
       ),
     });
+    prisma.$disconnect();
     return Response.json({
       message:
         "رزرو شما با موفقیت انجام شد، همکاران ما به زودی با شما تماس خواهند گرفت!",
     });
   } catch (error) {
+    prisma.$disconnect();
     return Response.json({
       message: "سرور دچار مشکل شده است، لطفا بعدا مجدداً تلاش کنید!",
     });
