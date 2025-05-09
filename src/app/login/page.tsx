@@ -15,9 +15,9 @@ const SignIn = async () => {
       <SocialLogin />
 
       <div className="flex items-center px-8 md:mt-4 md:-mb-3">
-        <div className="w-full h-[1px] bg-slate-200"></div>
+        <div className="w-full h-[1px] bg-slate- dark:bg-slate-700"></div>
         <p className="text-sm text-slate-500 px-4">یا</p>
-        <div className="w-full h-[1px] bg-slate-200"></div>
+        <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
       </div>
 
       <form

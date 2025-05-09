@@ -7,7 +7,7 @@ const SocialLogin = () => {
         <form
           action={LoginGoogle}
           id="google"
-          className="p-2 w-1/2  border border-slate-200 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer"
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer"
         >
           <button
             type="submit"
@@ -19,7 +19,7 @@ const SocialLogin = () => {
         <form
           action={LoginGithub}
           id="github"
-          className="p-2 w-1/2  border border-slate-200 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer "
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer "
         >
           <button
             type="submit"
