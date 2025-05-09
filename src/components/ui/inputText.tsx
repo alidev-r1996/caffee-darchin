@@ -30,7 +30,7 @@ const InputText: React.FC<InputTextProps> = ({
         type={type}
         name={name}
         required
-        minLength={name == "phone" ? 11 : name == "persons" || "rating" ? 1 : 3}
+        minLength={name == "phone" ? 11 : ((name == "phone") || (name == "rating")) ? 1 : 3}
         id={name}
         onChange={onChange}
         value={value}
