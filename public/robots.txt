@@ -1,0 +1,10 @@
+# *
+User-agent: *
+Allow: /
+Disallow: /dashboard
+
+# Host
+Host: https://caffee-darchin.ir
+
+# Sitemaps
+Sitemap: https://caffee-darchin.ir/sitemap.xml

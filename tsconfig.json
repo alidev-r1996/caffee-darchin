@@ -25,6 +25,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/utils/seed.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/lib/utils/seed.ts", "next-sitemap.config.js"],
   "exclude": ["node_modules", "**/node_modules", ".next", "C:/Users/Click/Application Data", "src/generated", "/src/generated", "**/src/generated/**", "**/generated", "**/generated/**"]
 }
