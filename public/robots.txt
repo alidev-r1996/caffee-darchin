@@ -4,7 +4,7 @@ Allow: /
 Disallow: /dashboard
 
 # Host
-Host: https://caffee-darchin.ir
+Host: https://cafe-darchin.ir
 
 # Sitemaps
-Sitemap: https://caffee-darchin.ir/sitemap.xml
+Sitemap: https://cafe-darchin.ir/sitemap.xml
