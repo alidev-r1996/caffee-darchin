@@ -21,6 +21,7 @@ export function useRemoveUser(userId: string) {
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["foods"] });
+      setOpen(false)
     },
   });
   return { mutateAsync, isPending, open, setOpen };
