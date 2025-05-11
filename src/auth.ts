@@ -3,8 +3,6 @@ import credentials from "next-auth/providers/credentials";
 import GitHub from "next-auth/providers/github";
 import Google from "next-auth/providers/google";
 
-// import Resend from "next-auth/providers/resend";
-
 declare module "next-auth" {
   interface Session {
     user: {
@@ -30,9 +28,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     GitHub,
     Google,
     credentials({
-      // You can specify which fields should be submitted, by adding keys to the `credentials` object.
-      // e.g. domain, username, password, 2FA token, etc.
-      credentials: { email: {}, password: {}, name: {} },
+      credentials: { email: {}, password: {}},
       authorize: async (credentials) => {
         let user:any = null
 
@@ -47,7 +43,7 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         }
 
         if (!user) {
-          throw new Error("Invalid credentials.");
+          return null;
         }
         console.log(user, "use in authorize");
         return user;

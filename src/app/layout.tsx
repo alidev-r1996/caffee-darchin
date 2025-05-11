@@ -45,7 +45,7 @@ export default function RootLayout({
           <main className="max-w-screen-2xl mx-auto">
             {children}
           </main>
-          <Toaster />
+          <Toaster toastOptions={{ className: "font-[Vazirmatn]" }}/>
         </ThemeProvider>
       </body>
     </html>
