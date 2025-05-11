@@ -45,7 +45,6 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
         if (!user) {
           return null;
         }
-        console.log(user, "use in authorize");
         return user;
       },
     }),
@@ -96,9 +95,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true; // Allow sign in
     },
 
-    async redirect() {
-      // Redirect to homepage after login
-      return "/";
+    async redirect({ baseUrl }) {
+      return baseUrl;
     },
     async jwt({ token, user }) {
       const { prisma } = await import("@/lib/utils/prisma");
