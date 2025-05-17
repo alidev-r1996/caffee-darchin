@@ -23,4 +23,4 @@ const Menu = async({ params }: { params: string }) => {
   );
 }
 
-export default memo(Menu);
+export default Menu;
