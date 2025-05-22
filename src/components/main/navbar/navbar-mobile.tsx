@@ -81,9 +81,6 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
               </li>
             ))}
           </ul>
-          <SheetFooter>
-            <Button className="hover:shadow-blue-500">رزرو میز</Button>
-          </SheetFooter>
         </SheetContent>
       </Sheet>
       <motion.ul
@@ -101,7 +98,11 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
         >
            {!role ?  <Link href="/login" aria-label="login" className="flex items-center p-[5px]">
             <UserRoundPlus   />
-          </Link>: <SignoutButton />}
+          </Link>:  role == "USER" && <div
+                className="p-2 rounded text-sm hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow"
+              >
+                <Link href={'/profile'}>پروفایل</Link>
+              </div>}
         </motion.li>
         
         <motion.li variants={navChildVariant}>

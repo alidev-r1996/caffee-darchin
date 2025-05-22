@@ -70,7 +70,7 @@ export const sideBarItemProfile = [
     id: 2,
     title: "رزروها",
     href: "/profile/reservations",
-    icon: BookOpenText,
+    icon: Inbox,
   },
   { id: 3, title: "سفارشات", href: "/profile/orders", icon: BookOpenText },
   { id: 4, title: "پروفایل", href: "/profile/info", icon: UsersIcon },

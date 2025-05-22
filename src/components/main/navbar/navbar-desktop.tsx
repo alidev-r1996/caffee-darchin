@@ -3,7 +3,7 @@
 import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { memo, useEffect, useState } from "react";
-import { UserRoundPlus   } from "lucide-react";
+import { UserRoundPlus } from "lucide-react";
 import { ModeToggle } from "@/components/dark-toggle";
 import { motion } from "framer-motion";
 import SignoutButton from "./signout-button";
@@ -79,11 +79,25 @@ const NavBarDesktop = ({
           variants={navChildVariant}
           className="bg-slate-100 border dark:bg-slate-700/90 rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
         >
-         {!role ?  <Link href="/login" aria-label="login" className="flex items-center p-[5px]">
-            <UserRoundPlus   />
-          </Link>: <SignoutButton />}
+          {!role ? (
+            <Link
+              href="/login"
+              aria-label="login"
+              className="flex items-center p-[5px]"
+            >
+              <UserRoundPlus />
+            </Link>
+          ) : (
+            role == "USER" && (
+              <div
+                className="p-2 rounded text-sm hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow"
+              >
+                <Link href={"/profile"}>پروفایل</Link>
+              </div>
+            )
+          )}
         </motion.li>
-        
+
         <motion.li variants={navChildVariant}>
           <Button className="hover:shadow-blue-500">
             {role == "ADMIN" ? (
