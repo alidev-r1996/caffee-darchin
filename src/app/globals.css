@@ -161,3 +161,12 @@
 .rti--tag{
   font-size: 12px;
 }
+
+
+html.dark .rti--container{
+  --rti-bg: transparent !important;
+  --rti-main: blue !important;
+  --rti-radius: 6px;
+  --rti-tag: rgba(255, 255, 255, 0.5) !important;
+  --rti-border: rgba(255, 255, 255, 0.5) !important;
+}

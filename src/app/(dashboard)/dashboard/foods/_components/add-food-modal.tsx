@@ -50,7 +50,8 @@ const AddFoodModal = () => {
             <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
               مواد تشکیل‌دهنده
             </p>
-            <TagsInput value={tag} onChange={setTag} />
+            <TagsInput value={tag} separators={["Enter", "Tab", ",", " "]} onChange={setTag} classNames={{input: "rounded placeholder:text-xs border", tag: "bg-slate-400"}} placeHolder="مواد تشکیل دهنده..."/>
+
           </label>
         </div>
 
