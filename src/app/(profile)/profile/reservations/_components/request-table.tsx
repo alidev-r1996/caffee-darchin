@@ -1,0 +1,60 @@
+"use client";
+
+import { TableUi } from "@/components/tableui";
+import Loading from "@/components/loading";
+import RequestRow from "./request-row";
+import {reserveItems } from "@/constants/constant";
+import Paginate from "@/components/ui/paginate";
+import { memo } from "react";
+import { useGetRequest } from "@/app/(dashboard)/dashboard/requests/_hook/useRequest";
+
+const RequestTable = ({page}:{page:string}) => {
+  const { data, isError, isLoading } = useGetRequest(page);
+
+  if (isLoading)
+    return (
+      <div>
+        <Loading />
+      </div>
+    );
+  if (isError) return <div>Error</div>;
+  if (!data || data?.request.length == 0) return <div>هیچ داده ای وجود ندارد</div>;
+
+  return (
+    <div className="w-full overflow-hidden mt-5">
+     <div className="w-full overflow-x-auto">
+     <TableUi>
+        <TableUi.Header>
+          <TableUi.Row>
+            {reserveItems.map((item) => (
+              <TableUi.Title
+                className={`${item.title === "نام" && "sticky right-0 z-10"}`}
+                key={item.id}
+              >
+                {item.title}
+              </TableUi.Title>
+            ))}
+          </TableUi.Row>
+        </TableUi.Header>
+        <TableUi.Body>
+          {data.request.map((item: any, index: number) => {
+            return <RequestRow key={index} index={index} item={item} />;
+          })}
+        </TableUi.Body>
+      </TableUi>
+     </div>
+      {data.meta.totalPage > 1 && (
+        <div className="flex items-center justify-center my-8">
+          <Paginate
+            shape="square"
+            theme="blue"
+            currentPage={page}
+            totalPage={data.meta.totalPage}
+          />
+        </div>
+      )}
+    </div>
+  );
+};
+
+export default memo(RequestTable);

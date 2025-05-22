@@ -64,6 +64,18 @@ export const sidebarItem = [
   { id: 7, title: "سفارشات", href: "/dashboard/orders", icon: BookOpenText },
 ];
 
+export const sideBarItemProfile = [
+  { id: 1, title: "داشبورد", href: "/profile", icon: HomeIcon },
+  {
+    id: 2,
+    title: "رزروها",
+    href: "/profile/reservations",
+    icon: BookOpenText,
+  },
+  { id: 3, title: "سفارشات", href: "/profile/orders", icon: BookOpenText },
+  { id: 4, title: "پروفایل", href: "/profile/info", icon: UsersIcon },
+];
+
 export const categoryFormFields = [
   {
     id: 1,
@@ -78,6 +90,27 @@ export const categoryFormFields = [
     placeholder: "عنوان را به لاتین وارد کنید",
   },
 ];
+
+export const profileFormFields = [
+  {
+    id: 1,
+    label: "نام",
+    name: "name",
+    placeholder: " نام خود را وارد کنید",
+  },
+  {
+    id: 2,
+    label: "ایمیل ",
+    name: "email",
+    placeholder: "ایمیل خود را وارد کنید",
+  },
+  {
+    id: 3,
+    label: "رمز عبور ",
+    name: "password",
+    placeholder: "رمزعبور خود را وارد کنید",
+  },
+]
 
 export const categoryItems = [
   {
@@ -136,9 +169,19 @@ export const requestItems = [
   { id: 8, title: "تاریخ درخواست" },
   { id: 4, title: "تعداد نفرات" },
   { id: 5, title: " تاریخ رزرو" },
-  { id: 6, title: "ساعت  " },
+  { id: 6, title: "ساعت رزرو  " },
   { id: 7, title: "عملیات " },
 ];
+
+export const reserveItems = [
+  { id: 1, title: "ردیف" },
+  { id: 2, title: "نام" },
+  { id: 3, title: "شماره تلفن" },
+  { id: 8, title: "تاریخ درخواست" },
+  { id: 4, title: "تعداد نفرات" },
+  { id: 5, title: " تاریخ رزرو" },
+  { id: 6, title: "ساعت رزرو  " },
+]
 
 export const userFormFields = [
   { id: 1, label: "نام", name: "name" },

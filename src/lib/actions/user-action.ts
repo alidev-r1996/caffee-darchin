@@ -46,6 +46,7 @@ export async function getUserInfo() {
         img: true,
         name: true,
         email: true,
+        password: true,
       },
     });
     return user;
