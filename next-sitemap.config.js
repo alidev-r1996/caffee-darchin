@@ -1,6 +1,6 @@
 /** @type {import('next-sitemap').IConfig} */
 module.exports = {
-    siteUrl: 'https://cafe-darchin.ir',
+    siteUrl: 'https://caffee-darchin.vercel.app/',
     generateRobotsTxt: true,
     generateIndexSitemap: false,
     robotsTxtOptions: {
