@@ -52,7 +52,7 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
         boxShadow: "0px 5px 20px rgba(255, 193, 7, 0.2)",
       }}
       transition={{ type: "spring", stiffness: 100, damping: 10 }}
-      className="flex items-center gap-2 p-3 rounded-xl bg-white dark:bg-slate-800 border border-dashed border-amber-200 dark:border-zinc-700 hover:shadow-md transition-shadow"
+      className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-dashed border-amber-200 dark:border-zinc-700 hover:shadow-md transition-shadow"
     >
       <div className="relative size-16 md:size-20">
         <CardAvatar

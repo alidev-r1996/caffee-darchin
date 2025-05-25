@@ -65,7 +65,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
         variants={containerVariants}
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: "all" }}
+        viewport={{ once: true, amount: "some" }}
         className="md:flex grid grid-cols-2 items-center justify-center gap-2 mb-6 p-2 max-w-full md:overflow-x-auto"
       >
         {category.map((item) => (
@@ -77,12 +77,13 @@ const TabMenu = ({ category }: { category: any[] }) => {
             whileTap={{ scale: 0.98 }}
             className={`${
               searchParams.get("category") === item.englishTitle
-                ? "bg-teal-600 text-white font-bold"
+                ? "ring-rose-600 ring-3 ring-offset-2 rounded"
                 : "bg-slate-100 dark:bg-slate-800"
-            } flex items-center gap-2 flex-1 md:flex-none justify-between cursor-pointer px-3 py-1 rounded`}
+            } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded relative w-full h-32 md:size-44 group overflow-hidden`}
           >
-            <CardAvatar src={item.img} className="size-12" />
-            <p>{item.title}</p>
+            <CardAvatar src={item.img} className="size-full group-hover:scale-105 transition-all duration-200" />
+            <p className="absolute bottom-0 w-full h-2/3 bg-gradient-to-t from-slate-900 to-transparent rounded "></p>
+            <p className="absolute bottom-2 left-1/2 -translate-x-1/2 mx-auto text-white">{item.title}</p>
           </motion.div>
         ))}
       </motion.div>
