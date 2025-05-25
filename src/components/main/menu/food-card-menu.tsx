@@ -2,6 +2,7 @@
 
 import CardAvatar from "@/components/cardAvatar";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
+import convertToPersianDigits from "@/lib/utils/PersianDigits";
 import { motion } from "framer-motion";
 
 const itemVariants = {
@@ -71,8 +72,8 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
             <p className="text-xs">تومان</p>
           </div>
         </div>
-        <p className="text-zinc-500 text-xs md:text-sm dark:text-zinc-400">
-          {item.ingredients.join("، ")}
+        <p className="text-zinc-500 text-xs dark:text-zinc-400">
+          {convertToPersianDigits(item.ingredients.join("، "))}
         </p>
       </div>
     </motion.div>
