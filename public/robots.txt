@@ -4,7 +4,7 @@ Allow: /
 Disallow: /dashboard
 
 # Host
-Host: https://caffee-darchin.vercel.app
+Host: https://cafe-darchin.vercel.app
 
 # Sitemaps
-Sitemap: https://caffee-darchin.vercel.app/sitemap.xml
+Sitemap: https://cafe-darchin.vercel.app/sitemap.xml
