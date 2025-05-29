@@ -75,7 +75,7 @@ const NavBarDesktop = ({
         <motion.li variants={navChildVariant}>
           <ModeToggle />
         </motion.li>
-        <motion.li
+        {role != "ADMIN" && <motion.li
           variants={navChildVariant}
           className="bg-slate-100 border dark:bg-slate-700/90 rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
         >
@@ -96,7 +96,7 @@ const NavBarDesktop = ({
               </div>
             )
           )}
-        </motion.li>
+        </motion.li>}
 
         <motion.li variants={navChildVariant}>
           <Button className="hover:shadow-blue-500">

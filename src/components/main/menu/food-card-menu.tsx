@@ -1,30 +1,9 @@
 "use client";
 
-import CardAvatar from "@/components/cardAvatar";
+import { motion } from "framer-motion";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
 import convertToPersianDigits from "@/lib/utils/PersianDigits";
-import { motion } from "framer-motion";
-
-const itemVariants = {
-  hidden: (i: number) => ({
-    opacity: 0,
-    scale: 0.8,
-    x: i % 2 === 0 ? -80 : 80,
-    skewY: i % 2 === 0 ? -5 : 5,
-  }),
-  visible: (i: number) => ({
-    opacity: 1,
-    scale: 1,
-    x: 0,
-    skewY: 0,
-    transition: {
-      type: "spring",
-      stiffness: 120,
-      damping: 15,
-      delay: i * 0.1,
-    },
-  }),
-};
+import CardAvatar from "@/components/cardAvatar";
 
 type FoodItem = {
   id: number | string;
@@ -39,7 +18,28 @@ type FoodCardMenuProps = {
   index: number;
 };
 
+const itemVariants = {
+  hidden: (i: number) => ({
+    opacity: 0,
+    x: i % 2 === 0 ? 50 : -50,
+    scale: 0.9,
+  }),
+  visible: (i: number) => ({
+    opacity: 1,
+    x: 0,
+    scale: 1,
+    transition: {
+      type: "spring",
+      stiffness: 120,
+      damping: 14,
+      delay: i * 0.07,
+    },
+  }),
+};
+
 const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
+  const ingredientsText = convertToPersianDigits(item.ingredients.join("، "));
+
   return (
     <motion.div
       key={item.id}
@@ -49,32 +49,33 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
       variants={itemVariants}
       viewport={{ once: true, amount: 0.5 }}
       whileHover={{
-        scale: 1.03,
-        boxShadow: "0px 5px 20px rgba(255, 193, 7, 0.2)",
+        scale: 1.04,
+        boxShadow: "0 8px 24px rgba(255, 193, 7, 0.2)",
       }}
-      transition={{ type: "spring", stiffness: 100, damping: 10 }}
-      className="flex items-center gap-2 p-3 rounded-xl bg-slate-50 dark:bg-slate-800 border border-dashed border-amber-200 dark:border-zinc-700 hover:shadow-md transition-shadow"
+      className="flex justify-between items-center w-full rounded-2xl p-2 bg-slate-200/30 dark:bg-zinc-700/30 backdrop-blur-md border border-dashed border-slate/30 dark:border-zinc-700 shadow-lg transition-all"
     >
-      <div className="relative size-16 md:size-20">
-        <CardAvatar
+      {/* عکس غذا */}
+
+      <CardAvatar
           src={item.img}
-          className="size-16 md:size-20 object-fill rounded-full "
+          className="size-28 shrink-0 object-fill overflow-hidden rounded-xl ml-1 "
         />
-      </div>
-      <div className="flex flex-col gap-1 flex-1">
-        <div className="flex items-center gap-1.5 text-sm md:text-base">
-          <h2 className="font-bold text-amber-700 dark:text-amber-400">
-            {item.title}
-          </h2>
-          <p className="flex-1 border-dotted border-b-2 border-b-zinc-400"></p>
-          <div className="flex items-center gap-0.5 text-rose-600 dark:text-amber-500 font-semibold">
-            <strong>{ConvertToPersianDigit(item.price)}</strong>
-            <p className="text-xs">تومان</p>
-          </div>
-        </div>
-        <p className="text-zinc-500 text-xs dark:text-zinc-400">
-          {convertToPersianDigits(item.ingredients.join("، "))}
+      
+
+      {/* متن‌ها */}
+      <div className="flex flex-col justify-center gap-1 flex-1 pr-2">
+        <h2 className="text-base font-bold text-zinc-800 dark:text-amber-300 line-clamp-1">
+          {item.title}
+        </h2>
+
+        <p className="text-xs text-zinc-600 dark:text-zinc-300 line-clamp-1">
+          {ingredientsText}
         </p>
+
+        <div className=" font-semibold text-rose-600 dark:text-amber-200 mt-4">
+          {ConvertToPersianDigit(item.price)}{" "}
+          <span className="text-xs">تومان</span>
+        </div>
       </div>
     </motion.div>
   );
