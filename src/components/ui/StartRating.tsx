@@ -8,9 +8,9 @@ type starRating = {
 };
 
 const starSize = {
-  small: "size-5",
-  medium: "size-7",
-  large: "size-10",
+  small: "md:size-5 ",
+  medium: "md:size-7",
+  large: "md:size-10",
 };
 
 const StartRating: FC<starRating> = ({ rating, totalStars, size }) => {
@@ -19,11 +19,11 @@ const StartRating: FC<starRating> = ({ rating, totalStars, size }) => {
   const emptyStars = Array.from({ length: empty }, (_, x) => x + 1);
 
   return (
-    <div className="flex items-center gap-1">
+    <div className="flex items-center md:gap-1">
       {emptyStars &&
         emptyStars.map((i) => (
           <p key={i}>
-            <TiStarFullOutline className={`${starSize[size]} fill-EERIE-300 drop-shadow-md`} />
+            <TiStarFullOutline className={`${starSize[size]}  fill-zinc-400 drop-shadow-md`} />
           </p>
         ))}
       {fillStars &&

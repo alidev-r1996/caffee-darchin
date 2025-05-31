@@ -21,8 +21,8 @@ export default async function Home(props: Props) {
     <main className="max-w-screen">
       <About />
       <Menu params={params} />
-      {/* <Suspense fallback={<Loading />}><Comments /></Suspense> */}
       <Reservation />
+      <Suspense fallback={<Loading />}><Comments /></Suspense>
       <Suspense fallback={<Loading />}>
         <Personel />
       </Suspense>

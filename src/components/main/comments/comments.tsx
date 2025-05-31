@@ -2,55 +2,56 @@
 
 import { motion } from "framer-motion";
 import CommentCard from "./card";
+import { EmblaCarousel } from "@/components/ui/slider";
 
 const commentItems = [
   {
     id: 1,
     rating: 4,
     author: "نرگس افضلی",
-    text: "دوره طراحی محصول برای استارتاپ‌ها بسیار کاربردی بود. بعد از این دوره توانستم محصول خود را به شکل بهتری مدیریت و به بازار عرضه کنم.",
+    text: "فضای دارچین خیلی گرم و صمیمیه، از اونجاس که یه بار میری مشتری دائمی میشی. من عاشق لاته‌شونم، هر بار یه حس خوب برام داره.",
     img: "narges.png",
   },
   {
     id: 2,
-    rating: 4,
+    rating: 5,
     author: "سارا محمدی",
-    text: "با دوره‌های طراحی محصول توانستم محصول استارتاپ خود را به بازار عرضه کنم و نتایج فوق‌العاده‌ای بگیرم.",
+    text: "من عاشق کافه‌گردیم، ولی دارچین واقعاً یه چیز دیگه‌ست! اون صبحونه‌ی فرانسویش با نون داغ و قهوه تازه‌ش عالیه. تازه پرسنل هم خیلی خوش‌برخوردن.",
     img: "sara.png",
   },
   {
     id: 3,
     rating: 5,
     author: "حمید فرزانه",
-    text: "از پشتیبانی خوب مدرسه مسیر بسیار راضی‌ام. همیشه به سوالاتم سریع و دقیق پاسخ می‌دهند و به من کمک کردند مشکلاتم را در یادگیری حل کنم.",
+    text: "برای تولد دخترم یه میز توی فضای باز دارچین رزرو کردم، همه چی عالی بود. هم غذاها خوشمزه بودن هم موزیک ملایم خیلی فضا رو خاص کرده بود.",
     img: "hamid.png",
   },
   {
     id: 4,
     rating: 4,
     author: "علی رضایی",
-    text: "دوره برنامه‌نویسی مدرسه مسیر به من کمک کرد که مهارت‌هایم را ارتقا بدهم و حالا به عنوان توسعه‌دهنده وب در یک استارتاپ مشغول به کار هستم.",
+    text: "یه بار با بچه‌ها رفتیم دارچین بعد از یه روز کاری شلوغ، انقدر اون نوشیدنی انار با دارچینش بهم چسبید که هنوز مزه‌ش یادمه!",
     img: "alireza.png",
   },
   {
     id: 5,
     rating: 5,
     author: "محمد طاهری",
-    text: "مدرسه مسیر واقعا بهترین جایی است که تا به حال برای یادگیری برنامه‌نویسی پیدا کرده‌ام. مطالب به‌روز و منتورها همیشه حاضر به کمک هستند.",
+    text: "ما تقریبا هر هفته یه وعده رو دارچین میریم. غذاهاش هم باکیفیتن هم قیمتاش منصفانه‌ست. مخصوصاً پاستای مرغش واقعاً حرف نداره.",
     img: "mohamad.png",
   },
   {
     id: 6,
     rating: 4,
     author: "سینا کاظمی",
-    text: "آموزش‌ها به‌گونه‌ای طراحی شده‌اند که حتی اگر مبتدی باشید، می‌توانید با راهنمایی‌های مرحله به مرحله و منتورینگ حرفه‌ای به سرعت پیشرفت کنید.",
+    text: "دارچین یه جاییه که وقتی میری انگار یه مدت از شلوغیای شهر جدا میشی. یه گوشه دنج با یه لیوان چای ترش بخوری، تموم خستگی میره.",
     img: "sina.png",
   },
   {
     id: 7,
-    rating: 4,
+    rating: 5,
     author: "الهام کاظمی",
-    text: "با گذراندن دوره بازاریابی دیجیتال مدرسه مسیر، توانستم شغل خودم را در این حوزه پیدا کنم. آموزش‌ها بسیار جامع و مفید بودند.",
+    text: "همه چی توی دارچین خوبه، از دکور گرفته تا اخلاق پرسنل. آخرین بار با دوستم رفتیم، تا سه ساعت نشستیم کسی حتی یه نگاه بد هم نکرد!",
     img: "elham.png",
   },
 ];
@@ -74,30 +75,28 @@ const fadeUp = {
 const Comments = () => {
 
   return (
-    <div id="about" className="mt-4 space-y-8 overflow-hidden py-4 max-w-full">
+    <div id="about" className="mt-10 space-y-8 overflow-hidden py-4 max-w-full">
       <div className="flex flex-col items-center justify-center gap-3 p-4 md:p-0">
-        <motion.h1 variants={fadeUp} initial='hidden' whileInView='visible' custom={1} className="md:text-2xl text-xl  font-bold ">
-          نظرات هنرجویان ما!
+        <motion.h1 viewport={{once:true}} variants={fadeUp} initial='hidden' whileInView='visible' custom={1} className="md:text-2xl text-xl  font-bold ">
+          تجربیات مشتریان ما!
         </motion.h1>
-        <motion.h2 variants={fadeUp} initial='hidden' whileInView='visible' custom={2} className="md:text-base text-sm text-center text-zinc-400">
+        <motion.h2 viewport={{once:true}} variants={fadeUp} initial='hidden' whileInView='visible' custom={2} className="md:text-base text-sm text-center text-zinc-400">
           نظرات برخی از هنرجویان موفق ما که با دوره‌های مدرسه مسیر به اهداف خود
           رسیده‌اند.
         </motion.h2>
       </div>
-      <div className="h-[700px] w-full comment-bg">
+      <div className=" w-full">
         <div
-          className="flex h-full flex-col items-center justify-center gap-36 pt-12 commentAnimation"
+          className="flex h-full flex-col items-center justify-center my-8"
         >
-          <div className="flex items-center gap-60">
-            {commentItems.slice(0, 4).map((i) => {
+
+          <EmblaCarousel>
+          {commentItems.map((i) => {
               return <CommentCard key={i.id} {...i} />;
             })}
-          </div>
-          <div className="flex items-center gap-60">
-            {commentItems.slice(4).map((i) => {
-              return <CommentCard key={i.id} {...i} />;
-            })}
-          </div>
+          </EmblaCarousel>
+          
+         
         </div>
       </div>
     </div>
