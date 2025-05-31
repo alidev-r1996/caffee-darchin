@@ -16,7 +16,7 @@ const commentItems = [
     id: 2,
     rating: 5,
     author: "سارا محمدی",
-    text: "من عاشق کافه‌گردیم، ولی دارچین واقعاً یه چیز دیگه‌ست! اون صبحونه‌ی فرانسویش با نون داغ و قهوه تازه‌ش عالیه. تازه پرسنل هم خیلی خوش‌برخوردن.",
+    text: "من عاشق کافه‌گردیم، ولی دارچین واقعاً یه چیز دیگه‌ست! پرسنل هم خیلی خوش‌برخوردن.",
     img: "sara.png",
   },
   {
@@ -78,11 +78,10 @@ const Comments = () => {
     <div id="about" className="mt-10 space-y-8 overflow-hidden py-4 max-w-full">
       <div className="flex flex-col items-center justify-center gap-3 p-4 md:p-0">
         <motion.h1 viewport={{once:true}} variants={fadeUp} initial='hidden' whileInView='visible' custom={1} className="md:text-2xl text-xl  font-bold ">
-          تجربیات مشتریان ما!
+        مشتریا چی می‌گن؟        
         </motion.h1>
         <motion.h2 viewport={{once:true}} variants={fadeUp} initial='hidden' whileInView='visible' custom={2} className="md:text-base text-sm text-center text-zinc-400">
-          نظرات برخی از هنرجویان موفق ما که با دوره‌های مدرسه مسیر به اهداف خود
-          رسیده‌اند.
+        قهوه‌ و غذا بهونه‌ست، اینجا آدما حال دلشونو با ما شریک شدن.
         </motion.h2>
       </div>
       <div className=" w-full">
