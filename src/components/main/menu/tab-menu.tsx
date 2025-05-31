@@ -82,7 +82,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
             } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded-lg relative w-full h-32 md:size-44 group overflow-hidden`}
           >
             <CardAvatar src={item.img} className="size-full group-hover:scale-105 transition-all duration-200" />
-            <p className="absolute bottom-0 w-full h-[80%] bg-gradient-to-t from-slate-900 to-transparent rounded "></p>
+            <p className="absolute bottom-0 w-full h-2/3 bg-gradient-to-t from-slate-900 to-transparent rounded "></p>
             <p className="absolute bottom-2 left-1/2 -translate-x-1/2 mx-auto text-white">{item.title}</p>
           </motion.div>
         ))}
