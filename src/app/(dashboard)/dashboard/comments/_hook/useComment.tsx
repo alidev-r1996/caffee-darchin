@@ -23,7 +23,7 @@ export function useRemoveComment({
 
   const { mutateAsync, isPending } = useMutation({
     mutationFn: async () => {
-      return await RemoveComment(userId, foodId, time);
+      return await RemoveComment(userId, time);
     },
     onSuccess: () => {
       queryClient.invalidateQueries({ queryKey: ["comments"] });
