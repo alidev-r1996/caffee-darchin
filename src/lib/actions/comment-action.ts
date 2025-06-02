@@ -12,12 +12,7 @@ export async function GetComments() {
           id: true,
         },
       },
-      food: {
-        select: {
-          title: true,
-          id: true,
-        },
-      },
+
     },
     orderBy:{
       createdAt: "desc"
@@ -27,13 +22,11 @@ export async function GetComments() {
 
 export async function RemoveComment(
   userId: string,
-  foodId: string,
   time: string
 ) {
   try {
     await prisma.comment.deleteMany({
       where: {
-        foodId: foodId,
         userId: userId,
         createdAt: time,
       },
@@ -54,7 +47,6 @@ export async function ConfirmComment(
   try {
     await prisma.comment.updateMany({
       where: {
-        foodId: foodId,
         userId: userId,
         createdAt: time,
       },
@@ -82,12 +74,6 @@ export async function GetCommentPaginate(page: string, limit?: number) {
           select: {
             name: true,
             email: true,
-            id: true,
-          },
-        },
-        food: {
-          select: {
-            title: true,
             id: true,
           },
         },
