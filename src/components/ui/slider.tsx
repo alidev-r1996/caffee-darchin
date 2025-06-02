@@ -47,7 +47,7 @@ export function EmblaCarousel({ children }: { children: React.ReactNode }) {
       </div>
       <div className="flex items-center justify-between">
         {/* Buttons */}
-        <div className="flex justify-between flex-1 md:flex-none items-center mt-7 md:mt-4 px-2 gap-2">
+        <div className="flex justify-between flex-1 md:flex-none items-center mt-5 md:mt-4 px-2 gap-2">
           <PrevButton onClick={scrollPrev} />
           <NextButton onClick={scrollNext} />
         </div>

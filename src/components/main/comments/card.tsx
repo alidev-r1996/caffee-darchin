@@ -1,3 +1,4 @@
+import CardAvatar from "@/components/cardAvatar";
 import StartRating from "@/components/ui/StartRating";
 import Image from "next/image";
 import { FC, memo } from "react";
@@ -12,14 +13,9 @@ type commnetCardProps = {
 const CommentCard: FC<commnetCardProps> = ({ author, img, rating, text }) => {
   return (
     <div className="bg-slate-50 dark:bg-slate-800 shadow rounded-2xl md:p-4 p-2 flex items-start gap-4 md:min-w-[500px] w-full max-w-[95vw] h-max md:max-w-[500px] flex-[0_0_100%]">
-      <Image
+      <CardAvatar
         src={`/images/comments/${img}`}
-        alt={author}
-        width={100}
-        height={100}
-        quality={60}
-        loading="lazy"
-        className="rounded-lg bg-contain"
+        className="size-28 shrink-0 object-fill overflow-hidden rounded-lg border-amber-300 border-2 ml-1 "
       />
       <div className="flex flex-col gap-4">
         <div className="flex items-start justify-between">
@@ -29,7 +25,7 @@ const CommentCard: FC<commnetCardProps> = ({ author, img, rating, text }) => {
           <StartRating totalStars={5} rating={rating} size="small" />
         </div>
 
-        <p className="text-zinc-500 text-xs md:leading-6 leading-5 line-clamp-3 md:line-clamp-4">
+        <p className="text-zinc-500 text-xs md:leading-6 leading-5 line-clamp-4">
           {text}
         </p>
       </div>

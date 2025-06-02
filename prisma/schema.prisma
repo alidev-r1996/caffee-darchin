@@ -44,7 +44,6 @@ model Food {
   updatedAt   DateTime       @updatedAt
   price       Int
   cartItems   CartItem[]
-  comments    Comment[]
   user        User           @relation(fields: [userId], references: [id], onDelete: Cascade)
   categories  FoodCategory[]
   likes       Like[]
@@ -91,15 +90,13 @@ model Like {
 model Comment {
   id        String   @id @default(cuid())
   userId    String
-  foodId    String
   content   String
   createdAt DateTime @default(now())
   updatedAt DateTime @updatedAt
   verified  Boolean  @default(false)
-  food      Food     @relation(fields: [foodId], references: [id], onDelete: Cascade)
   user      User     @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  @@index([userId, foodId])
+  @@index([userId])
 }
 
 model Cart {

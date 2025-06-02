@@ -27,7 +27,7 @@ const headingVarints = {
 
 const Personel = () => {
   return (
-    <div className="flex flex-col gap-4 my-4 w-full p-4 mt-8">
+    <div className="flex flex-col gap-4 my-4 w-full p-4 ">
       <motion.h1
         variants={headingVarints}
         initial="hidden"
