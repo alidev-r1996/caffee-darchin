@@ -4,9 +4,8 @@ import { Button } from "@/components/ui/button";
 import Link from "next/link";
 import { memo, useEffect, useState } from "react";
 import { UserRoundPlus } from "lucide-react";
-import { ModeToggle } from "@/components/dark-toggle";
 import { motion } from "framer-motion";
-import SignoutButton from "./signout-button";
+import ModeToggle from "@/components/dark-toggle";
 
 const navbarItems = [
   { id: 1, title: "صفحه اصلی", href: "#/" },

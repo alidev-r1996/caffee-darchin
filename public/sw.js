@@ -62,7 +62,6 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
-  console.log("pathname:", pathname);
 
   event.respondWith(
     caches.match(event.request).then((res) => {

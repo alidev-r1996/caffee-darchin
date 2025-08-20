@@ -1,8 +1,8 @@
-import { ModeToggle } from "@/components/dark-toggle";
 import { Button } from "@/components/ui/button";
 import { getUserInfo } from "@/lib/actions/user-action";
 import Link from "next/link";
 import UserAvatar from "@/components/userAvatar";
+import ModeToggle from "../dark-toggle";
 
 const DashboardHeader = async() => {
   const userInfo: any = await getUserInfo();

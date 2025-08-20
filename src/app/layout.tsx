@@ -37,7 +37,7 @@ export default function RootLayout({
         <RegisterSW />
         <ThemeProvider
           attribute="class"
-          defaultTheme="system"
+          defaultTheme="dark"
           storageKey="discord-theme"
           enableSystem
           disableTransitionOnChange

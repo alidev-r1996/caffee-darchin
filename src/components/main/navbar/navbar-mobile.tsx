@@ -4,26 +4,16 @@ import { memo, useEffect, useState } from "react";
 import { AlignLeft, UserRound, UserRoundPlus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
-import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
+import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
 import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
-import { ModeToggle } from "@/components/dark-toggle";
-import SignoutButton from "./signout-button";
+import ModeToggle from "@/components/dark-toggle";
 
 const navbarItems = [
   { id: 1, title: "صفحه اصلی", href: "#/" },
   { id: 2, title: "درباره ما", href: "#about" },
   { id: 3, title: "منوی اصلی", href: "#menu" },
 ];
-
 
 const navContainerVariant = {
   hidden: {},
@@ -35,7 +25,7 @@ const navChildVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 };
 
-const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
+const NavBarMobile = ({ role }: { role: "ADMIN" | "USER" | null | undefined }) => {
   const [scroll, setScroll] = useState(false);
   const [show, setShow] = useState(false);
   const pathname = usePathname();
@@ -66,9 +56,7 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle className="text-center font-black">
-              کافه دارچین
-            </SheetTitle>
+            <SheetTitle className="text-center font-black">کافه دارچین</SheetTitle>
           </SheetHeader>
           <ul className="flex flex-col gap-5 p-4">
             {navbarItems.map((item) => (
@@ -80,6 +68,12 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
                 <Link href={item.href}>{item.title}</Link>
               </li>
             ))}
+            <li
+              onClick={() => setShow(false)}
+              className="p-2 rounded hover:border-r-4 hover:border-r-black hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow"
+            >
+              <Link href="#reserve">رزرو میز</Link>
+            </li>
           </ul>
         </SheetContent>
       </Sheet>
@@ -92,29 +86,33 @@ const NavBarMobile = ({role}: {role: "ADMIN" | "USER" | null | undefined}) => {
         <motion.li variants={navChildVariant}>
           <ModeToggle />
         </motion.li>
-        {role != "ADMIN" && <motion.li
-          variants={navChildVariant}
-          className="bg-slate-100 border dark:bg-slate-700/90  rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
-        >
-           {!role ?  <Link href="/login" aria-label="login" className="flex items-center p-[5px]">
-            <UserRoundPlus   />
-          </Link>:  role == "USER" && <div
-                className="p-2 rounded text-sm hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow"
-              >
-                <Link href={'/profile'}>پروفایل</Link>
-              </div>}
-        </motion.li>}
-        
+        {role != "ADMIN" && (
+          <motion.li
+            variants={navChildVariant}
+            className="bg-slate-100 border dark:bg-slate-700/90  rounded hover:shadow transition-all duration-300 hover:scale-105 active:scale-95"
+          >
+            {!role ? (
+              <Link href="/login" aria-label="login" className="flex items-center p-[5px]">
+                <UserRoundPlus />
+              </Link>
+            ) : (
+              role == "USER" && (
+                <div className="p-2 rounded text-sm hover:bg-slate-100 dark:hover:bg-slate-900 dark:hover:text-slate-200 transition-all duration-300 px-3 hover:shadow">
+                  <Link href={"/profile"}>پروفایل</Link>
+                </div>
+              )
+            )}
+          </motion.li>
+        )}
+
         <motion.li variants={navChildVariant}>
-          <Button className="hover:shadow-blue-500">
-            {role == "ADMIN" ? (
+          {role == "ADMIN" && (
+            <Button className="hover:shadow-blue-500">
               <Link href={"/dashboard"}>
                 <p>داشبورد مدیریت</p>
               </Link>
-            ) : (
-              <Link href="#reserve">رزرو میز</Link>
-            )}
-          </Button>
+            </Button>
+          )}
         </motion.li>
       </motion.ul>
     </nav>
