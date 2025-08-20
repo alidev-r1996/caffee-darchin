@@ -9,6 +9,7 @@ import { Toaster } from "@/components/ui/sonner"
 const font = Vazirmatn({
   variable: "--font-vazir",
   subsets: ["latin"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {

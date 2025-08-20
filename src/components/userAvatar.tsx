@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useState } from "react";
 
 type UserAvatarProps = {
   src: string;
@@ -9,19 +9,21 @@ type UserAvatarProps = {
   className?: string;
 };
 
-const UserAvatar = ({ className, src, alt }: UserAvatarProps) => {
+const UserAvatar = ({ className = "", src, alt }: UserAvatarProps) => {
+  const [imgSrc, setImgSrc] = useState(src);
+
   return (
     <div className={`${className} relative rounded-full overflow-hidden`}>
       <Image
-        src={src}
-        alt={alt ?? "img"}
+        src={imgSrc}
+        alt={alt ?? "user avatar"}
         fill
-        sizes="100vw"
+        sizes="(max-width: 768px) 100vw, 80px"
+        className="object-cover peer text-transparent"
         referrerPolicy="no-referrer"
-        className="object-fill peer text-transparent"
-        onError={(event) =>
-          (event.currentTarget.src = "/images/load-img-error.png")
-        }
+        onError={() => setImgSrc("/images/load-img-error.png")}
+        placeholder="blur"
+        blurDataURL="/images/blur-placeholder.png"
       />
     </div>
   );

@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import { Users, EarOff, BookCheck, BookOpenText } from "lucide-react";
+import Image from "next/image";
 
 const wordByWord = (text: string) =>
   text.split(" ").map((word, i) => (
@@ -41,9 +42,17 @@ const iconVariants = {
 
 export default function About() {
   return (
-    <section id="about" className="relative w-full h-full md:h-[40vh]">
+    <section id="about" className="relative w-full h-full md:h-[44vh]">
       {/* Background */}
-      <div className="absolute inset-0 h-full about-bg blur-[1px] brightness-45"></div>
+      <div className="absolute inset-0 h-full blur-[1px] brightness-55">
+        <Image
+          src="/images/about.jpg"
+          alt="about"
+          fill
+          sizes="100vw"
+          className="object-fill"
+        />
+      </div>
 
       <motion.div
         initial="hidden"

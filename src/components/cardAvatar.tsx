@@ -1,7 +1,7 @@
-"use client"
+"use client";
 
 import Image from "next/image";
-import { memo } from "react";
+import { memo, useState } from "react";
 
 type CardAvatarProps = {
   src: string;
@@ -9,19 +9,18 @@ type CardAvatarProps = {
   className?: string;
 };
 
-const CardAvatar = ({ className, src, alt }: CardAvatarProps) => {
+const CardAvatar = ({ className = "", src, alt }: CardAvatarProps) => {
+  const [imgSrc, setImgSrc] = useState(src);
+
   return (
     <div className={`${className} relative rounded overflow-hidden`}>
       <Image
-        src={src}
+        src={imgSrc}
         alt={alt ?? "img"}
         fill
-        sizes="100vw"
-        referrerPolicy="no-referrer"
-        className="object-fill peer text-transparent"
-        onError={(event) =>
-          (event.currentTarget.src = "/images/load-img-error.png")
-        }
+        sizes="(max-width: 768px) 100vw, 300px"
+        className="object-cover peer text-transparent"
+        onError={() => setImgSrc("/images/load-img-error.png")}
       />
     </div>
   );
