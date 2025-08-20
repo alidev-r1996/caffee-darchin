@@ -13,7 +13,7 @@ export default function RootLayout({
   return (
     <main className="max-w-screen-2xl mx-auto">
       <NavBar />
-      <HeroSection />
+      {/* <HeroSection /> */}
       {children}
       <Footer />
     </main>

@@ -6,7 +6,6 @@ const CACHE_FILES = [
   "/images/reserve.jpg",
   "/images/about.jpg",
   "/images/load-img-error.png",
-  "/images/hero1.png",
   "/images/personel/1.jpg",
   "/images/personel/2.jpg",
   "/images/personel/3.jpg",
