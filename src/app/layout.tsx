@@ -14,7 +14,7 @@ const font = Vazirmatn({
 export const metadata: Metadata = {
   title: "کافه رستوران دارچین",
   description: "cafe restuarant darchin",
-  manifest: '/manifest.webmanifest', // از manifest.ts تولید میشه
+  manifest: '/manifest.webmanifest', 
 };
 
 export default function RootLayout({

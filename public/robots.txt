@@ -4,7 +4,7 @@ Allow: /
 Disallow: /dashboard
 
 # Host
-Host: https://cafe-darchin.vercel.app
+Host: https://www.alidev-r1996.ir
 
 # Sitemaps
-Sitemap: https://cafe-darchin.vercel.app/sitemap.xml
+Sitemap: https://www.alidev-r1996.ir/sitemap.xml
