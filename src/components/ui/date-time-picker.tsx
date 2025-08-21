@@ -18,7 +18,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({ label, name }) => {
   const maxDate = new Date().setDate(new Date().getDate() + 7);
 
   return (
-    <label htmlFor="date" className="w-full md:w-max flex-1">
+    <label htmlFor="time" className="w-full md:w-max flex-1">
       <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
         {label}
       </p>
@@ -29,7 +29,7 @@ const DateTimeInput: FC<DateTimeInputProps> = ({ label, name }) => {
         onChange={(dateObj) => {
           setValue(dateObj);
         }}
-        id="date"
+        id="time"
         name={name}
         calendar={persian}
         locale={persian_fa}

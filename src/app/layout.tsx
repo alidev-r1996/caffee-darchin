@@ -5,6 +5,7 @@ import "./globals.css";
 import RegisterSW from "../lib/pwa/register";
 import InstallPWA from "@/lib/pwa/install";
 import { Toaster } from "@/components/ui/sonner"
+import React from "react";
 
 const font = Vazirmatn({
   variable: "--font-vazir",
@@ -94,6 +95,13 @@ export const metadata: Metadata = {
   },
 };
 
+if (process.env.NODE_ENV === "development" && typeof window !== "undefined") {
+  const whyDidYouRender = require("@welldone-software/why-did-you-render");
+  whyDidYouRender(React, {
+    trackAllPureComponents: true,
+  });
+}
+
 
 export default function RootLayout({
   children,
@@ -120,7 +128,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="max-w-screen-2xl mx-auto">
+          <main className="max-w-screen-2xl mx-auto dark:bg-slate-900">
             {children}
           </main>
           <Toaster toastOptions={{ className: "font-[Vazirmatn]" }}/>

@@ -25,7 +25,7 @@ const CommentCard: FC<commnetCardProps> = ({ author, img, rating, text }) => {
           <StartRating totalStars={5} rating={rating} size="small" />
         </div>
 
-        <p className="text-zinc-500 text-xs md:leading-6 leading-5 line-clamp-4">
+        <p className="text-zinc-600 dark:text-zinc-300 text-xs md:leading-6 leading-5 line-clamp-4">
           {text}
         </p>
       </div>

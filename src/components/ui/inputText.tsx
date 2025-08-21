@@ -22,7 +22,7 @@ const InputText: React.FC<InputTextProps> = ({
   className,
 }) => {
   return (
-    <label htmlFor="name" className={cn("w-full", className)}>
+    <label htmlFor={name} className={cn("w-full", className)}>
       <p className="p-1  capitalize text-sm text-zinc-600 dark:text-zinc-400">
         {label}
       </p>

@@ -22,7 +22,6 @@ const CACHE_FILES = [
   "/sw.js",
   "/favicon/icon-192x192.png",
   "/favicon/icon-512x512.png",
-  "/_next/static/css/app/layout.css",
 ];
 
 // const pathnameCache = []
@@ -65,7 +64,7 @@ self.addEventListener("fetch", (event) => {
 
   event.respondWith(
     caches.match(event.request).then((res) => {
-      return res || fetch(event.request);
+      return res || fetch(event.request) || "/offline.html"
     })
   );
 
