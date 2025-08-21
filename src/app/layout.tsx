@@ -19,6 +19,10 @@ export const metadata: Metadata = {
   manifest: "/manifest.webmanifest",
   keywords: [
     "کافه دارچین",
+    "بوئین زهرا",
+    "کافه بوئین‌ زهرا",
+    "رستوران بوئین زهرا",
+    "گردشگری بوئین زهرا",
     "رستوران دارچین",
     "کافی شاپ",
     "کافه",
@@ -61,30 +65,30 @@ export const metadata: Metadata = {
     "رستوران لوکس",
     "رزرو آنلاین کافه"
   ],
-  // openGraph: {
-  //   title: "کافه رستوران دارچین",
-  //   description:
-  //     "کافه رستوران دارچین | طعم متفاوت قهوه و غذاهای خاص در محیطی دلنشین.",
-  //   url: "https://www.darchin-cafe.ir",
-  //   siteName: "کافه رستوران دارچین",
-  //   images: [
-  //     {
-  //       url: "/images/og-image.jpg",
-  //       width: 800,
-  //       height: 600,
-  //       alt: "کافه رستوران دارچین",
-  //     },
-  //   ],
-  //   locale: "fa_IR",
-  //   type: "website",
-  // },
-  // twitter: {
-  //   card: "summary_large_image",
-  //   title: "کافه رستوران دارچین",
-  //   description:
-  //     "بهترین کافه و رستوران برای دورهمی‌ها، جشن‌ها و لحظات خاص شما.",
-  //   images: ["/images/og-image.jpg"],
-  // },
+  openGraph: {
+    title: "کافه رستوران دارچین",
+    description:
+      "کافه رستوران دارچین | طعم متفاوت قهوه و غذاهای خاص در محیطی دلنشین.",
+    url: "https://www.darchin-cafe.ir",
+    siteName: "کافه رستوران دارچین",
+    images: [
+      {
+        url: "/favicon/icon-512x512.png",
+        width: 800,
+        height: 600,
+        alt: "کافه رستوران دارچین",
+      },
+    ],
+    locale: "fa_IR",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "کافه رستوران دارچین",
+    description:
+      "بهترین کافه و رستوران برای دورهمی‌ها، جشن‌ها و لحظات خاص شما.",
+    images: ["/favicon/icon-512x512.png"],
+  },
   alternates: {
     canonical: "https://www.darchin-cafe.ir",
   },
