@@ -63,10 +63,10 @@ self.addEventListener("fetch", (event) => {
 
 
   event.respondWith(
-    caches.match(event.request).then((res) => {
-      return res || fetch(event.request) || "/offline.html"
-    })
-  );
+  caches.match(event.request).then((res) => {
+    return res || fetch(event.request).catch(() => caches.match("/offline.html"));
+  })
+);
 
   // async function firstCacheThenNetwork(request) {
   //   try {
