@@ -1,36 +1,87 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Caffee Darchin
+
+A modern portfolio / business site for “Caffee Darchin”, built with Next.js. Showcase your café, menu, photos, and contact info with a clean & responsive UI.
+
+---
+
+## Overview
+
+Caffee Darchin is a Full-Stack website With Dashboard Admin Panel built using Next.js. It presents a café business: displays menu items, photos, location, contact information, opening hours, Reservation and more. It is optimized for performance and responsive design.
+
+---
+
+## Features
+
+- Responsive design for mobile, tablet, desktop  
+- Beautiful UI with images, typography, layout  
+- Fast page loads via Next.js optimizations  
+- SEO friendly configuration  
+- Easy content updates (menu, photos etc.)  
+- Contact section for customer inquiries
+- Table Reservation
+- Online Menu, could managed in Dashboard Panel
+
+---
+
+## Technologies
+
+- Next.js  
+- React  
+- TypeScript  
+- Tailwind.css
+- React-Query
+- SSR, SSG
+
+---
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
 
+- Node.js (version 14 or newer)  
+- npm or yarn  
+
+### Installation
+
+```bash
+git clone https://github.com/alidev-r1996/caffee-darchin.git
+```
+
+### Install Dependency
+
+```bash
+npm install
+# or
+yarn install
+```
+
+### configuration
+create a .env file at project root with necessary variables:
+```
+AUTH_SECRET=
+AUTH_GOOGLE_ID=
+AUTH_GOOGLE_SECRET
+AUTH_GITHUB_ID=
+AUTH_GITHUB_SECRET=
+UPLOADTHING_TOKEN=
+DATABASE_URL=
+RESEND_API_KEY=
+EMAIL_USER=
+API_URL=
+```
+Modify according to your own.
+
+### Running Locally
 ```bash
 npm run dev
 # or
 yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### ScreenShot
+<img src='https://res.cloudinary.com/donueyhp1/image/upload/v1758443632/ioaqw83gttstlby0b6r6.png' width='1200' height='800' />
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## View Demo
+  ### <a href='https://www.cafe-darchin.ir'>www.cafe-darchin.ir</a>
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
