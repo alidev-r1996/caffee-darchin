@@ -17,9 +17,6 @@ const CACHE_FILES = [
   "/images/comments/narges.png",
   "/images/comments/sara.png",
   "/images/comments/sina.png",
-  "/robots.txt",
-  "/sitemap.xml",
-  "/sw.js",
   "/favicon/icon-192x192.png",
   "/favicon/icon-512x512.png",
 ];
