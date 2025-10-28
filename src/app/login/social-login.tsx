@@ -1,55 +1,35 @@
-"use client";
-
-import Image from "next/image";
-import { signIn } from "next-auth/react";
-import { Button } from "@/components/ui/button";
+import { LoginGithub, LoginGoogle } from "@/lib/actions/auth-action";
+import { BsGithub, BsGoogle } from "react-icons/bs";
 
 const SocialLogin = () => {
-  const handleGoogleLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    signIn("google", { callbackUrl: "/" }); 
-  };
-
-  const handleGithubLogin = (e: React.FormEvent) => {
-    e.preventDefault();
-    signIn("github", { callbackUrl: "/" });
-  };
-
-  return (
-    <>
-      <div className="flex items-center my-2 -mb-3 w-[70vw] md:w-2/3 mx-auto">
-        <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
-        <p className="text-sm text-slate-500 px-4">or</p>
-        <div className="w-full h-[1px] bg-slate-200 dark:bg-slate-700"></div>
+    return ( 
+        <div className="flex items-center gap-1 md:p-6 p-2 text-xs text-slate-500">
+        <form
+          action={LoginGoogle}
+          id="google"
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer"
+        >
+          <button
+            type="submit"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-orange-600 [&>svg]:size-6"
+          >
+            <BsGoogle /> ورود با گوگل
+          </button>
+        </form>
+        <form
+          action={LoginGithub}
+          id="github"
+          className="p-2 w-1/2  border border-slate-200 dark:border-slate-600 dark:hover:bg-slate-600 rounded-lg hover:bg-slate-100 transition-all duration-300 cursor-pointer "
+        >
+          <button
+            type="submit"
+            className="flex gap-2 text-xs md:text-sm cursor-pointer whitespace-nowrap items-center mx-auto [&>svg]:text-slate-600 [&>svg]:dark:text-slate-300 [&>svg]:size-6"
+          >
+            <BsGithub /> ورود با گیت‌هاب
+          </button>
+        </form>
       </div>
-
-      <form onSubmit={handleGoogleLogin} className="mx-auto w-[70vw] md:w-2/3 mt-4">
-        <Button variant="outline" className="w-full">
-          <Image
-            src="/icon/gmail.webp"
-            alt="google"
-            width={20}
-            height={20}
-            className="inline mr-2"
-          />
-          ورود با گوگل
-        </Button>
-      </form>
-
-      <form onSubmit={handleGithubLogin} className="mx-auto w-[70vw] md:w-2/3 -mt-4">
-        <Button variant="outline" className="w-full">
-          <Image
-            src="/icon/github.webp"
-            alt="github"
-            width={20}
-            height={20}
-            className="inline mr-2"
-          />
-          ورود با گیت‌هاب
-        </Button>
-      </form>
-    </>
-  );
-};
-
+     );
+}
+ 
 export default SocialLogin;
