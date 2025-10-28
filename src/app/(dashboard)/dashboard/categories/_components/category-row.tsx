@@ -7,11 +7,11 @@ import { CategoryRowProps } from "../_types/category.type";
 import CardAvatar from "@/components/cardAvatar";
 import TruncateText from "@/components/dashboard/truncate";
 
-const CategoryRow: React.FC<CategoryRowProps> = ({ index, item }) => {
+const CategoryRow: React.FC<CategoryRowProps> = ({ index, item, page }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
-      <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
-      <TableUi.Col className="sticky right-0 z-10 bg-background">
+      <TableUi.Col>{ConvertToPersianDigit(`${((page as number) - 1) * 8 + (index + 1)}`)}</TableUi.Col>
+      <TableUi.Col className="sticky right-0 z-10 ">
         <TruncateText text={item.title} />
       </TableUi.Col>
       <TableUi.Col>

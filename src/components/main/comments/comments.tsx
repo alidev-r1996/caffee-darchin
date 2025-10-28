@@ -86,7 +86,7 @@ const Comments = () => {
       </div>
       <div className=" w-full">
         <div
-          className="flex h-full flex-col items-center justify-center my-8"
+          className="flex gap-4 h-full flex-col items-center justify-center my-8"
         >
 
           <EmblaCarousel>

@@ -29,6 +29,7 @@ const NavBarDesktop = ({
   role: "ADMIN" | "USER" | null | undefined;
 }) => {
   const [scroll, setScroll] = useState(false);
+  console.log("Navbar Desktop Rendered", role);
 
   useEffect(() => {
     const handleScroll = () => {

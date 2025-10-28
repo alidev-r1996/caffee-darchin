@@ -38,7 +38,7 @@ const FoodTable = ({ page }: { page: string }) => {
         </TableUi.Header>
         <TableUi.Body>
           {data.food.map((item: any, index: number) => {
-            return <FoodRow key={index} index={index} item={item} />;
+            return <FoodRow key={index} index={index} item={item} page={page}/>;
           })}
         </TableUi.Body>
       </TableUi>

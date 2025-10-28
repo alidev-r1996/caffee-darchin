@@ -52,7 +52,7 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
         scale: 1.04,
         boxShadow: "0 8px 24px rgba(255, 193, 7, 0.2)",
       }}
-      className="flex justify-between items-center w-full rounded-2xl p-2 bg-slate-200/30 dark:bg-zinc-700/30 backdrop-blur-md border border-dashed border-slate/30 dark:border-zinc-700 shadow-lg transition-all"
+      className="flex justify-between items-center w-full rounded-2xl p-2 bg-slate-50 dark:bg-zinc-700/30 backdrop-blur-md border border-dashed border-slate/30 dark:border-zinc-700 shadow-lg transition-all"
     >
       {/* عکس غذا */}
 

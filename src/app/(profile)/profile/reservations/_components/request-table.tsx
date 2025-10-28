@@ -38,7 +38,7 @@ const RequestTable = ({page}:{page:string}) => {
         </TableUi.Header>
         <TableUi.Body>
           {data.request.map((item: any, index: number) => {
-            return <RequestRow key={index} index={index} item={item} />;
+            return <RequestRow key={index} index={index} item={item} page={page}/>;
           })}
         </TableUi.Body>
       </TableUi>

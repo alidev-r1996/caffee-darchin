@@ -95,12 +95,6 @@ export const metadata: Metadata = {
   },
 };
 
-if (process.env.NODE_ENV === "development" && typeof window !== "undefined") {
-  const whyDidYouRender = require("@welldone-software/why-did-you-render");
-  whyDidYouRender(React, {
-    trackAllPureComponents: true,
-  });
-}
 
 
 export default function RootLayout({
@@ -113,12 +107,12 @@ export default function RootLayout({
       lang="en"
       dir="rtl"
       suppressHydrationWarning
-      className="scroll-smooth snap-mandatory"
+      className="scroll-smooth snap-mandatory "
     >
       <head>
         <meta name="apple-mobile-web-app-title" content="Darchin Caffee" />
       </head>
-      <body className={`${font.className} antialiased`}>
+      <body className={`${font.className} antialiased bg-slate-200 dark:bg-slate-950`}>
         <InstallPWA />
         <RegisterSW />
         <ThemeProvider
@@ -128,7 +122,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="max-w-screen-2xl mx-auto dark:bg-slate-900">
+          <main className="max-w-screen-2xl mx-auto">
             {children}
           </main>
           <Toaster toastOptions={{ className: "font-[Vazirmatn]" }}/>

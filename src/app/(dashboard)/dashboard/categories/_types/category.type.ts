@@ -8,6 +8,7 @@ export type useEditCategoryProps = {
 export type CategoryRowProps = {
   index: number;
   item: any;
+  page: string | number;
 };
 
 export type EditCategoryModalProps = {

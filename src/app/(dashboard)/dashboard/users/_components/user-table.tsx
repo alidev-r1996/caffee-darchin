@@ -39,7 +39,7 @@ const UserTable = ({ page }: { page: string }) => {
           </TableUi.Header>
           <TableUi.Body>
             {data.users.map((item: any, index: number) => {
-              return <UserRow key={index} index={index} item={item} />;
+              return <UserRow key={index} index={index} item={item} page={page}/>;
             })}
           </TableUi.Body>
         </TableUi>

@@ -19,4 +19,5 @@ export type UseEditFoodProps = {
 export type FoodRowProps = {
   index: number;
   item: any;
+  page: string | number;
 };

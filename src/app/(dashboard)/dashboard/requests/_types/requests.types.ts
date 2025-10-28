@@ -6,4 +6,5 @@ export type RemoveRequestProps = {
 export type RequestRowProps = {
   index: number;
   item: any;
+  page: string | number;
 };

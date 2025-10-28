@@ -53,15 +53,15 @@ export const sidebarItem = [
     icon: LayoutGrid,
   },
   { id: 3, title: "غذاها", href: "/dashboard/foods", icon: UtensilsCrossed },
-  {
-    id: 4,
-    title: "نظرات",
-    href: "/dashboard/comments",
-    icon: MessageSquareQuote,
-  },
+  // {
+  //   id: 4,
+  //   title: "نظرات",
+  //   href: "/dashboard/comments",
+  //   icon: MessageSquareQuote,
+  // },
   { id: 5, title: "درخواست‌ها", href: "/dashboard/requests", icon: Inbox },
   { id: 6, title: "کاربران", href: "/dashboard/users", icon: UsersIcon },
-  { id: 7, title: "سفارشات", href: "/dashboard/orders", icon: BookOpenText },
+  // { id: 7, title: "سفارشات", href: "/dashboard/orders", icon: BookOpenText },
 ];
 
 export const sideBarItemProfile = [
@@ -72,7 +72,7 @@ export const sideBarItemProfile = [
     href: "/profile/reservations",
     icon: Inbox,
   },
-  { id: 3, title: "سفارشات", href: "/profile/orders", icon: BookOpenText },
+  // { id: 3, title: "سفارشات", href: "/profile/orders", icon: BookOpenText },
   { id: 4, title: "پروفایل", href: "/profile/info", icon: UsersIcon },
 ];
 

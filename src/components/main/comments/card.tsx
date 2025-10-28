@@ -12,7 +12,7 @@ type commnetCardProps = {
 
 const CommentCard: FC<commnetCardProps> = ({ author, img, rating, text }) => {
   return (
-    <div className="bg-slate-50 dark:bg-slate-800 shadow rounded-2xl md:p-4 p-2 flex items-start gap-4 md:min-w-[500px] w-full max-w-[95vw] h-max md:max-w-[500px] flex-[0_0_100%]">
+    <div className="bg-white dark:bg-slate-800 shadow rounded-2xl md:p-4 p-2 flex items-start gap-4 md:min-w-[500px] w-full max-w-[95vw] h-max md:max-w-[500px] flex-[0_0_100%]">
       <CardAvatar
         src={`/images/comments/${img}`}
         className="size-28 shrink-0 object-fill overflow-hidden rounded-lg border-amber-300 border-2 ml-1 "

@@ -7,11 +7,11 @@ import { UserRowProps } from "../_types/user.types";
 import UserAvatar from "@/components/userAvatar";
 import TruncateText from "@/components/dashboard/truncate";
 
-const UserRow: React.FC<UserRowProps> = ({ index, item }) => {
+const UserRow: React.FC<UserRowProps> = ({ index, item, page }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
-      <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
-      <TableUi.Col className="sticky right-0 z-10 bg-background">
+      <TableUi.Col>{ConvertToPersianDigit(`${((page as number) - 1) * 8 + (index + 1)}`)}</TableUi.Col>
+      <TableUi.Col className="sticky right-0 z-10 ">
         <TruncateText text={item.name} />
       </TableUi.Col>
       <TableUi.Col><TruncateText text={item.email} /></TableUi.Col>

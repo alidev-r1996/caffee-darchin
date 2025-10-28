@@ -5,11 +5,11 @@ import RemoveRequestModal from "./remove-request-modal";
 import { RequestRowProps } from "../_types/requests.types";
 import TruncateText from "@/components/dashboard/truncate";
 
-const RequestRow: React.FC<RequestRowProps> = ({ index, item }) => {
+const RequestRow: React.FC<RequestRowProps> = ({ index, item, page }) => {
   return (
     <TableUi.Row key={index} className="text-sm">
-      <TableUi.Col>{ConvertToPersianDigit(`${index + 1}`)}</TableUi.Col>
-      <TableUi.Col className="sticky right-0 z-10 bg-background">
+      <TableUi.Col>{ConvertToPersianDigit(`${((page as number) - 1) * 8 + (index + 1)}`)}</TableUi.Col>
+      <TableUi.Col className="sticky right-0 z-10 ">
         <TruncateText text={item.name} />
       </TableUi.Col>
       <TableUi.Col>{ConvertToPersianDigit(item.phone)}</TableUi.Col>

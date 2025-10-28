@@ -14,4 +14,5 @@ export type RemoveUserProps = {
 export type UserRowProps = {
   index: number;
   item: any;
+  page: string | number;
 };

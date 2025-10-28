@@ -42,7 +42,7 @@ export function EmblaCarousel({ children }: { children: React.ReactNode }) {
 
   return (
     <div className="relative w-full p-4">
-      <div className="overflow-hidden h-max" ref={emblaRef}>
+      <div className="overflow-hidden h-max " ref={emblaRef}>
         <div className="flex rtl flex-row gap-4">{children}</div>
       </div>
       <div className="flex items-center justify-between">

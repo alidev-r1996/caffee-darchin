@@ -9,7 +9,7 @@ const DashboardHeader = async() => {
     
 
   return (
-    <div className="md:col-span-9 col-span-12 dark:bg-stone-800/90 bg-stone-100 border shadow flex items-center justify-between p-2 md:p-4">
+    <div className="md:col-span-9 col-span-12 dark:bg-slate-800 bg-stone-100 border shadow flex items-center justify-between p-2 md:p-4">
       <div className="flex items-center gap-1">
         <UserAvatar src={userInfo?.img} className="md:size-14 size-11"/>
         <p>{userInfo?.name?? userInfo?.email?.split("@")[0]}</p>

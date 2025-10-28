@@ -39,7 +39,7 @@ const CategoryTable = ({page}: {page:string}) => {
         </TableUi.Header>
         <TableUi.Body>
           {data.category.map((item: any, index: number) => {
-            return <CategoryRow key={index} index={index} item={item} />;
+            return <CategoryRow key={index} index={index} item={item} page={page}/>;
           })}
         </TableUi.Body>
       </TableUi>

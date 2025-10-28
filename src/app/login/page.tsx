@@ -40,7 +40,7 @@ const SignIn = () => {
   
 
   return (
-    <div className="border rounded-lg shadow flex mx-auto flex-col gap-4 w-full md:w-[496px] p-4 md:mt-12">
+    <div className="border rounded-lg shadow flex mx-auto flex-col gap-4 w-full md:w-[496px] p-4 md:mt-12 bg-white dark:bg-slate-900">
       <h1 className="font-bold text-lg md:text-2xl mt-4 text-center">به <strong className="text-amber-600">کافه دارچین</strong> خوش آمدید!</h1>
 
       <SocialLogin />
@@ -65,12 +65,12 @@ const SignIn = () => {
           ورود
         </button>
       </form>
-      <Link href="/login/recover" className="text-center text-sm">
+      {/* <Link href="/login/recover" className="text-center text-sm">
         رمز عبور خود را فراموش کرده‌اید؟
         <span className="text-slate-800 px-2 cursor-pointer font-bold hover:text-blue-500  transition-all duration-200">
           بازیابی
         </span>
-      </Link>
+      </Link> */}
     </div>
   );
 };

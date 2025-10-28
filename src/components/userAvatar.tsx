@@ -15,7 +15,7 @@ const UserAvatar = ({ className = "", src, alt }: UserAvatarProps) => {
   return (
     <div className={`${className} relative rounded-full overflow-hidden`}>
       <Image
-        src={imgSrc}
+        src={imgSrc || "/images/load-img-error.png"}
         alt={alt ?? "user avatar"}
         fill
         sizes="(max-width: 768px) 100vw, 80px"
