@@ -7,12 +7,12 @@ import SocialLogin from "./social-login";
 import { FormEvent, useRef } from "react";
 import { signIn } from "next-auth/react";
 import { toast } from "sonner";
-import { useRouter } from "next/navigation";
+
 
 
 const SignIn = () => {
   const formRef = useRef<HTMLFormElement>(null);
-const router = useRouter();
+
 
   const creadentialLogin = async (event: FormEvent) => {
     event.preventDefault();
@@ -27,15 +27,14 @@ const router = useRouter();
     const res = await signIn("credentials", {
       email,
       password,
-      redirect: false, // جلوگیری از ری‌دایرکت
+      redirect: false, 
     });
   
     if (res.error) {
       toast.error("نام کاربری یا رمز عبور اشتباه است!");
     } else {
       // login successful: redirect manually
-      router.refresh();
-      router.push("/");
+      window.location.href = "/";
     }
   };
   

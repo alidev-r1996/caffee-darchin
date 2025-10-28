@@ -7,25 +7,18 @@ import { redirect } from "next/navigation";
 export async function LoginCredentials(formData: FormData) {
   const { name, email, password } = Object.fromEntries(formData.entries());
   if (email && password) {
-    await signIn("credentials", { name, email, password });
-    revalidatePath("/");
-    redirect("/");
+    await signIn("credentials", { name, email, password } , { redirect: "/" });
   } else {
     throw new Error("Invalid Email or Password!");
   }
 }
 
 export async function LoginGoogle() {
-  const user = await signIn("google");
-  revalidatePath("/");
-  redirect("/");
-  // console.log(user, "google signin action");
+  await signIn("google", { redirectTo: "/" });
 }
 
 export async function LoginGithub() {
-  await signIn("github");
-  revalidatePath("/");
-  redirect("/");
+  await signIn("github", { redirectTo: "/" });
 }
 
 export async function LogoutUser() {
