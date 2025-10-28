@@ -25,7 +25,7 @@ const navChildVariant = {
   visible: { opacity: 1, y: 0, transition: { duration: 0.7 } },
 };
 
-const NavBarMobile = ({ role }: { role: any }) => {
+const NavBarMobile = ({ role }: { role: "ADMIN" | "USER" | null | undefined }) => {
   const [scroll, setScroll] = useState(false);
   const [show, setShow] = useState(false);
   const pathname = usePathname();

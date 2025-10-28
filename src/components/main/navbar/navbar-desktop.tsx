@@ -26,7 +26,7 @@ const navChildVariant = {
 const NavBarDesktop = ({
   role,
 }: {
-  role: any
+  role: "ADMIN" | "USER" | null | undefined;
 }) => {
   const [scroll, setScroll] = useState(false);
   console.log("Navbar Desktop Rendered", role);

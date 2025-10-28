@@ -28,13 +28,13 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
     GitHub,
     Google,
     credentials({
-      credentials: { email: {}, password: {}},
+      credentials: { email: {}, password: {} },
       authorize: async (credentials) => {
-        let user:any = null
+        let user: any = null;
 
         if (credentials) {
           const { prisma } = await import("@/lib/utils/prisma");
-          user =  await prisma.user.findUnique({
+          user = await prisma.user.findUnique({
             where: {
               email: credentials.email as string,
               password: credentials.password as string,
@@ -59,9 +59,10 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
   secret: process.env.AUTH_SECRET,
   cookies: {
     sessionToken: {
-      name: process.env.NODE_ENV === "production"
-        ? "__Secure-next-auth.session-token"
-        : "authjs.session-token",
+      name:
+        process.env.NODE_ENV === "production"
+          ? "__Secure-next-auth.session-token"
+          : "authjs.session-token",
       options: {
         httpOnly: true,
         // sameSite: "lax", //for development
@@ -96,7 +97,8 @@ export const { auth, handlers, signIn, signOut } = NextAuth({
       return true; // Allow sign in
     },
 
-    async redirect({ baseUrl }) {
+    async redirect({ url, baseUrl }) {
+      if (url.startsWith(baseUrl)) return url;
       return baseUrl;
     },
     async jwt({ token, user }) {
