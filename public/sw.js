@@ -58,6 +58,15 @@ self.addEventListener("fetch", (event) => {
     return;
   }
 
+  if (
+  pathname.startsWith("/api/auth") ||
+  pathname.startsWith("/login") ||
+  pathname.startsWith("/profile") ||
+  pathname === "/"
+) {
+  return; // let the browser handle it normally
+}
+
 
   event.respondWith(
   caches.match(event.request).then((res) => {
