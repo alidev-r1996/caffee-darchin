@@ -57,7 +57,7 @@ export default function About() {
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: "all" }}
+        viewport={{ once: true}}
         className="relative z-10 flex flex-col gap-8 p-4 md:flex-row items-center justify-center h-full"
       >
         {/* Text Section */}

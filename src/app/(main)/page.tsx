@@ -1,12 +1,11 @@
 import dynamic from "next/dynamic";
 
 import About from "@/components/main/about";
-const Comments = dynamic(() => import("@/components/main/comments/comments"));
 import Menu from "@/components/main/menu/menu";
-const Personel = dynamic(()=>import("@/components/main/personel/personel"))
 import Reservation from "@/components/main/reserve/reserver-table";
-import { Suspense } from "react";
-import Loading from "@/components/loading";
+import Personel from "@/components/main/personel/personel";
+import Comments from "@/components/main/comments/comments";
+
 
 type Props = {
   searchParams: Promise<{
@@ -18,14 +17,12 @@ export default async function Home(props: Props) {
   const params = (await props.searchParams).category ?? "pizza";
 
   return (
-    <main className="max-w-screen">
+    <div className="max-w-screen">
       <About />
       <Menu params={params} />
       <Reservation />
-      <Suspense fallback={<Loading />}><Comments /></Suspense>
-      <Suspense fallback={<Loading />}>
-        <Personel />
-      </Suspense>
-    </main>
+      <Comments />
+      <Personel />
+    </div>
   );
 }

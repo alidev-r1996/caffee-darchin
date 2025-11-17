@@ -27,10 +27,10 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           custom={0}
-          viewport={{ once: true, amount: .6 }}
+          viewport={{ once: true}}
           className="w-full md:w-1/2 flex flex-col gap-2"
         >
-          <h1 className="font-bold text-xl">آدرس ما</h1>
+          <h1 className="font-bold text-xl dark:text-amber-500">آدرس </h1>
           <p className="text-sm">
             استان قزوین، بوئین‌زهرا، انتهای خیابان ولیعصر شرقی، جنب اداره ارشاد
           </p>
@@ -42,11 +42,11 @@ const Footer = () => {
           initial="hidden"
           whileInView="visible"
           custom={1}
-          viewport={{ once: true, amount: "all" }}
+          viewport={{ once: true}}
           className="flex flex-col gap-4 p-4 w-full md:w-1/2"
         >
           <div className="flex flex-col flex-1 gap-4">
-            <h1 className="font-bold text-xl mb-5">ساعت کاری ما</h1>
+            <h1 className="font-bold text-xl mb-2 dark:text-amber-500">ساعت کاری </h1>
             <div className="flex items-center gap-2 text-xs md:text-sm">
               <p>‌روزهای شنبه تا پنجشنبه </p>
               <p className="flex-1 border-dotted border-b border-b-zinc-600"></p>

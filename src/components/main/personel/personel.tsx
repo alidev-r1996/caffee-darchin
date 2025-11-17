@@ -33,15 +33,15 @@ const Personel = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="font-black text-2xl text-center my-5"
+        className="font-black text-2xl text-center my-5 flex items-center justify-center gap-2"
       >
-        خانواده دارچین{" "}
+        خانواده <p className="text-amber-400">دارچیـــن</p> 
       </motion.h1>
 
       <motion.div
         initial="hidden"
         whileInView="visible"
-        viewport={{ once: true, amount: 0.5 }}
+        viewport={{ once: true}}
         className="flex flex-col md:flex-row items-center gap-4 cursor-pointer"
       >
         {personel.map((item) => {

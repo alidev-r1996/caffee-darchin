@@ -2,7 +2,7 @@
 
 import { motion } from "framer-motion";
 import { ConvertToPersianDigit } from "@/helper/persianDigits";
-import convertToPersianDigits from "@/lib/utils/PersianDigits";
+import convertToPersianDigits, { PersianCurrency } from "@/lib/utils/PersianDigits";
 import CardAvatar from "@/components/cardAvatar";
 
 type FoodItem = {
@@ -73,7 +73,7 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
         </p>
 
         <div className=" font-semibold text-rose-600 dark:text-amber-200 mt-4">
-          {ConvertToPersianDigit(item.price)}{" "}
+          {PersianCurrency(`${item.price}`)}
           <span className="text-xs">تومان</span>
         </div>
       </div>

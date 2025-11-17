@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
   return (
     <ReactQueryProvider>
-      <main className="grid grid-cols-12 grid-rows-[70px_1fr] max-w-screen-2xl mx-auto h-screen">
+      <main className="grid grid-cols-12 grid-rows-[70px_1fr] max-w-screen-2xl mx-auto h-screen da">
         <DashboardHeader />
         <SideBar />
         <div className="md:col-span-9 col-span-10 h-full md:p-4 dark:bg-slate-900 bg-slate-100">

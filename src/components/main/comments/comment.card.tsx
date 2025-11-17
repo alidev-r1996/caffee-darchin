@@ -1,7 +1,7 @@
-import CardAvatar from "@/components/cardAvatar";
 import StartRating from "@/components/ui/StartRating";
 import Image from "next/image";
 import { FC, memo } from "react";
+
 
 type commnetCardProps = {
   img: string;
@@ -13,8 +13,11 @@ type commnetCardProps = {
 const CommentCard: FC<commnetCardProps> = ({ author, img, rating, text }) => {
   return (
     <div className="bg-white dark:bg-slate-800 shadow rounded-2xl md:p-4 p-2 flex items-start gap-4 md:min-w-[500px] w-full max-w-[95vw] h-max md:max-w-[500px] flex-[0_0_100%]">
-      <CardAvatar
+      <Image
+        width={50}
+        height={50}
         src={`/images/comments/${img}`}
+        alt="user-img"
         className="size-28 shrink-0 object-fill overflow-hidden rounded-lg border-amber-300 border-2 ml-1 "
       />
       <div className="flex flex-col gap-4">

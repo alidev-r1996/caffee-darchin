@@ -8,7 +8,7 @@ import { motion } from "framer-motion";
 import ModeToggle from "@/components/dark-toggle";
 
 const navbarItems = [
-  { id: 1, title: "صفحه اصلی", href: "#/" },
+  { id: 1, title: "صفحه اصلی", href: "/" },
   { id: 2, title: "درباره ما", href: "#about" },
   { id: 3, title: "منوی اصلی", href: "#menu" },
 ];
@@ -29,7 +29,6 @@ const NavBarDesktop = ({
   role: "ADMIN" | "USER" | null | undefined;
 }) => {
   const [scroll, setScroll] = useState(false);
-  console.log("Navbar Desktop Rendered", role);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -43,7 +42,7 @@ const NavBarDesktop = ({
 
   return (
     <nav
-      className={`${scroll ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow border-b" : "bg-slate-50 dark:bg-slate-800/95"} md:flex itesms-center justify-between p-4 hidden`}
+      className={`${scroll ? "bg-background/95 backdrop-blur-md supports-[backdrop-filter]:bg-background/60 shadow border-b" : "bg-slate-50 dark:bg-slate-800/95"} md:flex z-50 itesms-center justify-between p-4 hidden`}
     >
       <motion.ul
         variants={navContainerVariant}
@@ -64,7 +63,7 @@ const NavBarDesktop = ({
         transition={{ ease: "easeInOut", duration: 1 }}
         className="font-black text-shadow text-2xl"
       >
-        کافه دارچیــــــن
+        کافه <span className="text-amber-500">دارچیــــــن</span>
       </motion.h1>
       <motion.ul
         variants={navChildVariant}

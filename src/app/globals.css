@@ -40,6 +40,16 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+  --animate-infinite-scroll: slider 50s infinite linear;
+
+  @keyframes slider {
+    from {
+      transform: translate(0%);
+    }
+    to {
+      transform: translate(100%);
+    }
+  }
 }
 
 :root {
@@ -147,4 +157,15 @@ html.dark .rti--container{
   mask-repeat: no-repeat;
   mask-size: 100% 100%;
   overflow: hidden;
+}
+
+
+@layer utilities {
+  .scroll-none {
+    scrollbar-width: none;
+    ::-webkit-scrollbar {
+      display: none;
+    }
+  }
+
 }

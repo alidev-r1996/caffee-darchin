@@ -19,7 +19,7 @@ const fadeUp = {
 
 const FadeUp: FC<PropsWithChildren> = ({children}) => {
     return ( 
-        <motion.div variants={fadeUp} initial='hidden' whileInView="visible" viewport={{once: true, amount: 0.7}}  className="max-w-full">
+        <motion.div variants={fadeUp} initial='hidden' whileInView="visible" viewport={{once: true}}  className="max-w-full">
             {children}
         </motion.div>
      );

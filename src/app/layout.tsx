@@ -1,17 +1,13 @@
 import type { Metadata } from "next";
-import { Vazirmatn } from "next/font/google";
 import { ThemeProvider } from "@/components/provider/theme-provider";
 import "./globals.css";
 import RegisterSW from "../lib/pwa/register";
 import InstallPWA from "@/lib/pwa/install";
 import { Toaster } from "@/components/ui/sonner"
 import React from "react";
+import { iranSans } from "@/constants/font";
 
-const font = Vazirmatn({
-  variable: "--font-vazir",
-  subsets: ["latin"],
-  display: "swap",
-});
+
 
 export const metadata: Metadata = {
   title: "کافه رستوران دارچین | بهترین کافی‌شاپ و رستوران در شهر شما",
@@ -107,12 +103,12 @@ export default function RootLayout({
       lang="en"
       dir="rtl"
       suppressHydrationWarning
-      className="scroll-smooth snap-mandatory "
+      className="scroll-smooth snap-mandatory dark"
     >
       <head>
         <meta name="apple-mobile-web-app-title" content="Darchin Caffee" />
       </head>
-      <body className={`${font.className} antialiased bg-slate-200 dark:bg-slate-950`}>
+      <body className={`${iranSans.className} antialiased bg-slate-200 dark:bg-slate-950`}>
         <InstallPWA />
         <RegisterSW />
         <ThemeProvider

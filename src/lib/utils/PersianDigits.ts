@@ -15,3 +15,8 @@ export default function convertToPersianDigits(number: string) {
 
   return number.replace(/\d/g, (match) => arabicToPersianDigits[match]);
 }
+
+
+export function PersianCurrency(currency: string) {
+  return parseInt(currency).toLocaleString("fa-IR");
+}

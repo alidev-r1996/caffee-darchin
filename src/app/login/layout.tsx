@@ -1,4 +1,6 @@
+import NavBar from "@/components/main/navbar/navbar";
 import "../globals.css";
+import Footer from "@/components/main/footer/footer";
 
 export const metadata = {
   title: "صفحه ورود کاربران",
@@ -10,5 +12,9 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return  children ;
+  return  <main className="max-w-screen-2xl mx-auto dark:bg-slate-900 bg-slate-100">
+      <NavBar />
+      {children}
+      <Footer />
+    </main> ;
 }

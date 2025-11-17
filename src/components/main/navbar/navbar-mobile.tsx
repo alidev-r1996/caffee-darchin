@@ -1,16 +1,15 @@
 "use client";
 
 import { memo, useEffect, useState } from "react";
-import { AlignLeft, UserRound, UserRoundPlus } from "lucide-react";
+import { AlignLeft, UserRoundPlus } from "lucide-react";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetHeader, SheetTitle, SheetTrigger } from "@/components/ui/sheet";
-import { usePathname } from "next/navigation";
 import { motion } from "framer-motion";
 import ModeToggle from "@/components/dark-toggle";
 
 const navbarItems = [
-  { id: 1, title: "صفحه اصلی", href: "#/" },
+  { id: 1, title: "صفحه اصلی", href: "/" },
   { id: 2, title: "درباره ما", href: "#about" },
   { id: 3, title: "منوی اصلی", href: "#menu" },
 ];
@@ -28,7 +27,6 @@ const navChildVariant = {
 const NavBarMobile = ({ role }: { role: "ADMIN" | "USER" | null | undefined }) => {
   const [scroll, setScroll] = useState(false);
   const [show, setShow] = useState(false);
-  const pathname = usePathname();
 
 
   useEffect(() => {
@@ -45,7 +43,7 @@ const NavBarMobile = ({ role }: { role: "ADMIN" | "USER" | null | undefined }) =
     <nav
       className={`${
         scroll
-          ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 shadow border-b"
+          ? "bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/95 shadow border-b z-50"
           : "bg-slate-50 dark:bg-slate-800/95"
       } flex itesms-center justify-between p-4 md:hidden`}
     >
@@ -57,7 +55,9 @@ const NavBarMobile = ({ role }: { role: "ADMIN" | "USER" | null | undefined }) =
         </SheetTrigger>
         <SheetContent>
           <SheetHeader>
-            <SheetTitle className="text-center font-black">کافه دارچین</SheetTitle>
+            <SheetTitle className="text-center font-black">
+                 کافه <span className="text-amber-500">دارچیــــــن</span>
+               </SheetTitle>
           </SheetHeader>
           <ul className="flex flex-col gap-5 p-4">
             {navbarItems.map((item) => (
