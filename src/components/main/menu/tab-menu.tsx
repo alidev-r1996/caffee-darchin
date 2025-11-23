@@ -41,6 +41,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
   const router = useRouter();
   const searchParams = useSearchParams();
   const params = new URLSearchParams(searchParams);
+  const activeTab = searchParams.get("category") || "burger"
 
   const handleClick = (title: string) => {
     params.set("category", title);
@@ -67,7 +68,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
         viewport={{ once: true, amount: "some" }}
         className="
     flex md:flex-nowrap 
-    md:gap-4 gap-2 mb-6 p-2
+    gap-2 mb-6 p-2 px-4
     overflow-x-auto overflow-y-hidden no-scrollbar
     whitespace-nowrap
   "
@@ -80,10 +81,10 @@ const TabMenu = ({ category }: { category: any[] }) => {
             whileHover={{ scale: 1.03 }}
             whileTap={{ scale: 0.98 }}
             className={`${
-              searchParams.get("category") === item.englishTitle
+              activeTab === item.englishTitle
                 ? "ring-rose-600 ring-3 ring-offset-2 rounded"
                 : "bg-slate-100 dark:bg-slate-800 blur-[0.80px]"
-            } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded-lg relative min-w-30 h-32 md:size-44 group overflow-hidden`}
+            } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded-lg relative min-w-35 h-32 md:size-44 group overflow-hidden`}
           >
             <CardAvatar
               src={item.img}

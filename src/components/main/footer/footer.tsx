@@ -51,7 +51,7 @@ const Footer = () => {
               <p>‌روزهای شنبه تا پنجشنبه </p>
               <p className="flex-1 border-dotted border-b border-b-zinc-600"></p>
               <p className="tracking-wider">
-                از ساعت {ConvertToPersianDigit("08:00")} تا &nbsp;
+                از ساعت {ConvertToPersianDigit("16:00")} تا &nbsp;
                 {ConvertToPersianDigit("23:45")}
               </p>
             </div>
@@ -59,7 +59,7 @@ const Footer = () => {
               <p>‌روزهای جمعه و تعطیل رسمی </p>
               <p className="flex-1 border-dotted border-b border-b-zinc-600"></p>
               <p className="tracking-wider">
-                از ساعت {ConvertToPersianDigit("10:00")} تا &nbsp;
+                از ساعت {ConvertToPersianDigit("18:00")} تا &nbsp;
                 {ConvertToPersianDigit("23:45")}
               </p>
             </div>
