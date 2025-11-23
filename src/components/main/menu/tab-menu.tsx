@@ -48,7 +48,6 @@ const TabMenu = ({ category }: { category: any[] }) => {
     router.push(url, { scroll: false });
   };
 
-
   return (
     <div className="mt-10">
       <motion.h1
@@ -58,7 +57,7 @@ const TabMenu = ({ category }: { category: any[] }) => {
         viewport={{ once: true }}
         className="font-black text-2xl text-center my-5 flex gap-2 justify-center items-center"
       >
-         <p className="text-amber-400">منوی</p> اصلی
+        <p className="text-amber-400">منوی</p> اصلی
       </motion.h1>
 
       <motion.div
@@ -66,7 +65,12 @@ const TabMenu = ({ category }: { category: any[] }) => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: "some" }}
-        className="md:flex grid grid-cols-2 items-center justify-center gap-4 mb-6 p-2 max-w-full md:overflow-y-hidden md:overflow-x-auto"
+        className="
+    flex md:flex-nowrap 
+    md:gap-4 gap-2 mb-6 p-2
+    overflow-x-auto overflow-y-hidden no-scrollbar
+    whitespace-nowrap
+  "
       >
         {category.map((item, index) => (
           <motion.div
@@ -79,11 +83,16 @@ const TabMenu = ({ category }: { category: any[] }) => {
               searchParams.get("category") === item.englishTitle
                 ? "ring-rose-600 ring-3 ring-offset-2 rounded"
                 : "bg-slate-100 dark:bg-slate-800 blur-[0.80px]"
-            } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded-lg relative w-full h-32 md:size-44 group overflow-hidden`}
+            } flex items-center gap-6 flex-1 md:flex-none justify-between cursor-pointer rounded-lg relative min-w-30 h-32 md:size-44 group overflow-hidden`}
           >
-            <CardAvatar src={item.img} className="size-full group-hover:scale-105 transition-all duration-200" />
+            <CardAvatar
+              src={item.img}
+              className="size-full group-hover:scale-105 transition-all duration-200"
+            />
             <p className="absolute bottom-0 w-full h-2/3 bg-gradient-to-t from-slate-900 to-transparent rounded "></p>
-            <p className="absolute bottom-2 left-1/2 -translate-x-1/2 mx-auto text-white">{item.title}</p>
+            <p className="absolute bottom-2 left-1/2 -translate-x-1/2 mx-auto text-white">
+              {item.title}
+            </p>
           </motion.div>
         ))}
       </motion.div>
@@ -91,4 +100,4 @@ const TabMenu = ({ category }: { category: any[] }) => {
   );
 };
 
-export default memo(TabMenu);
+export default TabMenu;

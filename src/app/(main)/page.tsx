@@ -14,7 +14,7 @@ type Props = {
 };
 
 export default async function Home(props: Props) {
-  const params = (await props.searchParams).category ?? "pizza";
+  const params = (await props.searchParams).category ?? "burger";
 
   return (
     <div className="max-w-screen">

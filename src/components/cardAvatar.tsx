@@ -15,7 +15,7 @@ const CardAvatar = ({ className = "", src, alt }: CardAvatarProps) => {
   return (
     <div className={`${className} relative rounded overflow-hidden`}>
       <Image
-        src={imgSrc}
+        src={imgSrc || "/images/load-img-error.png"}
         alt={alt ?? "img"}
         fill
         sizes="(max-width: 768px) 100vw, 300px"

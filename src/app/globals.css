@@ -151,6 +151,16 @@ html.dark .rti--container{
   --rti-border: rgba(255, 255, 255, 0.5) !important;
 }
 
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Hide scrollbar for IE, Edge and Firefox */
+.no-scrollbar {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
 
 .mask-slider {
   mask-image: linear-gradient(to right, transparent 10%, black 40%, black 60%, transparent 80%);

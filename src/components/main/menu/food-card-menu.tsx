@@ -74,7 +74,7 @@ const FoodCardMenu = ({ item, index }: FoodCardMenuProps) => {
 
         <div className=" font-semibold text-rose-600 dark:text-amber-200 mt-4">
           {PersianCurrency(`${item.price}`)}
-          <span className="text-xs">تومان</span>
+          <span className="text-xs px-1">تومان</span>
         </div>
       </div>
     </motion.div>

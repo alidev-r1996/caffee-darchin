@@ -47,7 +47,7 @@ export async function AddFood(
 ) {
   const userId = await getUserId();
   try {
-    await prisma.food.create({
+   const data =  await prisma.food.create({
       data: {
         title: title,
         price: Number(price),

@@ -83,9 +83,9 @@ const AddFoodModal = () => {
           />
         </div>
         <Button
-          onClick={(e) => {
+          onClick={async(e) => {
             e.preventDefault();
-            mutateAsync();
+           await mutateAsync();
           }}
           type="submit"
           variant={"primary"}
