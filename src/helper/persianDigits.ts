@@ -3,3 +3,4 @@ export function ConvertToPersianDigit(str: string | number) {
         return String.fromCharCode(d.charCodeAt(0) + 1728);
     });
 }
+
