@@ -5,6 +5,7 @@ export type EditFoodModalProps = {
   image: string;
   rating: string;
   ingredients: string[];
+  category: any;
 };
 
 export type UseEditFoodProps = {
@@ -14,6 +15,7 @@ export type UseEditFoodProps = {
   rating: string;
   ingredients: string[];
   id: string;
+  category: any;
 };
 
 export type FoodRowProps = {

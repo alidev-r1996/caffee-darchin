@@ -8,6 +8,7 @@ import CardAvatar from "@/components/cardAvatar";
 import TruncateText from "@/components/dashboard/truncate";
 
 const FoodRow: React.FC<FoodRowProps> = ({ index, item, page }) => {
+
   return (
     <TableUi.Row key={index} className="text-sm">
       <TableUi.Col>{ConvertToPersianDigit(`${((page as number) - 1) * 8 + (index + 1)}`)}</TableUi.Col>
@@ -46,6 +47,7 @@ const FoodRow: React.FC<FoodRowProps> = ({ index, item, page }) => {
             image={item.img}
             rating={item.rating}
             ingredients={item.ingredients}
+            category={item.categories[0].category}
           />
           <RemoveFoodModal
             key={item.title}

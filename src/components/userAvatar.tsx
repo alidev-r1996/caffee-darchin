@@ -22,8 +22,6 @@ const UserAvatar = ({ className = "", src, alt }: UserAvatarProps) => {
         className="object-cover peer text-transparent"
         referrerPolicy="no-referrer"
         onError={() => setImgSrc("/images/load-img-error.png")}
-        placeholder="blur"
-        blurDataURL="/images/blur-placeholder.png"
       />
     </div>
   );

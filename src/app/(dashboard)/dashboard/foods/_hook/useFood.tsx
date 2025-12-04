@@ -17,7 +17,7 @@ export function useAddFood() {
   const queryClient = useQueryClient();
   const [open, setOpen] = useState(false);
   const [select, setSelect] = useState("");
-  const [tag, setTag] = useState(["پیاز"]);
+  const [tag, setTag] = useState([""]);
   const [food, setFood] = useState({
     title: "",
     price: "",
@@ -50,7 +50,7 @@ export function useAddFood() {
         rating: "",
         ingredients: "",
       });
-      setTag(["پیاز"]);
+      setTag([""]);
       queryClient.invalidateQueries({ queryKey: ["foods"] });
       setOpen(false);
     },
@@ -78,9 +78,10 @@ export function useEditFood({
   rating,
   ingredients,
   id,
+  category
 }: UseEditFoodProps) {
-  const [select, setSelect] = useState("");
-  const [tag, setTag] = useState(ingredients ?? ["پیاز"]);
+  const [select, setSelect] = useState(category.id ?? "");
+  const [tag, setTag] = useState(ingredients ?? [""]);
   const router = useRouter();
 
   const [food, setFood] = useState({
@@ -116,7 +117,7 @@ export function useEditFood({
         image: "",
         rating: "",
       });
-      setTag(["پیاز"]);
+      setTag([""]);
       queryClient.invalidateQueries({ queryKey: ["foods"] });
       setOpen(false);
       router.refresh();
